@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-  <form action="home.html"  >
+  <form action="home.html"method="post">
   <div class="box" >
     <div class="container">
         <div class="top">
@@ -18,11 +18,11 @@
             <header>Login</header>
         </div>
         <div class="input-field">
-            <input type="text" class="input" placeholder="Username" required>
+            <input type="text"name="Username" class="input" placeholder="Username" required>
             <i class='bx bx-user' ></i>
         </div>
         <div class="input-field">
-            <input type="Password" class="input" placeholder="Password" required>
+            <input type="Password" name="Password" class="input" placeholder="Password" required>
             <i class='bx bx-lock-alt'></i>
         </div>
         <div class="input-field">

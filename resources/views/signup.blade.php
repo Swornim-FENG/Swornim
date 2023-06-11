@@ -12,35 +12,66 @@
 
     <div class="signup-form">
       <h2>Create an Account</h2>
-      <form action="home.html">
+      <form action="{{url('/')}}/signup" method="post">
+        @csrf
         <div>
           <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" name="firstName" required />
+          <input type="text" id="firstName" name="firstName" value="{{old('firstName')}}" />
+          <span class="text-danger">
+            @error('firstName')
+               {{$message}}
+               @enderror
+          </span>
         </div>
 
         <div>
           <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" name="lastName" required />
+          <input type="text" id="lastName" name="lastName" value="{{old('lastName')}}" />
+          <span class="text-danger">
+          @error('lastName')
+               {{$message}}
+               @enderror
+          </span>
         </div>
 
         <div>
           <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
+          <input type="text" id="username" name="username"value="{{old('username')}}"  />
+          <span class="text-danger">
+          @error('username')
+               {{$message}}
+               @enderror
+          </span>
         </div>
 
         <div>
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" value="{{old('email')}}" />
+          <span class="text-danger">
+          @error('email')
+               {{$message}}
+               @enderror
+          </span>
         </div>
 
         <div>
           <label for="password1">Password:</label>
-          <input type="password" id="password1" name="password1" required />
+          <input type="password" id="password1" name="password" />
+          <span class="text-danger">
+          @error('password')
+               {{$message}}
+               @enderror
+          </span>
         </div>
 
         <div>
           <label for="password2">Confirm Password:</label>
-          <input type="password" id="password2" name="password2" required />
+          <input type="password" id="password2" name="passoword_confirmation"  />
+          <span class="text-danger">
+          @error('password_confiramtion')
+               {{$message}}
+               @enderror
+          </span>
         </div>
 
         <input type="submit" value="Sign Up" />
