@@ -55,8 +55,8 @@
         </div>
 
         <div>
-          <label for="password1">Password:</label>
-          <input type="password" id="password1" name="password" />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" />
           <span class="text-danger">
           @error('password')
                {{$message}}
@@ -65,10 +65,10 @@
         </div>
 
         <div>
-          <label for="password2">Confirm Password:</label>
-          <input type="password" id="password2" name="passoword_confirmation"  />
+          <label for="password_confirmation">Confirm Password:</label>
+          <input type="password" id="password_confirmation" name="password_confirmation"  />
           <span class="text-danger">
-          @error('password_confiramtion')
+          @error('password_confirmation')
                {{$message}}
                @enderror
           </span>

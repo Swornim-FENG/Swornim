@@ -20,6 +20,8 @@ class SignupController extends Controller
                  'password_confirmation'=>'required'
             ]
             );
+            echo"<pre>";
+            print_r($request->all());
         }
 
             
