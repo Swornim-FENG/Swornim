@@ -79,7 +79,7 @@
     </div>
 
     <div class="login-text">
-      <p>Already have an account? <a href="login.html">Login</a></p>
+      <p>Already have an account? <a href="{{url('/')}}/login">Login</a></p>
     </div>
 
     <
