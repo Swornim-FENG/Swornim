@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('price');
             $table->date('Start_date');
             $table->date('End_date');
+            $table->enum('status',["paid","Unpaid"]);
             $table->timestamps();
         });
     }

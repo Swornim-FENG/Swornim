@@ -1,7 +1,12 @@
+@extends('main');
+@section('main-section')
+@push('title')
+   <title>signup</title>
+   @endpush
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Signup Page</title> 
+    <title>Sign Up</title> 
     <link rel="stylesheet" href={{asset('css/signup.css')}}>
   </head>
   <body>
@@ -82,6 +87,7 @@
       <p>Already have an account? <a href="{{url('/')}}/login">Login</a></p>
     </div>
 
-    <
+    
   </body>
 </html>
+@endsection

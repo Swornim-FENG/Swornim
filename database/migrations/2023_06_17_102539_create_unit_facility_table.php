@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreign('facility_id')->references('facility_id')->on('facility_list');
             $table->unsignedBigInteger('unit_id');
             $table->foreign('unit_id')->references('unit_id')->on('unit');
+            
         });
     }
 

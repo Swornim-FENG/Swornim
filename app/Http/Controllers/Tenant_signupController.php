@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tenant;
-class SignupController extends Controller
+
+class Tenant_signupController extends Controller
 {
     public function signup(){
-        return view('signup');
+        return view('Tenant_signup');
     }
     public function validate_signup(Request $request){
         $request->validate(
             [
                 'firstName'=>'required',
                 'lastName'=>'required',
-                'username'=>'required',
+                'phoneNumber'=>'required|digits:10',
                 'email'=>'required|email',
                 'password'=>'required|confirmed',
                  'password_confirmation'=>'required'
@@ -24,11 +24,4 @@ class SignupController extends Controller
             print_r($request->all());
             
         }
-
-    
-                
-
-            
-
-    
 }

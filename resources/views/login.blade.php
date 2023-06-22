@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
             <header>Login</header>
         </div>
         <div class="input-field">
-            <input type="text"name="Username" class="input" placeholder="Username" required>
+            <input type="Email"name="Email" class="input" placeholder="Email" required>
             <i class='bx bx-user' ></i>
         </div>
         <div class="input-field">
@@ -50,5 +51,6 @@
     </div>
 </div>  
 </form>
+
 </body>
 </html>

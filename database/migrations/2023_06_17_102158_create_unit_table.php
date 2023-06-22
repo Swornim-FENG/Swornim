@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('property');
             $table->decimal('Average_rating',2,1);
+            $table->unsignedBigInteger('property_id');
+            $table->foreign('property_id')->references('property_id')->on('property');
         });
     }
 

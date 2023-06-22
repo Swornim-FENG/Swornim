@@ -1,101 +1,98 @@
 body {
     font-family: Arial, sans-serif;
   }
-
   .logo-container {
     text-align: center;
     margin-top: 20px;
   }
-
   .logo-container img {
     width: 150px;
     height: auto;
   }
-
   .signup-form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #ffe6c7;
-  
+    background-color:#ffe6c7 ;
   }
-
-  .signup-form h2 {
+  S .signup-form h2 {
     text-align: center;
   }
-
   .signup-form form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, auto);
     grid-gap: 16px;
   }
-
   .signup-form label {
     margin-bottom: 8px;
   }
-
   .signup-form input[type="text"],
   .signup-form input[type="email"],
+  .signup-form input[type="tel"],
   .signup-form input[type="password"] {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-
   .signup-form input[type="submit"] {
     margin-top: 16px;
     grid-column: span 2;
     justify-self: center;
     padding: 14px 24px;
     font-size: 16px;
-    background-color: #ffa559;
+    background-color: hwb(23 0% 0%);
     color: black;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
-
   .signup-form input[type="submit"]:hover {
-    background-color: #ff6000;
+    background-color: #B34720;
   }
-
   .login-text {
     text-align: center;
     margin-top: 16px;
   }
-
   .login-text a {
-    color: #666;
+    color: #440FE3;
     text-decoration: none;
   }
-
   .login-text a:hover {
     text-decoration: underline;
   }
-
   .social-login {
     text-align: center;
     margin-top: 16px;
   }
-
   .social-login button {
     margin-right: 8px;
     padding: 8px 16px;
     font-size: 14px;
-    background-color: #3b5998;
+    background-color: #0F9D58;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
-
   .social-login button.google {
-    background-color: #db4a39;
+    background-color: #3018E9;
   }
-
   .social-login button:hover {
     opacity: 0.8;
+  }
+  .toggle-password {
+    position: relative;
+    top: -27px;
+    right: -150px;
+    cursor: pointer;
+    color: #aaa;
+  }
+  .toggle-password:hover {
+    color: #666;
+  }
+  .form_heading {
+    text-align: center;
   }

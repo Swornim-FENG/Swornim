@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('facility_list', function (Blueprint $table) {
             $table->id('facility_id');
-            $table->string('name',255);
+            $table->string('name',255)->unique();
         });
     }
 
