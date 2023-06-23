@@ -29,3 +29,11 @@ Route::post('/tenant',[Tenant_signupController::class,'validate_signup']);
 Route::get('/lanlord',[Lanlord_signupController::class,'signup']);
 
 Route::post('/lanlord',[Lanlord_signupController::class,'validate_signup']);
+
+Route::get('/logined',function(){
+       return(view('midpage'));
+});
+
+Route::get('/test',function(){
+       return(view('test'));
+});
