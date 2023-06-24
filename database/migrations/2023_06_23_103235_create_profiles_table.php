@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tenant', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id('user_id');
             $table->string('Firstname',50);
-            $table->char('phone_number',10);
-            $table->string('address',255);
             $table->string('Lastname',50);
+            $table->char('phone_no',10);
+            $table->string('permanent_address',255);
+            $table->string('temporary_address',255);
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tenant');
+        Schema::dropIfExists('profiles');
     }
 };

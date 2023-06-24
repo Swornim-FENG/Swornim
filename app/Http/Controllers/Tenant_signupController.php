@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Tenants;
 class Tenant_signupController extends Controller
 {
     public function signup(){
@@ -12,9 +12,11 @@ class Tenant_signupController extends Controller
     public function validate_signup(Request $request){
         $request->validate(
             [
-                'firstName'=>'required',
-                'lastName'=>'required',
-                'phoneNumber'=>'required|digits:10',
+                'Firstname'=>'required',
+                'Lastname'=>'required',
+                'permanent_address'=>'required',
+                'temporary_address'=>'required',
+                'phone_number'=>'required|digits:10',
                 'email'=>'required|email',
                 'password'=>'required|confirmed',
                  'password_confirmation'=>'required'
@@ -22,6 +24,13 @@ class Tenant_signupController extends Controller
             );
             echo"<pre>";
             print_r($request->all());
-            
+            $tenants=new Tenants;
+            $tenants->Firstname=$request['Firstname'];
+            $tenants->Lastname=$request['Lastname'];
+            $tenants->phone_number=$request['phone_number'];
+            $tenants->permanent_address=$request['permanent_address'];
+            $tenants->temporary_address=$request['temporary_address'];
+            $tenants->save();
+            return redirect('/homepage');
         }
 }

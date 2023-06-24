@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('property', function (Blueprint $table) {
+        Schema::create('properties', function (Blueprint $table) {
             $table->string('address',255);
             $table->enum('condition',["Good","Average","Poor"]);
             $table->integer('number_of_rooms');
             $table->id('property_id');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('landlord');
+            $table->foreign('user_id')->references('user_id')->on('landlords');
             $table->enum('Verification',["Verified","Unverified"]);
             $table->decimal('Latitude',9,6);
             $table->decimal('Longitude',9,6);
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('property');
+        Schema::dropIfExists('properties');
     }
 };

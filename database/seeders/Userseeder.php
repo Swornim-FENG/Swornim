@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Usertable;
+use App\Models\Userstable;
 class Userseeder extends Seeder
 {
     /**
@@ -13,7 +13,7 @@ class Userseeder extends Seeder
     public function run(): void
     {
         //
-        $user=new Usertable;
+        $user=new Userstable;
         $user->Fullname="heloo";
         $user->email="hello@gmail.com";
         $user->password=248;

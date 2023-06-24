@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tenant extends Model
+class Properties extends Model
 {
     use HasFactory;
-    protected $table="tenant";
-    protected $primarykey="user_id";
-    
-    
+    protected $table="properties";
+    protected $primarykey="property_id";
 }

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Facilities extends Model
+class Userstable extends Model
 {
     use HasFactory;
-    protected $table="tenant";
+    protected $table="users";
     protected $primarykey="user_id";
-    protected $fillable = ['firstName', 'lastName'];
+    public $timestamps=false;
 }

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Rates extends Model
 {
     use HasFactory;
-    protected $table="tenant";
+    protected $table="rates";
     protected $primarykey="user_id";
-    protected $fillable = ['firstName', 'lastName'];
+
+    
 }

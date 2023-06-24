@@ -1,4 +1,4 @@
-@extends('main');
+@extends('main2');
 @section('main-section')
 @push('title')
    <title>Tenant SignUp</title>
@@ -25,18 +25,18 @@
       @csrf
         <div>
           <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" name="firstName"value="{{old('firstName')}}"  />
+          <input type="text" id="firstName" name="Firstname"value="{{old('Firstname')}}"  />
           <span class="text-danger"style="color:red">
-            @error('firstName')
+            @error('Firstname')
                {{$message}}
                @enderror
                </span>
         </div>
         <div>
           <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" name="lastName"value="{{old('lastName')}}"  />
+          <input type="text" id="lastName" name="Lastname"value="{{old('Lastname')}}"  />
           <span class="text-danger"style="color:red">
-            @error('lastName')
+            @error('Lastname')
                {{$message}}
                @enderror
                </span>
@@ -52,26 +52,26 @@
         </div>
         <div>
           <label for="phoneNumber">Phone Number:</label>
-          <input type="tel" id="phoneNumber" name="phoneNumber" value="{{old('phoneNumber')}}" >
+          <input type="tel" id="phoneNumber" name="phone_number" value="{{old('phone_number')}}" >
           <span class="text-danger"style="color:red">
-            @error('phoneNumber')
+            @error('phone_number')
                {{$message}}
                @enderror
         </div>
         <div>
           <label for="address">Permanent Address:</label>
-          <input type="text" id="address" name="per_address" value="{{old('per_address')}}" />
+          <input type="text" id="address" name="permanent_address" value="{{old('permanent_address')}}" />
           <span class="text-danger"style="color:red">
-            @error('per_address')
+            @error('permanent_address')
                {{$message}}
                @enderror
                </span>
         </div>
         <div>
           <label for="address2">Temporary Address:</label>
-          <input type="text" id="address" name="tem_address"value="{{old('tem_address')}}"  />
+          <input type="text" id="address" name="temporary_address"value="{{old('temporary_address')}}"  />
           <span class="text-danger"style="color:red">
-            @error('tem_address')
+            @error('temporary_address')
                {{$message}}
                @enderror
                </span>

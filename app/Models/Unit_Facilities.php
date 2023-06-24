@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Unit_Facilities extends Model
+class Unit_facilities extends Model
 {
     use HasFactory;
-    protected $table="tenant";
-    protected $primarykey="user_id";
-    protected $fillable = ['firstName', 'lastName'];
+    protected $table="unit_facilities";
+    
 }

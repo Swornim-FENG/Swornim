@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Feedback extends Model
+class Roles extends Model
 {
     use HasFactory;
-    protected $table="tenant";
+    protected $table="roles";
     protected $primarykey="user_id";
-    protected $fillable = ['firstName', 'lastName'];
+    public $timestamps=false;
 }

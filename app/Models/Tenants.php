@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Usertable extends Model
+class Tenants extends Model
 {
     use HasFactory;
-    protected $table="user";
+    protected $table="tenants";
     protected $primarykey="user_id";
-    
+    public $timestamps=false;
 }

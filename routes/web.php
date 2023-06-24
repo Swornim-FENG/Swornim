@@ -30,10 +30,15 @@ Route::get('/lanlord',[Lanlord_signupController::class,'signup']);
 
 Route::post('/lanlord',[Lanlord_signupController::class,'validate_signup']);
 
-Route::get('/logined',function(){
-       return(view('midpage'));
+
+Route::get('/homepage',function(){
+    return(view('homepage'));
+});
+
+Route::get('/msh',function(){
+    return(view('landingpage'));
 });
 
 Route::get('/test',function(){
-       return(view('test'));
+    return(view('test'));
 });

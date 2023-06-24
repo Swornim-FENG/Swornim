@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-  <form action="home.html"method="post">
+  <form action="{{url('/')}}/logined"method="post">
   <div class="box" >
     <div class="container">
         <div class="top">
             <span>Have an account?</span>
-            <header>Login</header>
+            <h1>Login</h1>
         </div>
         <div class="input-field">
             <input type="Email"name="Email" class="input" placeholder="Email" required>

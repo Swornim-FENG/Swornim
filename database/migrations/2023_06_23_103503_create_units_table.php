@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('unit', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->id('unit_id');
             $table->decimal('price');
             $table->enum('Condition',["Good","Average","Poor"]);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('property');
+            $table->foreign('user_id')->references('user_id')->on('properties');
             $table->decimal('Average_rating',2,1);
             $table->unsignedBigInteger('property_id');
-            $table->foreign('property_id')->references('property_id')->on('property');
+            $table->foreign('property_id')->references('property_id')->on('properties');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('unit');
+        Schema::dropIfExists('units');
     }
 };
