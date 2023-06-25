@@ -34,12 +34,12 @@ class Lanlord_signupController extends Controller
             $landlords->permanent_address=$request['permanent_address'];
             $landlords->temporary_address=$request['temporary_address'];
             $landlords->save();
-            // $users=new Userstable;
-            // $users->Fullname = $request['Firstname'] . ' ' . $request['Lastname'];
-            // $users->email=$request['email'];
-            // $users->password=$request['password'];
-            // $users->role_id=1;
-            // $users->save();
+            $users=new Userstable;
+            $users->Fullname = $request['Firstname'] . ' ' . $request['Lastname'];
+            $users->email=$request['email'];
+            $users->password=$request['password'];
+            $users->role_id=3;
+            $users->save();
             return redirect('/homepage');
        
         }

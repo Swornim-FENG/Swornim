@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tenants;
+use App\Models\Userstable;
 class Tenant_signupController extends Controller
 {
     public function signup(){
@@ -31,6 +32,12 @@ class Tenant_signupController extends Controller
             $tenants->permanent_address=$request['permanent_address'];
             $tenants->temporary_address=$request['temporary_address'];
             $tenants->save();
+            $users=new Userstable;
+            $users->Fullname = $request['Firstname'] . ' ' . $request['Lastname'];
+            $users->email=$request['email'];
+            $users->password=$request['password'];
+            $users->role_id=2;
+            $users->save();
             return redirect('/homepage');
         }
 }
