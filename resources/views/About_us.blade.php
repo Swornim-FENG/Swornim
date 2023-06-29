@@ -12,27 +12,39 @@ body {
 }
 
 header {
-  background-color: #ff6000;
+  background-color: #fff;
   color: #fff;
-  padding: 10px;
-  margin : 0 20px;
   padding : 20px 30px;
 }
 
-nav ul {
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
+ul li {
   display: inline-block;
   margin-right: 10px;
+  color : #000;
+  
+}
+ul li .logo{
+  width : 100px;
+  height : auto;
+  display : block;
 }
 
-nav ul li a {
-  color: white;
+ul li a {
+  padding: 10px 20px;
+  background-color: #E07546;
+  color: #fff;
   text-decoration: none;
+  border-radius: 4px;
+}
+ul li a:hover {
+  color : white;
+  background-color : #FF6000;
 }
 
 section.about {
@@ -66,14 +78,14 @@ a.button {
   border-radius: 4px;
   
 }
-.a.button:hover{
+a.button:hover{
     color : white;
-    background-color : #ff6000;
+    background-color : #E07546;
 }
 
 
 footer {
-  background-color: #ff6000;
+  background-color: #E07546;
   color: white;
   padding: 10px;
   text-align: center;
@@ -89,10 +101,15 @@ footer {
 <body>
   <header>
       <ul>
-        <li>Home</li>
-        <li>Products</li>
-        <li>About</li>
-        <li>Contact</li>
+      <li> <div class="Logo">
+      <img src="file:\\\D:\My second home web\Final logo design.png" alt="Logo">
+      </div></li>
+        <li> <a href=""class= "Highlight">Home</a></li>
+        <li>How it works</li>
+        <li>I am a landlord</li>
+        <li>Help</li>
+        <li>Login</li>
+        <li> <a href=""class= "Highlight">Signup</a></li>
       </ul>
   </header>
 
