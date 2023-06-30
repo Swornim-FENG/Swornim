@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id('user_id');
             $table->string('Fullname',255);
-            $table->string('email',255);
+            $table->string('email', 255)->unique();
             $table->string('password',255);
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('role_id')->on('roles');

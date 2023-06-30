@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tenants;
 use App\Models\Userstable;
-class Tenant_signupController extends Controller
+class TenantsignupController extends Controller
 {
     public function signup(){
-        return view('Tenant_signup');
+        return view('tenantsignup');
     }
     public function validate_signup(Request $request){
         $request->validate(
@@ -23,21 +23,36 @@ class Tenant_signupController extends Controller
                  'password_confirmation'=>'required'
             ]
             );
-            echo"<pre>";
-            print_r($request->all());
+            
+            $user = new Userstable;
+            $user->Fullname = $request['Firstname'] . ' ' . $request['Lastname'];
+            
+            $requestedEmail = $request['email'];
+            
+            // Check if the email already exists in the database
+            $existingEmail = Userstable::where('email', $requestedEmail)->first();
+            
+            if ($existingEmail) {
+                // Email already taken, show a message or take appropriate action
+                return redirect()->route('tenant')->withError('This email has already been taken');
+            } else {
+                // Assign the email to the user
+                $user->email = $requestedEmail;
+            
+            
+            $user->password = \Hash::make($request['password']);
+            $user->role_id = 2;
+            $user->save();
             $tenants=new Tenants;
             $tenants->Firstname=$request['Firstname'];
             $tenants->Lastname=$request['Lastname'];
             $tenants->phone_number=$request['phone_number'];
             $tenants->permanent_address=$request['permanent_address'];
             $tenants->temporary_address=$request['temporary_address'];
+            $lastInsertedUserId = $user->getKey();
+            $tenants->user_id = $lastInsertedUserId;
             $tenants->save();
-            $users=new Userstable;
-            $users->Fullname = $request['Firstname'] . ' ' . $request['Lastname'];
-            $users->email=$request['email'];
-            $users->password=$request['password'];
-            $users->role_id=2;
-            $users->save();
+            
             return redirect('/homepage');
         }
-}
+}}

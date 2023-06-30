@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Landlords;
 use App\Models\Userstable;
 
-class Lanlord_signupController extends Controller
+class LandlordsignupController extends Controller
 {
     public function signup(){
-        return view('lanlord_signup');
+        return view('landlordsignup');
     }
     
     public function validate_signup(Request $request){
@@ -25,23 +25,35 @@ class Lanlord_signupController extends Controller
                  'password_confirmation'=>'required'
             ]
             );
-            echo"<pre>";
-            print_r($request->all());
+            $user=new Userstable;
+            $user->Fullname = $request['Firstname'] . ' ' . $request['Lastname'];
+            
+            $requestedEmail = $request['email'];
+            
+            // Check if the email already exists in the database
+            $existingEmail = Userstable::where('email', $requestedEmail)->first();
+            
+            if ($existingEmail) {
+                // Email already taken, show a message or take appropriate action
+                return redirect()->route('landlord')->withError('This email has already been taken');
+                
+            } else {
+                // Assign the email to the user
+                $user->email = $requestedEmail;
+
+            $user->password=\Hash::make($request['password']);
+            $user->role_id=3;
+            $user->save();
             $landlords=new Landlords;
             $landlords->Firstname=$request['Firstname'];
             $landlords->Lastname=$request['Lastname'];
             $landlords->phone_number=$request['phone_number'];
             $landlords->permanent_address=$request['permanent_address'];
             $landlords->temporary_address=$request['temporary_address'];
+            $lastInsertedUserId = $user->getKey();
+            $landlords->user_id=$lastInsertedUserId;
             $landlords->save();
-            $users=new Userstable;
-            $users->Fullname = $request['Firstname'] . ' ' . $request['Lastname'];
-            $users->email=$request['email'];
-            $users->password=$request['password'];
-            $users->role_id=3;
-            $users->save();
-            return redirect('/homepage');
+            return redirect('/landlorddashboard');
        
         }
-        
-}
+}}

@@ -22,7 +22,7 @@
     <header>
       <div class="brand">
         <span class="Logo"></span>
-        <h1>MSH</h1>
+        <h1>Tenant</h1>
       </div>
       <span class="fas fa-bars" id="menuIcon" onclick="toggle()"></span>
       <div class="navbar" id="nav">

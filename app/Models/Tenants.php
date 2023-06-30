@@ -11,4 +11,8 @@ class Tenants extends Model
     protected $table="tenants";
     protected $primarykey="user_id";
     public $timestamps=false;
+    public function usertable()
+    {
+        return $this->belongsTo(Usertable::class);
+    }
 }

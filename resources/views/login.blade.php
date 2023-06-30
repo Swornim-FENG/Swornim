@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-  <form action="{{url('/')}}/logined"method="post">
+  <form action="{{url('/')}}/login"method="post">
+  @csrf
   <div class="box" >
     <div class="container">
         <div class="top">
@@ -19,12 +20,18 @@
             <h1>Login</h1>
         </div>
         <div class="input-field">
-            <input type="Email"name="Email" class="input" placeholder="Email" required>
+            <input type="Email"name="email" class="input" placeholder="Email" required>
             <i class='bx bx-user' ></i>
+            @if(session('error'))
+          <span class="alert alert-danger"style="color:red">
+           {{ session('error') }}
+          </span>
+         @endif
         </div>
         <div class="input-field">
-            <input type="Password" name="Password" class="input" placeholder="Password" required>
+            <input type="Password" name="password" class="input" placeholder="Password" required>
             <i class='bx bx-lock-alt'></i>
+            
         </div>
         <div class="input-field">
             <input type="submit" class="submit" value="Login" >

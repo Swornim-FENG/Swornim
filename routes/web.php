@@ -2,13 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignupController;
-use App\Http\Controllers\Tenant_signupController;
-use App\Http\Controllers\Lanlord_signupController;
+use App\Http\Controllers\TenantsignupController;
+use App\Http\Controllers\LandlordsignupController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/signup',[SignupController::class,'signup']);
-Route::get('/login',function(){
-    return view('login');
-});
+
 
 Route::post('/signup',[SignupController::class,'validate_signup']);
 
@@ -22,13 +21,13 @@ Route::get('/about',function(){
     return view('about');
 });
 
-Route::get('/tenant',[Tenant_signupController::class,'signup']);
+Route::get('/tenant',[TenantsignupController::class,'signup'])->name('tenant');
 
-Route::post('/tenant',[Tenant_signupController::class,'validate_signup']);
+Route::post('/tenant',[TenantsignupController::class,'validate_signup']);
 
-Route::get('/lanlord',[Lanlord_signupController::class,'signup']);
+Route::get('/lanlord',[LandlordsignupController::class,'signup'])->name('landlord');
 
-Route::post('/lanlord',[Lanlord_signupController::class,'validate_signup']);
+Route::post('/lanlord',[LandlordsignupController::class,'validate_signup']);
 
 
 Route::get('/homepage',function(){
@@ -42,3 +41,18 @@ Route::get('/msh',function(){
 Route::get('/test',function(){
     return(view('test'));
 });
+
+Route::get('/landlorddashboard',function(){
+    return(view('landlorddashboard'));
+});
+
+Route::get('/login',[LoginController::class,'loginpage'])->name('login');
+
+Route::post('/login',[LoginController::class,'login']);
+Route::get('/admin',function(){
+    return( view('admindashboard'));
+});
+
+
+
+

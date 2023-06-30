@@ -44,6 +44,11 @@
         <div>
           <label for="email">Email:</label>
           <input type="email" id="email" name="email"value="{{old('email')}}" />
+          @if(session('error'))
+               <span class="alert alert-danger"style="color:red">
+               {{ session('error') }}
+                </span>
+                @endif
           <span class="text-danger"style="color:red">
             @error('email')
                {{$message}}

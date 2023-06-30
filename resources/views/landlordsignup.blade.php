@@ -1,7 +1,7 @@
 @extends('main2');
 @section('main-section')
 @push('title')
-   <title>Lanlord SignUp</title>
+   <title>Landlord SignUp</title>
    @endpush
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
     </div>
     <br />
     <div class="signup-form">
-      <h2 class="form_heading">Create Lanlord Account</h2>
+      <h2 class="form_heading">Create Landlord Account</h2>
       <form action="{{url('/')}}/lanlord" method="post">
       @csrf
         <div>
@@ -49,6 +49,11 @@
                {{$message}}
                @enderror
                </span>
+               @if(session('error'))
+               <span class="alert alert-danger"style="color:red">
+               {{ session('error') }}
+                </span>
+                @endif
         </div>
         <div>
           <label for="phone_number">Phone Number:</label>
