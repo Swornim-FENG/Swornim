@@ -1,233 +1,262 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  main {
-    display: flex;
-    padding-top: 100px;
-    margin-top: 5px;
-  }
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    color: #f7ac0c;
-    border-bottom: 2px solid #ff7700;
-    padding: auto;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1;
-    margin-bottom: 10px;
-
-  }
-  .page-title {
-    margin: 0;
-    font-size: 24px;
-  }
-  .logo {
-    width: 100px;
-    margin-right: 10px;
-  }
-
-  .header-buttons {
-    display: flex;
-    align-items: center;
-  }
-  .header-buttons button {
-    margin-left: 10px;
-  }
-  .signup-popup {
-    position: absolute;
-    top: 40px;
-    right: 20px;
-    background-color: #c4670a;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    display: none;
-  }
-  .signup-popup button {
-    margin-top: 5px;
-  }
-  .signup-button:hover + .signup-popup,
-  .signup-popup:hover {
-    display: block;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   
+}
+main {
+  display: flex;
+  padding-top: 100px;
+  margin-top: 5px;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FFE6C7;
+  color: #f7ac0c;
+  border-bottom: 2px solid #ff7700;
+  padding: auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  margin-bottom: 10px;
+
+}
+.page-title {
+  margin: 0;
+  font-size: 20px;
+  color: #fff;
+}
+.logo {
+  width: 100px;
+  margin-right: 10px;
   
-  .filter-section {
-    flex-basis: 20%;
-    padding: 20px;
-    margin-right: 10px;
-    border: 2px solid #ff7700;
-    border-radius: 4px;
-    margin-bottom: auto;
-  }
-  .filter-list li {
-    margin-bottom: 10px;
-  }
-  
-  .filter-list input[type="checkbox"] {
-    margin-right: 5px;
-  }
-  h2 {
-    margin-top: 0;
-  }
-  
-  .room-grid {
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-  }
-  .room-card {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    padding: 10px; 
-    color: black; 
-  text-decoration: none;
-  transition: background-color 0.3s;
-  }
-  
-  .room-card:hover {
-    background-color: #f7f7f7; 
-  }
-  .room-image {
-    width: 100px; 
-    height: 100px; 
-    margin-right: 0; 
-  }
-  
+}
 
-  footer {
-    background-color: #ffa559;
-    color: #000000;
-    padding: 5px 0px;
-    display: flex;
-    justify-content: space-between;
-  }
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
 
-  .container {
-    max-width: 650px;
-    margin: 0 auto;
-  }
+.header-buttons button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #FFA559;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
 
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  .social-icons {
-    display: flex;
-    align-items: center;
-    margin-left: 100px;
-    margin-top: 60px;
-  }
+.header-buttons button#lgn:hover,
+.header-buttons button#abus:hover {
+background-color: #FF6000;
+}
 
-  .social-icons a {
-    margin-left: 10px;
-    color: #555555;
-    font-size: 24px;
-  }
 
-  .customer-care {
-    flex: 1;
-  }
+.header-buttons button:hover {
+  background-color: #ff7700;
+}
 
-  .customer-care h3 {
-    color: #000000;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
+.signup-popup {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  background-color: #FFE6C7;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: none;
+}
+.signup-popup button {
+  margin-top: 5px;
+}
+.signup-button:hover + .signup-popup,
+.signup-popup:hover {
+  display: block;
+}
 
-  .customer-care p {
-    margin: 0;
-    color: #000000;
-  }
 
-  .footer-links ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px;
-  }
-  .footer-links h3 {
-    color: #000000;
-    font-size: 20px;
-    margin-bottom: 10px;
-    text-align: right;
-  }
-
-  .footer-links li {
-    margin-right: 0%;
-  }
-
-  .footer-links a {
-    color: #000000;
-    text-decoration: none;
-  }
-
-  .copy {
-    text-align: center;
-    margin-top: 20px;
-    color: #fff;
-  
-    padding: 20px;
-    flex-grow: 1;
-    background-color: #dd660b;
-    color: rgb(52, 23, 3);
-  }
-  
-
-  .show-more-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-right: 200px;
-    margin-bottom: 1px;
-    text-align: center;
-  }
-
-  .show-more-button button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #ff7700;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    justify-content: center;
-    margin: 0 auto;
-  }
-
+.filter-section {
+  flex-basis: 20%;
+  padding: 20px;
+  margin-right: 10px;
+  border: 2px solid #ff7700;
+  border-radius: 4px;
+  margin-bottom: auto;
  
+}
+.filter-list li {
+  margin-bottom: 10px;
+}
+
+.filter-list input[type="checkbox"] {
+  margin-right: 5px;
+}
+h2 {
+  margin-top: 0;
+}
+
+.room-grid {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
   
-  .search-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    
-  }
+}
+.room-card {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 10px; 
+  color: black; 
+  background-color: #FFE6C7;
+text-decoration: none;
+transition: background-color 0.3s;
+}
 
-  .search-bar input[type="text"] {
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
-  }
+.room-card:hover {
+  background-color: #f7f7f7; 
+}
+.room-image {
+  width: 100px; 
+  height: 100px; 
+  margin-right: 0; 
+}
 
-  .search-bar button {
-    padding: 10px 20px;
-    background-color: #555555;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+
+footer {
+  background-color: #ffa559;
+  color: #000000;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+  margin-top: 60px;
+}
+
+.social-icons a {
+  margin-left: 10px;
+  color: #555555;
+  font-size: 24px;
+}
+
+.customer-care {
+  flex: 1;
+}
+
+.customer-care h3 {
+  color: #000000;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.customer-care p {
+  margin: 0;
+  color: #000000;
+}
+
+.footer-links ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px;
+}
+.footer-links h3 {
+  color: #000000;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.footer-links li {
+  margin-right: 0%;
+}
+
+.footer-links a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.copy {
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+
+  padding: 20px;
+  flex-grow: 1;
+  background-color: #dd660b;
+  color: rgb(52, 23, 3);
+}
+
+
+.show-more-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-right: 200px;
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+.show-more-button button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #FFA559;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-content: center;
+  margin: 0 auto;
+}
+.show-more-button button:hover {
+  background-color: #ff7700;
+}
+
+
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #555555;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

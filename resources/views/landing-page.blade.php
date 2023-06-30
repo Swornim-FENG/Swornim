@@ -17,9 +17,9 @@
             <h1>My Second Home</h1>
         </div>
         <div class="header-buttons">
-            <a href="landingpage.html"><button>Home</button></a>
-            <a href="aboutus.html"><button>About Us</button></a>
-            <a href="login.html"><button>Login</button></a>
+            <a href="landingpage.html"><button id="home">Home</button></a>
+            <a href="aboutus.html"><button id="abus">About Us</button></a>
+            <a href="login.html"><button id="lgn">Login</button></a>
             <button class="signup-button">Signup</button>
             <div class="signup-popup">
                 <a href="tenant.html"><button>Tenant</button></a>
