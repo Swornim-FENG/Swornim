@@ -128,141 +128,159 @@
                     </div>
                 </a>
                 <a href="product-page.html" class="room-card">
-                    <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 5" />
-                    <div>
-                        <h3>Room 5</h3>
-                        <p>Location: kathmandu university</p>
-                        <p>Price: 2000</p>
-                        <p> Rating:</p>
-                        <div class="star-ratings">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                        </div>
+                    <a href="product-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 4" />
+                        <div>
+                            <h3>Room 4</h3>
+                            <p>Location: kathmandu university</p>
+                            <p>Price: 3100</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
 
-                    </div>
-                </a>
-                <a href="product-page.html" class="room-card">
-                    <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 6" />
-                    <div>
-                        <h3>Room 6</h3>
-                        <p>Location: 28-kilo</p>
-                        <p>Price: 2200</p>
-                        <p> Rating:</p>
-                        <div class="star-ratings">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
                         </div>
+                    </a>
+                    <a href="product-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 5" />
+                        <div>
+                            <h3>Room 5</h3>
+                            <p>Location: kathmandu university</p>
+                            <p>Price: 2000</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
 
-                    </div>
-                </a>
-                <a href="product-page.html" class="room-card">
-                    <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 1" />
-                    <div>
-                        <h3>Room 7</h3>
-                        <p>Location: 28-kilo</p>
-                        <p>Price: 1700</p>
-                        <p> Rating:</p>
-                        <div class="star-ratings">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
                         </div>
+                    </a>
+                    <a href="product-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 6" />
+                        <div>
+                            <h3>Room 6</h3>
+                            <p>Location: 28-kilo</p>
+                            <p>Price: 2200</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
 
-                    </div>
-                </a>
-                <a href="product-page.html" class="room-card">
-                    <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 2" />
-                    <div>
-                        <h3>Room 8</h3>
-                        <p>Location:bhyandol</p>
-                        <p>Price: 2100</p>
-                        <p> Rating:</p>
-                        <div class="star-ratings">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
                         </div>
+                    </a>
+                    <a href="product-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 1" />
+                        <div>
+                            <h3>Room 7</h3>
+                            <p>Location: 28-kilo</p>
+                            <p>Price: 1700</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
 
-                    </div>
-                </a>
-                <a href="product-page.html" class="room-card">
-                    <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 3" />
-                    <div>
-                        <h3>Room 9</h3>
-                        <p>Location: kathmandu university</p>
-                        <p>Price: 3000</p>
-                        <p> Rating:</p>
-                        <div class="star-ratings">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
                         </div>
+                    </a>
+                    <a href="product-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 2" />
+                        <div>
+                            <h3>Room 8</h3>
+                            <p>Location:bhyandol</p>
+                            <p>Price: 2100</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
 
-                    </div>
-                </a>
-                <a href="product-page.html" class="room-card">
-                    <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 4" />
-                    <div>
-                        <h3>Room 10</h3>
-                        <p>Location: kathmandu university</p>
-                        <p>Price: 3100</p>
-                        <p> Rating:</p>
-                        <div class="star-ratings">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
                         </div>
+                    </a>
+                    <a href="product-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 3" />
+                        <div>
+                            <h3>Room 9</h3>
+                            <p>Location: kathmandu university</p>
+                            <p>Price: 3000</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
 
-                    </div>
-                </a>
-                <a href="landing-page.html" class="room-card">
-                    <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 5" />
-                    <div>
-                        <h3>Room 11</h3>
-                        <p>Location: kathmandu university</p>
-                        <p>Price: 2000</p>
-                        <p> Rating:</p>
-                        <div class="star-ratings">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
                         </div>
+                    </a>
+                    <a href="product-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 4" />
+                        <div>
+                            <h3>Room 10</h3>
+                            <p>Location: kathmandu university</p>
+                            <p>Price: 3100</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
 
-                    </div>
-                </a>
-                <a href="product-page.html" class="room-card">
-                    <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 6" />
-                    <div>
-                        <h3>Room 12</h3>
-                        <p>Location: 28-kilo</p>
-                        <p>Price: 2200</p>
-                        <p> Rating:</p>
-                        <div class="star-ratings">
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
-                            <span class="star">&#9733;</span>
                         </div>
+                    </a>
+                    <a href="landing-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 5" />
+                        <div>
+                            <h3>Room 11</h3>
+                            <p>Location: kathmandu university</p>
+                            <p>Price: 2000</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
 
-                    </div>
-                </a>
+                        </div>
+                    </a>
+                    <a href="product-page.html" class="room-card">
+                        <img class="room-image" src="C:\Users\Hi-Tech\OneDrive\Desktop\codes\images\room for rent.jpg" alt="Room 6" />
+                        <div>
+                            <h3>Room 12</h3>
+                            <p>Location: 28-kilo</p>
+                            <p>Price: 2200</p>
+                            <p> Rating:</p>
+                            <div class="star-ratings">
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                                <span class="star">&#9733;</span>
+                            </div>
+
+                        </div>
+                    </a>
 
             </div>
             <div class="show-more-button">
