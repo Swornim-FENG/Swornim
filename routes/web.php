@@ -19,3 +19,6 @@ Route::get('/product-page', function () {
 Route::get('/landing-page', function () {
     return view('landing-page');
 });
+Route::get('/header', function () {
+    return view('header');
+});
