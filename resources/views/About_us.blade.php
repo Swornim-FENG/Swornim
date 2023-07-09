@@ -101,9 +101,9 @@ footer {
 <body>
   <header>
       <ul>
-      <li> <div class="Logo">
-      <img src="file:\\\D:\My second home web\Final logo design.png" alt="Logo">
-      </div></li>
+        <li> 
+        <img class = "logo" src="images/logoPrototype.png" alt="Logo">
+        </li>
         <li> <a href=""class= "Highlight">Home</a></li>
         <li>How it works</li>
         <li>I am a landlord</li>

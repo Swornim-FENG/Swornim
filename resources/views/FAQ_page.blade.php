@@ -10,20 +10,76 @@
         margin : 0;
         padding : 0;
     }
-    header{
-        display : in-line
+    header {
+  background-color: #fff;
+  color: #fff;
+  padding : 20px 30px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  display: inline-block;
+  margin-right: 10px;
+  color : #000;
+  text-align : center;
+  
+}
+ul li .logo{
+  width : 100px;
+  height : auto;
+  display : block;
+}
+
+ul li a {
+  padding: 10px 20px;
+  background-color: #E07546;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+ul li a:hover {
+  color : white;
+  background-color : #FF6000;
+    }
+    main h1{
+      text-align : left;
+      text-decoration : none;
+    }
+    footer{
+      background-color: #E07546;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    main section h2{
+      text-align : left;
+      margin : 0px;
+    }
+    main section ul li{
+      text-align : left;
+      margin : 0px;
     }
   </style>
 </head>
 <body>
-  <header>
+<header>
       <ul>
-        <li>Home</li>
-        <li>Products</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li> 
+        <img class = "logo" src="D:\My second home web\Final logo design.png" alt="Logo">
+        </li>
+        <li> <a href=""class= "Highlight">Home</a></li>
+        <li>How it works</li>
+        <li>I am a landlord</li>
+        <li>Help</li>
+        <li>Login</li>
+        <li> <a href=""class= "Highlight">Signup</a></li>
       </ul>
-    </header>
+  </header>
 
   <main>
     <h1>Frequently Asked Questions</h1>
@@ -37,9 +93,10 @@
         </li>
         <li>
           <h3>What are the accepted payment methods?</h3>
-          <p>We accept payments via credit cards (Visa, Mastercard, and American Express) and online payment platforms such as PayPal.</p>
-        </li>
-        <!-- Add more general questions and answers as needed -->
+          <p>We are still on progress to add payment methods.</p>
+          <h3>How it works?</h3>
+          <p>This system actually consists of differnt user i.e:Landlord and Tenant.Landlord can add information about their rental availability whereas Tenants are supposed to book the available rental rooms.</p>
+
       </ul>
     </section>
 
@@ -54,16 +111,16 @@
           <h3>Can I cancel or modify my reservation?</h3>
           <p>Yes, you can cancel or modify your reservation depending on the cancellation policy of the rental property. Please refer to the specific property's terms and conditions for more information or contact our customer support.</p>
         </li>
-        <!-- Add more booking and reservation questions and answers as needed -->
+        
       </ul>
     </section>
 
-    <!-- Add more sections for different categories of questions -->
+    
 
   </main>
 
   <footer>
-    <!-- Include your website footer here -->
+    <p>&copy; 2023 Your Company. All rights reserved.</p>
   </footer>
 </body>
 </html>
