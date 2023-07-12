@@ -16,5 +16,9 @@ class Userstable extends Model
     {
         return $this->hasOne(Tenants::class);
     }
+    public function landlord()
+    {
+        return $this->hasOne(Landlords::class);
+    }
 }
 

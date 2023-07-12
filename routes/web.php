@@ -5,6 +5,7 @@ use App\Http\Controllers\SignupController;
 use App\Http\Controllers\TenantsignupController;
 use App\Http\Controllers\LandlordsignupController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PropertyimageController;
 
 Route::get('/signup',[SignupController::class,'signup']);
 
@@ -42,16 +43,32 @@ Route::get('/test',function(){
     return(view('test'));
 });
 
-Route::get('/landlorddashboard',function(){
-    return(view('landlorddashboard'));
-});
-
 Route::get('/login',[LoginController::class,'loginpage'])->name('login');
 
 Route::post('/login',[LoginController::class,'login']);
 Route::get('/admin',function(){
     return( view('admindashboard'));
 });
+Route::get('/sidebar',function(){
+    return(view('landlorddashboard.sidebar'));
+});
+
+Route::get('/properties',function(){
+    return(view('landlorddashboard.properties'));
+});
+
+Route::get('/tenants',function(){
+    return(view('landlorddashboard.tenant'));
+});
+
+Route::get('/landlorddashboard',function(){
+    return(view('landlorddashboard'));
+});
+
+Route::post('/property',[PropertyimageController::class,'store']);
+
+Route::get('/property',[PropertyimageController::class,'create']);
+
 
 
 

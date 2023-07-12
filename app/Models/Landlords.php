@@ -11,4 +11,12 @@ class Landlords extends Model
     protected $table="landlords";
     protected $primarykey="user_id";
     public $timestamps=false;
+    public function usertable()
+    {
+        return $this->belongsTo(Usertable::class);
+    }
+    public function property()
+    {
+        return $this->hasMany(Properties::class);
+    }
 }

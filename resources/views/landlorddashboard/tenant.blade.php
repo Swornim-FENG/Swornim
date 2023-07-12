@@ -21,12 +21,12 @@
           <span class="nav-item">Profile</span>
         </a></li>
 
-        <li><a href="#">
+        <li><a href="{{url('/')}}/properties">
           <i class="fas fa-home"></i>
           <span class="nav-item">Properties</span>
         </a></li>
     
-        <li><a href="">
+        <li><a href="{{url('/')}}/tenants">
           <i class="fas fa-users"></i>
           <span class="nav-item">Tenants</span>
         </a></li>
@@ -56,54 +56,8 @@
    
     <section class="main">
       <div class="main-top">
-        <h1>Properties</h1>
-        <i class="fa fa-user"></i>
-      </div>
-      <div class="main-skills">
-        <div class="card">
-        <i class="fas fa-home"></i>
-          <h3>Room 1</h3>
-          <form action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
-            @csrf
-         <label for="file-upload"></label>
-         <input type="file" id="file-upload" name="file-upload" style="display: none">
-           <button type="button" onclick="document.getElementById('file-upload').click()">Update</button>
-          </form>
         
-        </div>
-        <div class="card">
-          <i class="fas fa-home"></i>
-          <h3>Flat 1</h3>
-          <form action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
-            @csrf
-         <label for="file-upload"></label>
-         <input type="file" id="file-upload" name="file-upload" style="display: none">
-           <button type="button" onclick="document.getElementById('file-upload').click()">Update</button>
-          </form>
-          
-           
-        </div>
-        <div class="card">
-          <i class="fas fa-home"></i>
-          <h3>Room 2</h3>
-          <form action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
-            @csrf
-         <label for="file-upload"></label>
-         <input type="file" id="file-upload" name="file-upload" style="display: none">
-           <button type="button" onclick="document.getElementById('file-upload').click()">Update</button>
-          </form>
-        </div>
-
-        <div class="card">
-          <i class="fas fa-home"></i>
-          <h3>Room 3</h3>
-          <form  action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
-            @csrf
-         <label for="file-upload"></label>
-         <input type="file" id="file-upload" name="file-upload" style="display: none">
-           <button type="button" onclick="document.getElementById('file-upload').click()">Update</button>
-          </form>
-        </div>
+        
       </div>
 
       <section class="main-course">
@@ -140,4 +94,3 @@
   </div>
 </body>
 </html>
-

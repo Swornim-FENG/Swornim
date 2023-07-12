@@ -1,4 +1,4 @@
-@extends('main');
+@extends('mainn');
 @section('main-section')
 @push('title')
    <title>Landing Page</title>
