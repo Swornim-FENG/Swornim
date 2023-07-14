@@ -9,7 +9,7 @@ class Properties extends Model
 {
     use HasFactory;
     protected $table="properties";
-    protected $primarykey="property_id";
+    protected $primaryKey="property_id";
     public $timestamps=false;
     public function landlord()
     {

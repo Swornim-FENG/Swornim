@@ -9,7 +9,7 @@ class Rates extends Model
 {
     use HasFactory;
     protected $table="rates";
-    protected $primarykey="user_id";
+    protected $primaryKey="user_id";
 
     
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\TenantsignupController;
 use App\Http\Controllers\LandlordsignupController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertyimageController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/signup',[SignupController::class,'signup']);
 
@@ -53,9 +54,11 @@ Route::get('/sidebar',function(){
     return(view('landlorddashboard.sidebar'));
 });
 
-Route::get('/properties',function(){
-    return(view('landlorddashboard.properties'));
-});
+
+
+Route::get('/profile',[ProfileController::class,'show']);
+
+Route::get('/logout',[ProfileController::class,'logout']);
 
 Route::get('/tenants',function(){
     return(view('landlorddashboard.tenant'));
@@ -65,9 +68,9 @@ Route::get('/landlorddashboard',function(){
     return(view('landlorddashboard'));
 });
 
-Route::post('/property',[PropertyimageController::class,'store']);
+Route::post('/properties',[PropertyimageController::class,'store']);
 
-Route::get('/property',[PropertyimageController::class,'create']);
+Route::get('/properties',[PropertyimageController::class,'create']);
 
 
 

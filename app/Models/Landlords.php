@@ -9,11 +9,11 @@ class Landlords extends Model
 {
     use HasFactory;
     protected $table="landlords";
-    protected $primarykey="user_id";
+    protected $primaryKey="user_id";
     public $timestamps=false;
-    public function usertable()
+    public function user()
     {
-        return $this->belongsTo(Usertable::class);
+        return $this->belongsTo(Userstable::class);
     }
     public function property()
     {

@@ -9,5 +9,5 @@ class Profiles extends Model
 {
     use HasFactory;
     protected $table="profiles";
-    protected $primarykey="user_id";
+    protected $primaryKey="user_id";
 }

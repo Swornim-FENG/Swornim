@@ -16,7 +16,7 @@
           <span class="nav-item">DashBoard</span>
         </a></li>
 
-        <li><a href="">
+        <li><a href="{{url('/')}}/profile">
           <i class="fas fa-user"></i>
           <span class="nav-item">Profile</span>
         </a></li>
@@ -46,7 +46,7 @@
           <span class="nav-item">Help</span>
         </a></li>
 
-        <li><a href="" class="logout">
+        <li><a href="{{url('/')}}/logout" class="logout">
           <i class="fas fa-sign-out-alt"></i>
           <span class="nav-item">Log out</span>
         </a></li>
@@ -107,3 +107,27 @@
       </div>
       <br>
       <h1> Add Properties</h1>
+      <form action="{{url('/')}}/properties"method="POST" enctype="multipart/form-data" >
+            @csrf
+         
+         <label for="add">Address:</label><br>
+         <input type="text"id="add" name="address" placeholder="Enter the Address"><br>
+         <label for="con">Condition:</label><br>
+         <input type="text"id="con" name="condition" placeholder="Condition"><br>
+         <label for="room">Rooms:</label><br>
+         <input type="number"id="room" name="rooms" placeholder="Number of rooms"><br>
+         <label for="lat">Latitude:</label><br>
+         <input type="number" id="lat"name="latitude" placeholder="Latitude"><br>
+         <label for="lon">Longitude:</label><br>
+         <input type="number"id="lon" name="longitude" placeholder="Longitude"><br>
+         <label for="price">Price:</label><br>
+         <input type="number"id="price" name="price" placeholder="Price"><br>
+         <label for="rating">Rating:</label><br>
+         <input type="number"id="rating" name="rating" placeholder="Rating"><br>
+         <label for="image">Image:</label><br>
+         <input type="file"id="image" name="image"><br>
+         <input type="submit" value="submit">
+         </form>
+          </section>
+          </body>
+          </html>

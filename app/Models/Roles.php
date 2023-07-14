@@ -9,6 +9,6 @@ class Roles extends Model
 {
     use HasFactory;
     protected $table="roles";
-    protected $primarykey="user_id";
+    protected $primaryKey="user_id";
     public $timestamps=false;
 }

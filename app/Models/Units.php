@@ -9,6 +9,6 @@ class Units extends Model
 {
     use HasFactory;
     protected $table="units";
-    protected $primarykey="unit_id";
+    protected $primaryKey="unit_id";
     public $timestamps=false;
 }

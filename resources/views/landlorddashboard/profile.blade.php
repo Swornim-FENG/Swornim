@@ -56,40 +56,13 @@
    
     <section class="main">
       <div class="main-top">
-        
-        
+             @foreach($landlord as $landlords)
+               Welcome , {{$landlords->Firstname}}
+            @endforeach
+      
       </div>
 
-      <section class="main-course">
-        <h1>Tenants</h1>
-        <div class="course-box">
-          <ul>
-            <li class="active">In Agreement</li>
-            <li>Requests</li>
-            <li>finished</li>
-          </ul>
-          <div class="course">
-            <div class="box">
-              <h3>Rikshal</h3>
-              <p>80% - Completed</p>
-              <button>continue</button>
-              <i class="fa fa-user"></i>
-            </div>
-            <div class="box">
-              <h3>Arpan</h3>
-              <p>50% - Completed</p>
-              <button>continue</button>
-              <i class="fa fa-user"></i>
-            </div>
-            <div class="box">
-              <h3>Kundan</h3>
-              <p>30% - Completed</p>
-              <button>continue</button>
-              <i class="fa fa-user"></i>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </section>
   </div>
 </body>

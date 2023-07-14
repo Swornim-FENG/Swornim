@@ -9,5 +9,5 @@ class Rents extends Model
 {
     use HasFactory;
     protected $table="rents";
-    protected $primarykey="rent_id";
+    protected $primaryKey="rent_id";
 }

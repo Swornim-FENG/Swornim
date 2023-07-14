@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Landlords;
-use App\Models\Userstable;
+use App\Models\User;
 
 class LandlordsignupController extends Controller
 {
@@ -53,7 +53,7 @@ class LandlordsignupController extends Controller
             $lastInsertedUserId = $user->getKey();
             $landlords->user_id=$lastInsertedUserId;
             $landlords->save();
-            return redirect('/landlorddashboard');
+            return redirect('/profile');
        
         }
 }}

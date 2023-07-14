@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tenants;
-use App\Models\Userstable;
+use App\Models\User;
 class TenantsignupController extends Controller
 {
     public function signup(){

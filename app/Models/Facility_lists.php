@@ -9,6 +9,6 @@ class Facility_lists extends Model
 {
     use HasFactory;
     protected $table="facility_lists";
-    protected $primarykey="facility_id";
+    protected $primaryKey="facility_id";
 
 }

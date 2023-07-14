@@ -9,7 +9,7 @@ class Tenants extends Model
 {
     use HasFactory;
     protected $table="tenants";
-    protected $primarykey="user_id";
+    protected $primaryKey="user_id";
     public $timestamps=false;
     public function usertable()
     {

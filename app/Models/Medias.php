@@ -9,5 +9,5 @@ class Medias extends Model
 {
     use HasFactory;
     protected $table="medias";
-    protected $primarykey="media_id";
+    protected $primaryKey="media_id";
 }
