@@ -65,8 +65,8 @@ a.button:hover{
   <section class="about">
     <div class="container">
       <h1>About MSH</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor ante at leo eleifend, ac rutrum tortor maximus. Integer lobortis ipsum nec finibus fermentum. Curabitur vulputate rutrum dolor in mattis. Duis lacinia dignissim eros, nec iaculis quam gravida id.</p>
-      <p>Nulla lobortis ex sapien, vitae tempus lacus rutrum eget. Ut aliquet tristique ante, eget pharetra nisl efficitur et. Integer facilisis, sapien in malesuada venenatis, turpis dolor pellentesque sem, nec ultricies enim est eget velit. Nam accumsan vestibulum nisl sed vestibulum.</p>
+      <p>We are a group of individuals who came up to an idea about solving rental issues which we have been facing especially in collages and universities. Those who travel far from their home have higher chance of facing information lacking related rent rooms.</p>
+      <p>So, our team has brought a website to solve this issue which acts as a middle man between landlord and tenant. Our website enables landlords to list their properties so that room seekers can get the information regarding available rooms nearby them.</p>
       <a href="" class="button">Contact Us</a>
     </div>
   </section>
