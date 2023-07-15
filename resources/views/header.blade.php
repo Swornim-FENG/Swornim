@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="css/header.css">
     <header>
         <div class="logo-con">
             <img class="logo" src="images\logoPrototype.png" alt="Logo" />

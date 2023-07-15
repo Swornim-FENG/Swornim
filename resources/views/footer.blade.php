@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>Footer_page</title>
     <link rel="stylesheet" href="footer.css">
 </head>
 
