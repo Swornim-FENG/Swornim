@@ -56,9 +56,9 @@
    
     <section class="main">
       <div class="main-top">
-             @foreach($landlord as $landlords)
-               Welcome , {{$landlords->Firstname}}
-            @endforeach
+             
+               Welcome , {{$username}}
+            
       
       </div>
 

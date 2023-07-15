@@ -24,13 +24,13 @@ class TenantsignupController extends Controller
             ]
             );
             
-            $user = new Userstable;
+            $user = new User;
             $user->Fullname = $request['Firstname'] . ' ' . $request['Lastname'];
             
             $requestedEmail = $request['email'];
             
             // Check if the email already exists in the database
-            $existingEmail = Userstable::where('email', $requestedEmail)->first();
+            $existingEmail = User::where('email', $requestedEmail)->first();
             
             if ($existingEmail) {
                 // Email already taken, show a message or take appropriate action

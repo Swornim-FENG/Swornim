@@ -15,6 +15,9 @@
     
   </head>
   <body>
+    <br>
+    <br>
+    <br>
     <div class="logo-container">
       <img src="images/logoPrototype.png" alt="Logo" />
     </div>
@@ -113,6 +116,8 @@
     </div>
     <script src="{{asset('js/Tenant_signup.js')}}">
       </script>
+      <br>
+      <br><br>
   </body>
 </html>
 @endsection

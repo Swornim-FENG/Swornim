@@ -1,76 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="stylesheet" type="text/css" href="{{asset('css/unloginheader.css')}}" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    
-   <title>My second Home</title>
-   
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        color: #f7ac0c;
+        border-bottom: 2px solid #ff7700;
+        padding: auto;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1;
+        margin-bottom: 10px;
+      }
+      .logo {
+        width: 100px;
+        margin-right: 10px;
+      }
+      .header-buttons {
+        display: flex;
+        align-items: center;
+      }
+      .header-buttons a {
+        margin-left: 10px;
+        padding: 10px 20px;
+        color: #ffa559;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .header-buttons a#home,
+      .header-buttons a#signup {
+        background-color: #ffa559;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+      .header-buttons a#home:hover,
+      .header-buttons a#signup:hover {
+        background-color: #ff7700;
+      }
+      .signup-popup {
+        position: absolute;
+        top: 40px;
+        right: 20px;
+        background-color: #ffe6c7;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        display: none;
+      }
+      .signup-popup a {
+        display: block;
+        margin-bottom: 5px;
+        padding: 10px 20px;
+        background-color: #ffa559;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+      }
+      .signup-popup a:hover {
+        background-color: #ff7700;
+      }
+      .signup-button:hover + .signup-popup,
+      .signup-popup:hover {
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <script>
-      const toggle = () => {
-        document.getElementById("nav").classList.toggle("navactive");
-      };
-      
-  function navigateToLink(selectElement) {
-    var selectedIndex = selectElement.selectedIndex;
-    var selectedOption = selectElement.options[selectedIndex];
-    var url = selectedOption.getAttribute('data-url');
-    
-    if (url) {
-      window.location.href = url;
-    }
-  }
-</script>
-    
     <header>
-      <div class="brand">
-        <span class="Logo"></span>
-        <h1>MSH</h1>
+      <div class="logo-con">
+        <!-- Place your logo here -->
+        
+        <img class="logo" src="images/logoPrototype.png"  alt="Logo" />
       </div>
-      <span class="fas fa-bars" id="menuIcon" onclick="toggle()"></span>
-      <div class="navbar" id="nav">
-        <div class="searchBox">
-          <input type="text" placeholder="Search" />
-          <span class="fas fa-search" id="searchIcon"></span>
+      <div class="header-buttons">
+        <a id="home" href="/landingpage">Home</a>
+        <a href="">How It Works</a>
+        <a href="{{url('/')}}/lanlord">I am a Landlord</a>
+        <a href="">Help</a>
+        <a href="{{url('/')}}/login">Login</a>
+        <a id="signup" href="">Signup</a>
+        <div class="signup-popup">
+          <a href="{{url('/')}}/tenant">Tenant Signup</a>
+          <a href="{{url('/')}}/lanlord">Landlord Signup</a>
         </div>
-        <ul>
-          <li>
-            <span class="fas fa-home" id="headIcon"></span>
-            <a href="{{url('/')}}/msh"> Home </a>
-          </li>
-          <li>
-            <span class="fa fa-user-about" id="headIcon"></span>
-            <a href="#">About Us </a>
-          </li>
-          <li>
-            <span class="fas fa-question-circle" id="headIcon"></span>
-            <a href="#"> Help </a>
-          </li>
-          <li>
-            <span class="fas fa-question-login" id="headIcon"></span>
-            <a href="{{url('/')}}/login"> Log In </a>
-          </li>
-          <li>
-            
-            <option value="">Sign up</option>
-            
-            <select onchange="navigateToLink(this)">
-                 <option value="value3"></option>>
-                 <option value="value2"data-url="{{url('/')}}/tenant">Tenant</option>> 
-                 <option value="value1"data-url="{{url('/')}}/lanlord">Lanlord</option>
-                 </select>
-                
-                
-          </li>
-        </ul>
       </div>
     </header>
+
+    <script>
+      // Show/hide the signup popup on hover
+      const signupButton = document.getElementById("signup");
+      const signupPopup = document.querySelector(".signup-popup");
+      let isHoveringButton = false;
+      let isHoveringPopup = false;
+
+      signupButton.addEventListener("mouseenter", () => {
+        signupPopup.style.display = "block";
+        isHoveringButton = true;
+      });
+
+      signupButton.addEventListener("mouseleave", () => {
+        isHoveringButton = false;
+        setTimeout(() => {
+          if (!isHoveringPopup) {
+            signupPopup.style.display = "none";
+          }
+        }, 200);
+      });
+
+      signupPopup.addEventListener("mouseenter", () => {
+        isHoveringPopup = true;
+      });
+
+      signupPopup.addEventListener("mouseleave", () => {
+        isHoveringPopup = false;
+        if (!isHoveringButton) {
+          signupPopup.style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>

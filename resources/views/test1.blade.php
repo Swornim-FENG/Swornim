@@ -1,3 +1,7 @@
+Gmail	SwØrnim Acharya <swornimacharya7@gmail.com>
+landing page
+Arpan Adhikari <aarpanadhikari979@gmail.com>	15 July 2023 at 15:23
+To: swornimacharya7@gmail.com
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,26 +9,26 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <title>MSH</title>
-    <link rel="stylesheet" href="{{asset('css/landingpage.css')}}">
-    <script src="{{asset('js/landingpage.js')}}"></script>
+    <title>Room Rental Website</title> 
+    <link rel="stylesheet" href="landingpage.css">
+    <script src="landingpage.js"></script>
   </head>
   <body>
     <header>
       <div class="logo-con">
         <!-- Place your logo here -->
-        <img class="logo" src="images/logoPrototype.png" alt="Logo" />
+        <img class="logo" src="mainlogo.png" alt="Logo" />
       </div>
       <div class="header-buttons">
-        <a id="home" href="/landingpage">Home</a>
-        <a href="">How It Works</a>
-        <a href="{{url('/')}}/lanlord">I am a Landlord</a>
-        <a href="">Help</a>
-        <a href="{{url('/')}}/login">Login</a>
-        <a id="signup" href="">Signup</a>
+        <a id="home" href="landingpage.html">Home</a>
+        <a href="howitworks.html">How It Works</a>
+        <a href="landlord.html">I am a Landlord</a>
+        <a href="help.html">Help</a>
+        <a href="login.html">Login</a>
+        <a id="signup" href="signup.html">Signup</a>
         <div class="signup-popup">
-          <a href="{{url('/')}}/tenant">Tenant Signup</a>
-          <a href="{{url('/')}}/lanlord">Landlord Signup</a>
+          <a href="tenant-signup.html">Tenant Signup</a>
+          <a href="landlord-signup.html">Landlord Signup</a>
         </div>
       </div>
     </header>
@@ -105,8 +109,254 @@
       .signup-popup:hover {
         display: block;
       }
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  }
+  main {
+    display: flex;
+    padding-top: 100px;
+    margin-top: 5px;
+  }
+
+  
+  
+  .filter-section {
+    flex-basis: 20%;
+    padding: 20px;
+    margin-right: 10px;
+    border: 2px solid #ff7700;
+    border-radius: 4px;
+    margin-bottom: auto;
+   
+  }
+  .filter-list li {
+    margin-bottom: 10px;
+  }
+  
+  .filter-list input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  
+  .room-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    
+  }
+  .room-card {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px; 
+    color: black; 
+    background-color:#fff ;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  }
+  
+  .room-card:hover {
+    background-color:#FFE6C7 ; 
+  }
+  .room-image {
+    width: 100px; 
+    height: 100px; 
+    margin-right: 0; 
+  }
+  
+
+  footer {
+    background-color: #ffa559;
+    color: #000000;
+    padding: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .container {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .social-icons {
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 60px;
+  }
+
+  .social-icons a {
+    margin-left: 10px;
+    color: #555555;
+    font-size: 24px;
+  }
+
+  .customer-care {
+    flex: 1;
+  }
+
+  .customer-care h3 {
+    color: #000000;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .customer-care p {
+    margin: 0;
+    color: #000000;
+  }
+
+  .footer-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px;
+  }
+  .footer-links h3 {
+    color: #000000;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+
+  .footer-links li {
+    margin-right: 0%;
+  }
+
+  .footer-links a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .copy {
+    text-align: center;
+    margin-top: 20px; 
+    color: #fff;
+  
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #dd660b;
+    color: rgb(52, 23, 3);
+  }
+ 
+
+  .show-more-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 200px;
+    margin-bottom: 1px;
+    text-align: center;
+  }
+
+  .show-more-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FFA559;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .show-more-button button:hover {
+    background-color: #ff7700;
+  }
+
+ 
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 1000px; /* Increased width value */
+  }
+  
+  .search-bar input[type="text"] {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    width: 500px; /* Increased width value */
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    background-color: #ff7700;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
     </style>
     <script>
+        
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+var filterButton = document.querySelector(".filter-section button");
+
+
+filterButton.addEventListener("click", function () {
+
+  var checkedRanges = document.querySelectorAll(
+    ".filter-section input[type='checkbox']:checked"
+  );
+
+  var selectedRanges = [];
+
+  checkedRanges.forEach(function (checkbox) {
+    selectedRanges.push(checkbox.value);
+  });
+
+  var roomCards = document.querySelectorAll(".room-card");
+
+  roomCards.forEach(function (card) {
+    card.style.display = "none";
+  });
+
+  if (selectedRanges.length === 0) {
+    roomCards.forEach(function (card) {
+      card.style.display = "block";
+    });
+  } else {
+    selectedRanges.forEach(function (range) {
+      roomCards.forEach(function (card) {
+        var priceElement = card.querySelector("p:nth-child(3)");
+        var price = parseInt(priceElement.textContent.split(":")[1]);
+
+        if (range === "3000+" && price >= 3000) {
+          card.style.display = "block";
+        } else {
+          var rangeValues = range.split("-");
+          var min = parseInt(rangeValues[0]);
+          var max = parseInt(rangeValues[1]);
+
+          if (price >= min && price <= max) {
+            card.style.display = "block";
+          }
+        }
+      });
+    });
+  }
+});
+});
       // Show/hide the signup popup on hover
       const signupButton = document.getElementById("signup");
       const signupPopup = document.querySelector(".signup-popup");
@@ -137,10 +387,6 @@
           signupPopup.style.display = "none";
         }
       });
-      
-      
-      
-      
     </script>
     <main>
       <div class="filter-section">
@@ -226,39 +472,31 @@
         </div>
       
       <div class="room-grid">
-        <a href="/product" class="room-card">
-        @foreach($photos as $photo)
-          {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150"alt="Room 1">
-          
-             @endforeach
+        <a href="product-page.html" class="room-card">
+          <img
+            class="room-image"
+            src="room for rent.jpg"
+            alt="Room 1"
+          />
           <div>
-            <br>
-          @foreach($properties as $property)
-               Location:{{$property->address}}
-          
-             @endforeach
-             <br>
-             <br>
-             @foreach($units as $unit)
-               Price:{{$unit->price}}
-               <p> Rating:</p> 
-               <div class="star-ratings">
+            <h3>Room 1</h3>
+            <p>Location: 28-kilo</p>
+            <p>Price: 1700</p>
+            <p> Rating:</p> 
+            <div class="star-ratings">
               <span class="star">&#9733;</span>
               <span class="star">&#9733;</span>
               <span class="star">&#9733;</span>
               <span class="star">&#9733;</span>
               <span class="star">&#9733;</span>
             </div>
-          
-             @endforeach
-            
             
           </div>
         </a>
         <a href="product-page.html" class="room-card">
           <img
             class="room-image"
-            
+            src="room for rent.jpg"
             alt="Room 2"
           />
           <div>
@@ -411,7 +649,7 @@
             </div>
             
           </div>
-          </a>
+        </a>
         <a href="landing-page.html" class="room-card">
           <img class="room-image" src="room for rent.jpg" alt="Room 5" />
           <div>
@@ -500,4 +738,3 @@
         </div>
       </footer>
 </body>
-</html>

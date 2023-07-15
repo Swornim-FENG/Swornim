@@ -61,8 +61,10 @@
       </div>
       <div class="main-skills">
         <div class="card">
-        <i class="fas fa-home"></i>
-          <h3>Room 1</h3>
+        @foreach($photos as $photo)
+          {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="230" height="150">
+             @endforeach
+        
           <form action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
             @csrf
          <label for="file-upload"></label>
@@ -110,24 +112,35 @@
       <form action="{{url('/')}}/properties"method="POST" enctype="multipart/form-data" >
             @csrf
          
-         <label for="add">Address:</label><br>
-         <input type="text"id="add" name="address" placeholder="Enter the Address"><br>
-         <label for="con">Condition:</label><br>
-         <input type="text"id="con" name="condition" placeholder="Condition"><br>
-         <label for="room">Rooms:</label><br>
-         <input type="number"id="room" name="rooms" placeholder="Number of rooms"><br>
-         <label for="lat">Latitude:</label><br>
-         <input type="number" id="lat"name="latitude" placeholder="Latitude"><br>
-         <label for="lon">Longitude:</label><br>
-         <input type="number"id="lon" name="longitude" placeholder="Longitude"><br>
-         <label for="price">Price:</label><br>
-         <input type="number"id="price" name="price" placeholder="Price"><br>
-         <label for="rating">Rating:</label><br>
-         <input type="number"id="rating" name="rating" placeholder="Rating"><br>
-         <label for="image">Image:</label><br>
-         <input type="file"id="image" name="image"><br>
-         <input type="submit" value="submit">
+            <label for="add">Address:</label><br>
+<input type="text" id="add" name="address" placeholder="Enter the Address" style="margin-bottom: 10px;"><br>
+
+<label for="con">Condition:</label><br>
+<input type="text" id="con" name="condition" placeholder="Condition" style="margin-bottom: 10px;"><br>
+
+<label for="room">Rooms:</label><br>
+<input type="number" id="room" name="rooms" placeholder="Number of rooms" style="margin-bottom: 10px;"><br>
+
+<label for="lat">Latitude:</label><br>
+<input type="number" id="lat" name="latitude" placeholder="Latitude" style="margin-bottom: 10px;"><br>
+
+<label for="lon">Longitude:</label><br>
+<input type="number" id="lon" name="longitude" placeholder="Longitude" style="margin-bottom: 10px;"><br>
+
+<label for="price">Price:</label><br>
+<input type="number" id="price" name="price" placeholder="Price" style="margin-bottom: 10px;"><br>
+
+<label for="rating">Rating:</label><br>
+<input type="number" id="rating" name="rating" placeholder="Rating" style="margin-bottom: 10px;"><br>
+
+<label for="image">Image:</label><br>
+<input type="file" id="image" name="image" style="margin-bottom: 10px;"><br>
+
+<input type="submit" value="Submit"name="Upload" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
          </form>
+         
+      
           </section>
+          
           </body>
           </html>

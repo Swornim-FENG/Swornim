@@ -7,6 +7,8 @@ use App\Http\Controllers\LandlordsignupController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PropertyimageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\ProductpageController;
 
 Route::get('/signup',[SignupController::class,'signup']);
 
@@ -37,7 +39,7 @@ Route::get('/homepage',function(){
 });
 
 Route::get('/msh',function(){
-    return(view('landingpage'));
+    return(view('landingpage1'));
 });
 
 Route::get('/test',function(){
@@ -71,6 +73,14 @@ Route::get('/landlorddashboard',function(){
 Route::post('/properties',[PropertyimageController::class,'store']);
 
 Route::get('/properties',[PropertyimageController::class,'create']);
+
+Route::get('/landingpage',[LandingpageController::class,'show']);
+
+Route::get('/test1',function(){
+    return(view('test1'));
+});
+  
+Route::get('/product',[ProductpageController::class,'show']);
 
 
 

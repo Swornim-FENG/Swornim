@@ -14,9 +14,12 @@ class LoginController extends Controller
          $credentials = $request->only('email', 'password');
          try{
          if (Auth::once($credentials)) {
-           $request->session()->regenerate();
+         //  $request->session()->regenerate();
         //    dd(Auth::user()->user_id);
-           \session('userId', Auth::user()->user_id);
+         //  session('userId',Auth::user());
+          // dd(Auth::user());
+           $request->session()->put('user', Auth::user());
+          // dd($request->session()->all());
            if(Auth::user()->role_id==2){
                  return redirect()->intended('/homepage');
 

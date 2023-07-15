@@ -42,6 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    protected $table="users";
+    protected $primaryKey="user_id";
+    public $timestamps=false;
     public function tenant()
     {
         return $this->hasOne(Tenants::class);
