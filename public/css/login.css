@@ -3,10 +3,6 @@
     font-family: 'poppins' ,sans-serif;
     
 }
-body{
-    background: #FFE6C7;
-}
-   
 
 .box{
     display: flex;
@@ -23,7 +19,7 @@ body{
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 20px;
     min-height: 70vh;
-    background:#FFA559;
+    background:#FFE6C7;
    
     background-size: cover;
     background-position: center;
@@ -40,8 +36,8 @@ span{
     padding: 10px 0 10px 0;
 }
 
-header{
-    color: #fff;
+h1{
+    color:black;
     font-size: 30px;
     display: flex;
     justify-content: center;
@@ -50,12 +46,13 @@ header{
 .input-field .input{
     height: 45px;
     width: 87%;
-    border: none;
+    
     border-radius: 30px;
-    color:white;
+    color:black;
     font-size: 15px;
     padding: 0 0 0 45px;
-    background: rgba(255,255,255,0.1);
+    background:#FFE6C7;
+    border-color: #07001f;
     outline: none;
 }
 i{
@@ -65,7 +62,7 @@ i{
     color: #fff;
 }
 ::-webkit-input-placeholder{
-    color: #fff;
+    color:black;
 }
 .submit{
     border: none;
@@ -76,7 +73,7 @@ i{
     width: 100%;
     color:black;
     font-size: 20px;
-    background-color: whitesmoke;
+    background-color: orangered;
     cursor: pointer;
     transition: .3s ;
 }
@@ -128,10 +125,11 @@ input::placeholder{
     transition: 1s;
   }
   a:nth-child(1) i {
-    color: white;
+    color: green;
     
   }
   a:nth-child(2) i {
     color: blue;
     
   }
+  

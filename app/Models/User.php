@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'Fullname',
         'email',
         'password',
     ];
@@ -42,4 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    protected $table="users";
+    protected $primaryKey="user_id";
+    public $timestamps=false;
+    public function tenant()
+    {
+        return $this->hasOne(Tenants::class);
+    }
+    public function landlord()
+    {
+        return $this->hasOne(Landlords::class);
+    }
 }
