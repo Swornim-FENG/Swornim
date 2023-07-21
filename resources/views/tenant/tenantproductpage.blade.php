@@ -3,13 +3,14 @@
   <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
+    <title>Tenant</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <title>Product Page</title>
-    <link rel="stylesheet" href="{{asset('css/productpage.css')}}">
+    <link rel="stylesheet" href="{{asset('css/tenant/tenantproductpage.css')}}">
+      
+      
     <script>
       $(document).ready(function () {
         // Initialize datepicker for check-in and check-out dates
@@ -26,6 +27,12 @@
           $(this).datepicker("show");
         });
       });
+
+      function markAsBooked() {
+    var button = document.getElementById("book-now-button");
+    button.innerText = "Booked";
+    button.disabled = true;
+  }
 
       // Code for owner info popup
       function openOwnerInfo() {
@@ -70,20 +77,16 @@
   <body>
     <header>
       <div class="logo-con">
-        <img class="logo" src= "images/logoPrototype.png"alt="Logo" />
+        <img class="logo" src= "{{asset('images/logoPrototype.png')}}"alt="Logo" />
       </div>
       <div class="header-buttons">
         <a id="home" href="/landingpage">Home</a>
         <a href="">How It Works</a>
-        <a href="{{url('/')}}/lanlord">I am a Landlord</a>
         <a href="">Help</a>
-        <a href="{{url('/')}}/login">Login</a>
-        <a id="signup" href="">Signup</a>
-        <div class="signup-popup">
-          <a href="{{url('/')}}/tenant">Tenant Signup</a>
-          <a href="{{url('/')}}/lanlord">Landlord Signup</a>
+        <a href="{{url('/')}}/logout">Logout</a>
         </div>
-      </div>
+        <i class="fas fa-user"style="color: black;">
+        <span class="nav-item" >{{$username}}</span></i>
     </header>
     <div class="page-container">
       <div class="top-container">
@@ -270,9 +273,10 @@
                {{$unit->price}}@endforeach</span>
               </div>
             </div>
-            <a href="{{url('/')}}/login"style="text-decoration: none;">
-            <button >Book Now</button>
-            </a>
+            <a href="#"style="text-decoration: none;">
+            <button id="book-now-button" onclick="markAsBooked()" >Book Now</button>
+
+        </a>
             
           </div>
         </div>

@@ -5,7 +5,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <title>MSH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <title>Tenant</title>
     <link rel="stylesheet" href="{{asset('css/landingpage.css')}}">
     <script src="{{asset('js/landingpage.js')}}"></script>
   </head>
@@ -13,20 +14,18 @@
     <header>
       <div class="logo-con">
         <!-- Place your logo here -->
-        <img class="logo" src="images/logoPrototype.png" alt="Logo" />
+        <img class="logo" src="{{asset('images/logoPrototype.png')}}" alt="Logo" />
       </div>
       <div class="header-buttons">
         <a id="home" href="/landingpage">Home</a>
         <a href="">How It Works</a>
-        <a href="{{url('/')}}/lanlord">I am a Landlord</a>
         <a href="">Help</a>
-        <a href="{{url('/')}}/login">Login</a>
-        <a id="signup" href="">Signup</a>
-        <div class="signup-popup">
-          <a href="{{url('/')}}/tenant">Tenant Signup</a>
-          <a href="{{url('/')}}/lanlord">Landlord Signup</a>
+        <a href="{{url('/')}}/logout">Logout</a>
         </div>
-      </div>
+        <i class="fas fa-user"style="color: black;">
+        <span class="nav-item" >{{$username}}</span></i>
+        
+      
     </header>
     <style>
       body {
@@ -224,42 +223,9 @@
           <input type="text" placeholder="Search..." />
           <button type="submit">Search</button>
         </div>
-        
-
       
       <div class="room-grid">
-        <!-- <a href="/product" class="room-card">
-        @foreach($photos as $photo)
-        
-          {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150"alt="Room 1">
-          
-             @endforeach
-          <div>
-            <br>
-          @foreach($properties as $property)
-               Location:{{$property->address}}
-          
-             @endforeach
-             <br>
-             <br>
-             @foreach($units as $unit)
-               Price:{{$unit->price}}
-               <p> Rating:</p> 
-               <div class="star-ratings">
-              <span class="star">&#9733;</span>
-              <span class="star">&#9733;</span>
-              <span class="star">&#9733;</span>
-              <span class="star">&#9733;</span>
-              <span class="star">&#9733;</span>
-            </div>
-          
-             @endforeach
-            
-            
-          </div>
-        </a> -->
-        
-        @foreach($photos as $key => $photo)
+      @foreach($photos as $key => $photo)
         <a href="/product" class="room-card">
         {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150" alt="Room 1">
 
@@ -281,7 +247,6 @@
     </a>
     @endforeach
 </div>
-        
       <!-- <div class="show-more-button">
         <button>Show More</button>
       </div> -->

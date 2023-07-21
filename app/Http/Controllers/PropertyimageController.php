@@ -36,7 +36,7 @@ class PropertyimageController extends Controller
         
         $unit->price=$request['price'];
         $unit->Condition=$request['condition'];
-        $unit->Average_rating=$request['rating'];
+        $unit->Average_rating=2;
         $lastInsertedpropertyId = $property->getKey();
         $unit->property_id=$lastInsertedpropertyId;
         $unit->user_id =$userId;
@@ -51,11 +51,24 @@ class PropertyimageController extends Controller
         $lastInsertedUnitId = $unit->getKey();
         $media->unit_id=$lastInsertedUnitId;
         $media->save();
-        return redirect()->back();
+        return redirect('/properties');
 
     }
     public function create(){
-        $photos=Medias::all();
-        return view('landlorddashboard.properties',compact('photos'));
+        $photos = Medias::all();
+        $properties = Properties::all();
+        $units= Units::all();
+        
+        return view('landlorddashboard.properties',compact('photos', 'properties','units'));
+    }
+    public function delete($id,$eid,$eeid){
+           $media=Medias::find($id);
+           if(!is_null($media)){
+           $media->delete();
+           Units::find($eid)->delete();
+           Properties::find($eeid)->delete();
+           }
+           return redirect('/properties');
+        
     }
 }

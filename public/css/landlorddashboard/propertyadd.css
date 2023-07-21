@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  form input[type="submit"] {
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffa559;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: #ff7700;
+  }
+
+  form br {
+    display: block;
+    margin: 10px 0;
+    content: "";
+  }
+
+  form label[for="images"] {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  /* Hide the file input visually */
+  form input[type="file"] {
+    display: none;
+  }
+
+  /* Style the "Choose Image" button */
+  .choose-image-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffa559;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .choose-image-button:hover {
+    background-color: #ff7700;
+  }
+  form input[type="checkbox"] {
+    display: none;
+  }
+
+  form input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+  }
+
+  form input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffa559;
+    border-radius: 3px;
+  }
+
+  form input[type="checkbox"]:checked + label:before {
+    background-color: #ff7700;
+  }
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }

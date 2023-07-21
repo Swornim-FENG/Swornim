@@ -3,10 +3,12 @@
     position: relative;
     padding: 20px;
     width: 100%;
+    
   }
   .main-top{
     display: flex;
     width: 100%;
+    
   }
   .main-top i{
     position: absolute;
@@ -14,10 +16,12 @@
     margin: 10px 30px;
     color: rgb(110, 109, 109);
     cursor: pointer;
+    
   }
   .main-skills{
     display: flex;
     margin-top: 20px;
+    
   }
   .main-skills .card{
     width: 25%;
@@ -27,6 +31,7 @@
     border-radius: 20px;
     padding: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    
   }
   .main-skills .card h3{
     margin: 10px;
@@ -49,4 +54,31 @@
   .main-skills .card i{
     font-size: 22px;
     padding: 10px;
+  }
+  .room-card {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px; 
+    color: black; 
+    background-color:#fff ;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  }
+ 
+  .room-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    
+  }
+  .room-card:hover {
+    background-color:#FFE6C7 ; 
+  }
+  .room-image {
+    width: 100px; 
+    height: 100px; 
+    margin-right: 0; 
   }

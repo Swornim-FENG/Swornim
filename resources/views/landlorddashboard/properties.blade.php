@@ -25,7 +25,12 @@
           <i class="fas fa-home"></i>
           <span class="nav-item">Properties</span>
         </a></li>
-    
+        
+        <li><a href="{{url('/')}}/landlord/addproperty">
+          <i class="fas fa-plus"></i>
+          <span class="nav-item">Add Property</span>
+        </a></li>
+
         <li><a href="{{url('/')}}/tenants">
           <i class="fas fa-users"></i>
           <span class="nav-item">Tenants</span>
@@ -41,10 +46,6 @@
           <span class="nav-item">Settings</span>
         </a></li>
 
-        <li><a href="">
-          <i class="fas fa-question-circle"></i>
-          <span class="nav-item">Help</span>
-        </a></li>
 
         <li><a href="{{url('/')}}/logout" class="logout">
           <i class="fas fa-sign-out-alt"></i>
@@ -55,16 +56,26 @@
     </nav>
    
     <section class="main">
-      <div class="main-top">
-        <h1>Properties</h1>
-        <i class="fa fa-user"></i>
-      </div>
+      
+  
       <div class="main-skills">
         <div class="card">
-        @foreach($photos as $photo)
-          {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="230" height="150">
-             @endforeach
+       
+             @foreach($photos as $key => $photo)
         
+        {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150" alt="Room 1">
+
+        
+            <br>
+            Location: {{$properties[$key]->address}}
+            <br>
+            Price: {{$units[$key]->price}}
+            <br>
+            Number of rooms: {{$properties[$key]->number_of_rooms}}
+            
+            <a href="{{url('/properties/delete/')}}/{{$photo->media_id}}/{{$units[$key]->unit_id}}/{{$properties[$key]->property_id}}">
+            <button type="button">Delete</button></a>
+
           <form action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
             @csrf
          <label for="file-upload"></label>
@@ -72,8 +83,11 @@
            <button type="button" onclick="document.getElementById('file-upload').click()">Update</button>
           </form>
         
-        </div>
-        <div class="card">
+          
+        @endforeach
+        </div></div>
+        </section>
+        <!-- <div class="card">
           <i class="fas fa-home"></i>
           <h3>Flat 1</h3>
           <form action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
@@ -106,8 +120,8 @@
            <button type="button" onclick="document.getElementById('file-upload').click()">Update</button>
           </form>
         </div>
-      </div>
-      <br>
+      </div> -->
+      <!-- <br>
       <h1> Add Properties</h1>
       <form action="{{url('/')}}/properties"method="POST" enctype="multipart/form-data" >
             @csrf
@@ -137,10 +151,10 @@
 <input type="file" id="image" name="image" style="margin-bottom: 10px;"><br>
 
 <input type="submit" value="Submit"name="Upload" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-         </form>
+         </form> -->
          
       
-          </section>
+          
           
           </body>
           </html>

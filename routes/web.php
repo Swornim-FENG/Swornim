@@ -9,6 +9,8 @@ use App\Http\Controllers\PropertyimageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\ProductpageController;
+use App\Http\Controllers\TenantlandingpageController;
+use App\Http\Controllers\PropertyaddController;
 
 Route::get('/signup',[SignupController::class,'signup']);
 
@@ -74,6 +76,8 @@ Route::post('/properties',[PropertyimageController::class,'store']);
 
 Route::get('/properties',[PropertyimageController::class,'create']);
 
+Route::get('/properties/delete/{id}/{eid}/{eeid}',[PropertyimageController::class,'delete']);
+
 Route::get('/landingpage',[LandingpageController::class,'show']);
 
 Route::get('/test1',function(){
@@ -81,6 +85,12 @@ Route::get('/test1',function(){
 });
   
 Route::get('/product',[ProductpageController::class,'show']);
+
+Route::get('/tenant/landingpage',[TenantlandingpageController::class,'show']);
+
+Route::get('/tenant/productpage',[TenantlandingpageController::class,'display']);
+
+Route::get('/landlord/addproperty',[PropertyaddController::class,'show']);
 
 
 

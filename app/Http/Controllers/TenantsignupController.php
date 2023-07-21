@@ -53,6 +53,6 @@ class TenantsignupController extends Controller
             $tenants->user_id = $lastInsertedUserId;
             $tenants->save();
             
-            return redirect('/homepage');
+            return redirect('/tenant/landingpage');
         }
 }}

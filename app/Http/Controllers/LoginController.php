@@ -21,7 +21,7 @@ class LoginController extends Controller
            $request->session()->put('user', Auth::user());
           // dd($request->session()->all());
            if(Auth::user()->role_id==2){
-                 return redirect()->intended('/homepage');
+                 return redirect()->intended('/tenant/landingpage');
 
            }else if(Auth::user()->role_id==3){
                  

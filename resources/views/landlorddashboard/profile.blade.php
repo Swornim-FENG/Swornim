@@ -26,6 +26,11 @@
           <span class="nav-item">Properties</span>
         </a></li>
     
+        <li><a href="{{url('/')}}/landlord/addproperty">
+          <i class="fas fa-plus"></i>
+          <span class="nav-item">Add Property</span>
+        </a></li>
+
         <li><a href="{{url('/')}}/tenants">
           <i class="fas fa-users"></i>
           <span class="nav-item">Tenants</span>
@@ -41,10 +46,7 @@
           <span class="nav-item">Settings</span>
         </a></li>
 
-        <li><a href="">
-          <i class="fas fa-question-circle"></i>
-          <span class="nav-item">Help</span>
-        </a></li>
+        
 
         <li><a href="{{url('/')}}/logout" class="logout">
           <i class="fas fa-sign-out-alt"></i>
