@@ -26,6 +26,9 @@ Route::get('/home', function () {
 Route::get('/about', function () {
     return view('about');
 });
+Route::get('/footer', function () {
+    return view('footer');
+});
 
 Route::get('/tenant', [TenantsignupController::class, 'signup'])->name('tenant');
 
