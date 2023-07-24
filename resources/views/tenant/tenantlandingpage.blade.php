@@ -226,7 +226,7 @@
       
       <div class="room-grid">
       @foreach($photos as $key => $photo)
-        <a href="/product" class="room-card">
+        <a href="{{url('/tenant/productpage/')}}/{{$photo->media_id}}/{{$units[$key]->unit_id}}/{{$properties[$key]->property_id}}/{{$properties[$key]->user_id}}"  class="room-card">
         {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150" alt="Room 1">
 
         <div>
