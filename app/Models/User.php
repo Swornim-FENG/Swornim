@@ -53,4 +53,13 @@ class User extends Authenticatable
     {
         return $this->hasOne(Landlords::class);
     }
+    public function properties()
+    {
+        
+        return $this->hasMany(Properties::class, 'user_id');
+    }
+    public function units()
+    {
+        return $this->hasMany(Units::class, 'user_id');
+    }
 }

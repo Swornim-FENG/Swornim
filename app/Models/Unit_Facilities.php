@@ -9,5 +9,5 @@ class Unit_facilities extends Model
 {
     use HasFactory;
     protected $table="unit_facilities";
-    
+    public $timestamps=false;
 }

@@ -15,4 +15,18 @@ class Properties extends Model
     {
         return $this->belongsTo(Landlords::class);
     }
+    public function user()
+    {
+       
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function units()
+    {
+        return $this->hasMany(Units::class, 'property_id');
+    }
+
+    public function medias()
+    {
+        return $this->hasManyThrough(Medias::class, Units::class, 'property_id', 'unit_id');
+    }
 }

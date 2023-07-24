@@ -7,6 +7,7 @@
   <!-- Font Awesome Cdn Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
+
 <body>
   <div class="container">
     <nav>
@@ -61,20 +62,31 @@
       <div class="main-skills">
         <div class="card">
        
-             @foreach($photos as $key => $photo)
+             @foreach($photos as $photo)
         
         {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150" alt="Room 1">
 
-        
+         
+          <br>
+          Location: {{ $photo->unit->property->address }}
+         <br>
+         Price: {{ $photo->unit->price }}
+         <br>
+          Number of rooms: {{ $photo->unit->property->number_of_rooms }}
             <br>
-            Location: {{$properties[$key]->address}}
-            <br>
-            Price: {{$units[$key]->price}}
-            <br>
-            Number of rooms: {{$properties[$key]->number_of_rooms}}
+
+
+            <button id="deleteButton">Delete</button>
+
+            <div class="popup" id="popup">
+            <p>Are you sure you want to delete this property?</p>
+
+            <a href="{{ url('/properties/delete/'.$photo->media_id.'/'.$photo->unit->unit_id.'/'.$photo->unit->property->property_id) }}">
+          <button id="yesButton">Yes</button>
+           </a>
             
-            <a href="{{url('/properties/delete/')}}/{{$photo->media_id}}/{{$units[$key]->unit_id}}/{{$properties[$key]->property_id}}">
-            <button type="button">Delete</button></a>
+            <a href="{{url('/')}}/properties"><button id="noButton">No</button></a>
+             </div>
 
           <form action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
             @csrf
@@ -154,7 +166,21 @@
          </form> -->
          
       
-          
+         <script>
+  document.getElementById("deleteButton").addEventListener("click", function() {
+  document.getElementById("popup").style.display = "block";
+});
+
+document.getElementById("yesButton").addEventListener("click", function() {
+  // Handle the delete action here
+  
+  document.getElementById("popup").style.display = "none";
+});
+
+document.getElementById("noButton").addEventListener("click", function() {
+  document.getElementById("popup").style.display = "none";
+});
+  </script>
           
           </body>
           </html>

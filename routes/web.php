@@ -87,10 +87,10 @@ Route::get('/test1', function () {
     return (view('test1'));
 });
 
-Route::get('/product', [ProductpageController::class, 'show']);
+Route::get('/product/{id}/{eid}/{eeid}/{eeeid}', [ProductpageController::class, 'show']);
 
 Route::get('/tenant/landingpage', [TenantlandingpageController::class, 'show']);
 
-Route::get('/tenant/productpage', [TenantlandingpageController::class, 'display']);
+Route::get('/tenant/productpage/{id}/{eid}/{eeid}/{eeeid}', [TenantlandingpageController::class, 'display']);
 
 Route::get('/landlord/addproperty', [PropertyaddController::class, 'show']);

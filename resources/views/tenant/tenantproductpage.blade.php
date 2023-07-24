@@ -101,10 +101,7 @@
               <div class="reviews">
                 <span class="review-count">250 Reviews</span>
               </div>
-              <div class="address">@foreach($properties as $property)
-               {{$property->address}}
-          
-             @endforeach</div>
+              <div class="address">{{$properties->address}}</div>
             </div>
           </div>
         </div>
@@ -117,18 +114,15 @@
               id="big-image"
               onclick="openImage('big-image')"
             /> -->
-            @foreach($photos as $photo)
-          {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="600px" height="400px"alt="Room 1"onclick="openImage('big-image')">
+            
+          {{$photos->name}}<img src="{{asset('storage/images/'.$photos->Media_file)}}" width="600px" height="400px"alt="Room 1"onclick="openImage('big-image')">
           
-             @endforeach
+            
           </div>
           <div class="small-images-container">
             <div class="image-grid">
               
-              <!-- @foreach($photos as $photo)
-          {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="100%" height="150px"alt="Room 1"onclick="openImage('big-image')">
-          
-             @endforeach -->
+              
               
             </div>
             <div class="image-grid">
@@ -146,12 +140,12 @@
               <div class="owner-image" onclick="openOwnerInfo()">
                 <img src="owner.jpg" alt="Owner Image" />
               </div>
-              <div class="owner-name" onclick="openOwnerInfo()">{{$username}}</div>
+              <div class="owner-name" onclick="openOwnerInfo()">{{$user->Fullname}}</div>
             </div>
             <div class="owner-popup" id="owner-popup">
               <h2>Owner Info</h2>
-              <p>Owner Name: {{$username}}</p>
-              <p>Owner Email: john.doe@example.com</p>
+              <p>Owner Name: {{$user->Fullname}}</p>
+              <p>Owner Email:{{ $user->email}}</p>
               <p>Owner Phone: +1 123-456-7890</p>
             </div>
           </div>
@@ -259,8 +253,7 @@
             <div class="fee-container">
               <div class="fee-item">
                 <span>Rent Fee: </span>
-                <span> Rs. @foreach($units as $unit)
-               {{$unit->price}}@endforeach</span>
+                <span> Rs. {{$units->price}}</span>
               </div>
               <div class="fee-item">
                 <span>Amenities Fee:</span>
@@ -269,8 +262,7 @@
               <hr class="fee-separator" />
               <div class="fee-item total-fee">
                 <span>Total Fee: </span>
-                <span>Rs. @foreach($units as $unit)
-               {{$unit->price}}@endforeach</span>
+                <span>Rs. {{$units->price}}</span>
               </div>
             </div>
             <a href="#"style="text-decoration: none;">
@@ -286,10 +278,7 @@
         <div class="bottom-section">
           <div class="map-container">
             <h2>Location</h2>
-            <img src="map.jpg" alt="@foreach($properties as $property)
-               {{$property->address}}
-          
-             @endforeach" id="map-image" />
+            <img src="map.jpg" alt="" id="map-image" />
           </div>
           <div class="things-to-know-container">
             <div class="rules1">

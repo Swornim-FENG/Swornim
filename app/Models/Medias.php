@@ -10,4 +10,8 @@ class Medias extends Model
     use HasFactory;
     protected $table="medias";
     protected $primaryKey="media_id";
+    public function unit()
+    {
+        return $this->belongsTo(Units::class, 'unit_id');
+    }
 }
