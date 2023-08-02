@@ -81,19 +81,17 @@
             <div class="popup" id="popup">
             <p>Are you sure you want to delete this property?</p>
 
-            <a href="{{ url('/properties/delete/'.$photo->media_id.'/'.$photo->unit->unit_id.'/'.$photo->unit->property->property_id) }}">
+            <a href="{{ url('/properties/delete/'.$photo->unit->property->property_id) }}">
           <button id="yesButton">Yes</button>
            </a>
             
             <a href="{{url('/')}}/properties"><button id="noButton">No</button></a>
              </div>
 
-          <form action="{{url('/')}}/landlorddashboard" method="POST" enctype="multipart/form-data" >
-            @csrf
-         <label for="file-upload"></label>
-         <input type="file" id="file-upload" name="file-upload" style="display: none">
-           <button type="button" onclick="document.getElementById('file-upload').click()">Update</button>
-          </form>
+             <a href="{{ url('/properties/update/'.$photo->unit->property->property_id.'/'.$photo->unit->unit_id.'/'.$photo->media_id) }}">
+          <button >Update</button>
+           </a>
+          
         
           
         @endforeach

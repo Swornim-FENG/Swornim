@@ -11,4 +11,8 @@ class Facility_lists extends Model
     protected $table="facility_lists";
     protected $primaryKey="facility_id";
     public $timestamps=false;
+    public function unitsfacilities()
+    {
+        return $this->belongsToMany(Unit_facilities::class);
+    }
 }

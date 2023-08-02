@@ -24,8 +24,8 @@ class PropertyimageController extends Controller
         $unit=new Units;
         $landlord=new Landlords;
         $user=new User;
-        $facility=new Facility_lists;  
-        $unitfacility=new Unit_facilities;
+          
+       
 
         $property->address=$request['address'];
         $property->condition=$request['condition'];
@@ -55,14 +55,21 @@ class PropertyimageController extends Controller
         $lastInsertedUnitId = $unit->getKey();
         $media->unit_id=$lastInsertedUnitId;
         $media->save();
+         
 
-        $facility->name=$request['extra_facilities'];
-        $facility->save();
-
-        $unitfacility->unit_id=$unit->getkey();
-        $unitfacility->facility_id=$facility->getkey();
-        $unitfacility->save();
+        $facilities=$request['extra_facilities'];
+        foreach ($facilities as $facility) {
+            Unit_facilities::create([
+                'unit_id' => $unit->getKey(),
+                'facility_id' => $facility
+            ]);
+        
+        
+        }
+        
         return redirect('/properties');
+        
+       
 
     }
     public function create(Request $request){
@@ -84,14 +91,70 @@ class PropertyimageController extends Controller
         
         return view('landlorddashboard.properties',compact('photos', 'properties','units'));
     }
-    public function delete($id,$eid,$eeid){
-           $media=Medias::find($id);
-           if(!is_null($media)){
-           $media->delete();
-           Units::find($eid)->delete();
-           Properties::find($eeid)->delete();
-           }
-           return redirect('/properties');
+    public function deleteProperty($id){
+           $property=Properties::find($id);
+           if(!is_null($property)){
+            $property->delete();
+        }
+    
+        return redirect('/properties');
         
     }
+
+    public function updateProperty($id,$eid,$eeid){
+        $property=Properties::find($id);
+        if(is_null($property)){
+            return redirect('/properties');
+        }
+        else{
+            $url = url('/properties/edit') . "/". $id. "/". $eid. "/". $eeid;
+            $title="Update details of Your Property";
+            $facilities= Facility_lists::get();
+            $units = Units::find($eid);
+            $unitid=$units->pluck('unit_id');
+            $photos = Medias::find($eeid);
+            $unitfacilities= Unit_facilities::whereIn('unit_id',$unitid)->get();
+            $facilityid=$unitfacilities->pluck('facility_id')->toArray();
+            return view('landlorddashboard.propertyadd',compact('units','photos','unitfacilities','property','facilities','url','title','facilityid'));
+        }}
+
+        public function editProperty($id,$eid,$eeid,Request $request){
+            $property=Properties::find($id);
+            $property->address=$request['address'];
+            $property->condition=$request['condition'];
+            $property->number_of_rooms=$request['rooms'];
+            $property->Latitude=$request['latitude'];
+            $property->Longitude=$request['longitude'];
+            $property->Verification="Verified";
+            $property->save();
+
+            $unit=Units::find($eid);
+            $unit->price=$request['price'];
+            $unit->Condition=$request['condition'];
+            $unit->Average_rating=2;
+            $unit->status="Available";
+            $unit->save();
+
+            $media=Medias::find($eeid);
+            $name =$request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public/images/',$name);
+            $media->Media_file=$name;
+            $media->save();
+            
+            Unit_facilities::where('unit_id', $eid)->delete();
+            $facilities=$request['extra_facilities'];
+           foreach ($facilities as $facility) {
+            Unit_facilities::create([
+                'unit_id' => $eid,
+                'facility_id' => $facility
+            ]);}
+            return redirect('/properties');
+            
+
+        }
+     
+ 
+     
+     
+ 
 }

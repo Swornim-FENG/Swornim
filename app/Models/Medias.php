@@ -14,4 +14,8 @@ class Medias extends Model
     {
         return $this->belongsTo(Units::class, 'unit_id');
     }
+    public function property()
+    {
+        return $this->belongsTo(Properties::class, 'property_id');
+    }
 }

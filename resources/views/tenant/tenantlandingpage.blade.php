@@ -215,38 +215,47 @@
         <button>filter</button>
     </div>
     
-     
     
       
-      <div class="search-bar-container">
+    <div class="search-bar-container">
         <div class="search-bar">
-          <input type="text" placeholder="Search..." />
+          <form action="">
+          <input type="search" name="search" placeholder="Search by location" value="{{$search}}"/>
           <button type="submit">Search</button>
+          </form>
         </div>
       
       <div class="room-grid">
       @foreach($photos as $key => $photo)
-        <a href="{{url('/tenant/productpage/')}}/{{$photo->media_id}}/{{$units[$key]->unit_id}}/{{$properties[$key]->property_id}}/{{$properties[$key]->user_id}}"  class="room-card">
-        {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150" alt="Room 1">
 
-        <div>
-            <br>
-            Location: {{$properties[$key]->address}}
-            <br>
-            <br>
-            Price: {{$units[$key]->price}}
-            <p>Rating:</p>
-            <div class="star-ratings">
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-                <span class="star">&#9733;</span>
-            </div>
-        </div>
-    </a>
-    @endforeach
-</div>
+           @php
+           $property = $properties[$key] ?? null;
+           $unit = $units[$key] ?? null;
+          @endphp     
+
+         @if($property && $unit)
+         <a href="{{url('/tenant/productpage/')}}/{{$photo->media_id}}/{{$unit->unit_id}}/{{$property->property_id}}/{{$property->user_id}}" class="room-card">
+         {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150" alt="Room 1">
+
+         <div>
+        <br>
+        Location: {{$property->address}}
+          <br>
+          <br>
+          Price: {{$unit->price}}
+          <p>Rating:</p>
+          <div class="star-ratings">
+           <span class="star">&#9733;</span>
+           <span class="star">&#9733;</span>
+           <span class="star">&#9733;</span>
+           <span class="star">&#9733;</span>
+           <span class="star">&#9733;</span>
+          </div>
+          </div>
+           </a>
+           @endif
+           @endforeach
+          </div>
       <!-- <div class="show-more-button">
         <button>Show More</button>
       </div> -->

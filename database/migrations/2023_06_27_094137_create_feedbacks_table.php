@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id('feedback_id');
             $table->unsignedBigInteger('unit_id');
-            $table->foreign('unit_id')->references('unit_id')->on('units');
+            $table->foreign('unit_id')->references('unit_id')->on('units')->onDelete('cascade');
             $table->text('Comment');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('tenants');

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             
-            Roleseeder::class,
+            Facilitylistseeder::class,
             
         ]);
     }

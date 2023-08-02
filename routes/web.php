@@ -76,7 +76,7 @@ Route::post('/properties',[PropertyimageController::class,'store']);
 
 Route::get('/properties',[PropertyimageController::class,'create']);
 
-Route::get('/properties/delete/{id}/{eid}/{eeid}',[PropertyimageController::class,'delete']);
+Route::get('/properties/delete/{id}',[PropertyimageController::class,'deleteProperty']);
 
 Route::get('/landingpage',[LandingpageController::class,'show']);
 
@@ -91,6 +91,12 @@ Route::get('/tenant/landingpage',[TenantlandingpageController::class,'show']);
 Route::get('/tenant/productpage/{id}/{eid}/{eeid}/{eeeid}',[TenantlandingpageController::class,'display']);
 
 Route::get('/landlord/addproperty',[PropertyaddController::class,'show']);
+
+Route::post('/tenant/feedback/{id}',[TenantlandingpageController::class,'feedback']);
+
+Route::get('/properties/update/{id}/{eid}/{eeid}',[PropertyimageController::class,'updateProperty']);
+
+Route::post('/properties/edit/{id}/{eid}/{eeid}',[PropertyimageController::class,'editProperty']);
 
 
 

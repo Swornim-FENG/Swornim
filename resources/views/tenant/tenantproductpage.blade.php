@@ -178,45 +178,27 @@
             <div class="hd">
               <h2>User Reviews</h2>
             </div>
-            <div class="reviews">
+          
+              
+                @foreach ($feedbacks as $feedback)
+                <div class="reviews">
               <div class="user-review">
                 <div class="user-info">
-                  <div class="user-name">Rikshal Shrestha</div>
+                @php
+                $userd = $userdetails->firstWhere('user_id', $feedback->user_id);
+                @endphp
+                  <div class="user-name">{{ $userd->Fullname }}</div>
+                  
                   <div class="user-rating">4.5 ★</div>
                 </div>
                 <div class="review-text">
-                  "This place exceeded my expectations. The amenities were
-                  great, and the location was perfect."
-                </div>
-              </div>
-
-              <div class="user-review">
-                <div class="user-info">
-                  <div class="user-name">Arpan Adhikari</div>
-                  <div class="user-rating">5 ★</div>
-                </div>
-                <div class="review-text">
-                  "I had a fantastic stay here. The room was clean, and the
-                  staff was very friendly and helpful."
-                </div>
-              </div>
-              <div class="user-review">
-                <div class="user-info">
-                  <div class="user-name">Kundan Kumar Das</div>
-                  <div class="user-rating">1 ★</div>
-                </div>
-                <div class="review-text">
-                  "Heh! It was too colorful for my liking"
-                </div>
-              </div>
-              <div class="user-review">
-                <div class="user-info">
-                  <div class="user-name">Manish Koju</div>
-                  <div class="user-rating">5 ★</div>
-                </div>
-                <div class="review-text">
-                  "I loved it! It was bright, colorful and exiting. "
-                </div>
+                 {{ $feedback->Comment }}
+                 
+                  </div>   
+                 </div>
+                 @endforeach
+              
+              
               </div>
             </div>
             <div class="bt">
@@ -224,6 +206,11 @@
             </div>
           </div>
         </div>
+        <form action="{{url('/tenant/feedback')}}/{{$units->unit_id}}"method="post">
+          @csrf
+          <input type="text" name="feedback" placeholder="Provide feedback" />
+          <button type="submit">Submit</button>
+          </form>
         <div class="mid-right-container">
           <div class="book-now-box">
             <div class="dates-container">

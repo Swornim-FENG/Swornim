@@ -27,6 +27,6 @@ class Properties extends Model
 
     public function medias()
     {
-        return $this->hasManyThrough(Medias::class, Units::class, 'property_id', 'unit_id');
+        return $this->hasMany(Medias::class,  'property_id','property_id');
     }
 }

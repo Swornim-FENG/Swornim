@@ -53,16 +53,16 @@
       </ul>
     </nav>
     <section class="main">
-    <h1>Enter Details of Your Property</h1>
-    <form action="{{url('/')}}/properties"method="POST" enctype="multipart/form-data" >
+    <h1>{{$title}}</h1>
+    <form action="{{$url}}"method="POST" enctype="multipart/form-data" >
             @csrf
       <label for="address">Address:</label>
-      <input type="text" id="address" name="address" required /><br /><br />
+      <input type="text" id="address" name="address" value="{{$property->address}}" required /><br /><br />
       <label for="condition">Room Condition:</label>
       <select id="condition" name="condition" required>
-          <option value="good">Good</option>
-          <option value="average">Average</option>
-          <option value="poor">Poor</option>
+          <option value="good"{{$property->condition =="Good" ? "selected" : ""}}>Good</option>
+          <option value="average"{{$property->condition =="Average" ? "selected" : ""}}>Average</option>
+          <option value="poor"{{$property->condition =="Poor" ? "selected" : ""}}>Poor</option>
       </select><br><br>
       
       
@@ -72,17 +72,18 @@
         type="number"
         id="num_rooms"
         name="rooms"
+        value="{{$property->number_of_rooms}}"
         required
       /> <br /><br />
 
       <label for="price">Price (per month):</label>
-      <input type="number" id="price" name="price" required /><br /><br />
+      <input type="number" id="price" name="price"value="{{$units->price}}" required /><br /><br />
 
       <label for="latitude">Latitude:</label>
-      <input type="text" id="latitude" name="latitude" required /><br /><br />
+      <input type="text" id="latitude" name="latitude"value="{{$property->Latitude}}" required /><br /><br />
 
       <label for="longitude">Longitude:</label>
-      <input type="text" id="longitude" name="longitude" required /><br /><br />
+      <input type="text" id="longitude" name="longitude"value="{{$property->Longitude}}" required /><br /><br />
 
       <!-- Modify the "Choose Image" field to a button -->
       <label for="images">Room Images:</label>
@@ -112,49 +113,25 @@
       </script>
 
      
-
+        
       <label for="extra_facilities">Extra Facilities:</label><br />
+      @foreach($facilities as $facility)
       <input
         type="checkbox"
-        id="wifi"
-        name="extra_facilities"
-        value="Free WiFi"
+        id="facility-{{$facility->facility_id}}"
+        name="extra_facilities[]"
+        value="{{$facility->facility_id}}"
+        @if(in_array($facility->facility_id, $facilityid))
+            checked
+        @endif
       />
-      <label for="wifi">Free WiFi</label><br />
+      <label for="facility-{{$facility->facility_id}}">{{$facility->name}}</label><br />
+      @endforeach
 
-      <input
-        type="checkbox"
-        id="heated_water"
-        name="extra_facilities"
-        value="Heated Water Supply"
-      />
-      <label for="heated_water">Heated Water Supply</label><br />
-
-      <input
-        type="checkbox"
-        id="24hr_water"
-        name="extra_facilities"
-        value="24hr Running Water"
-      />
-      <label for="24hr_water">24hr Running Water</label><br />
-
-      <input
-        type="checkbox"
-        id="parking"
-        name="extra_facilities"
-        value="Parking"
-      />
-      <label for="parking">Parking</label><br />
-
-      <input
-        type="checkbox"
-        id="flexible_hours"
-        name="extra_facilities"
-        value="Flexible Entry/Exit Hours"
-      />
-      <label for="flexible_hours">Flexible Entry/Exit Hours</label><br /><br />
+      <br /><br />
 
       <input type="submit" value="Submit"name="Upload" />
       </section>
+        
   </body>
 </html>

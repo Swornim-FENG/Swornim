@@ -10,4 +10,12 @@ class Unit_facilities extends Model
     use HasFactory;
     protected $table="unit_facilities";
     public $timestamps=false;
+    protected $fillable = [
+        'unit_id',
+        'facility_id',
+    ];
+    public function facilities()
+    {
+        return $this->belongsToMany(Facility_lists::class);
+    }
 }
