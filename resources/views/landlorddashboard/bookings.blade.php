@@ -25,25 +25,23 @@
           <i class="fas fa-home"></i>
           <span class="nav-item">Properties</span>
         </a></li>
-    
+
         <li><a href="{{url('/')}}/landlord/addproperty">
           <i class="fas fa-plus"></i>
           <span class="nav-item">Add Property</span>
         </a></li>
-
+    
         <li><a href="{{url('/')}}/tenants">
           <i class="fas fa-users"></i>
           <span class="nav-item">Tenants</span>
         </a></li>
 
-       
         
         <li><a href="">
           <i class="fas fa-cog"></i>
           <span class="nav-item">Settings</span>
         </a></li>
 
-        
 
         <li><a href="{{url('/')}}/logout" class="logout">
           <i class="fas fa-sign-out-alt"></i>
@@ -55,13 +53,38 @@
    
     <section class="main">
       <div class="main-top">
-             
-               Welcome , {{$username}}
-            
-      
-      </div>
+        
+        
+      </div>  
+      <h1> Bookings</h1>
+        <br>
+        @if ($rents->isEmpty())
+        <p> There is No booking for your property.</p>
+    @else
+      <ul>
+      @foreach ($rents as $rent)
+            <li>
+                @foreach ($users as $user)
+                    @if ($user->user_id == $rent->tenant_id)
+                        <strong>Full Name:</strong> {{ $user->Fullname }} <br>
+                    @endif
+                @endforeach
 
-      
+                @foreach ($tenants as $tenant)
+                    @if ($tenant->user_id == $rent->tenant_id)
+                        <strong>Phone Number:</strong> {{ $tenant->phone_number }} <br>
+                    @endif
+                @endforeach
+
+                <strong>Number of tenants:</strong> {{ $rent->number_of_tenants }} <br>
+                <strong>Check-in Date:</strong> {{ $rent->start_date }} <br>
+                <strong>Check-out Date:</strong> {{ $rent->end_date }} <br>
+                <hr>
+                <br>
+            </li>
+        @endforeach
+    </ul>
+    @endif
     </section>
   </div>
 </body>

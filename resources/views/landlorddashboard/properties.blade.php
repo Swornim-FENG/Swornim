@@ -37,10 +37,6 @@
           <span class="nav-item">Tenants</span>
         </a></li>
 
-        <li><a href="">
-          <i class="fas fa-check-circle"></i>
-          <span class="nav-item">Bookings</span>
-        </a></li>
         
         <li><a href="">
           <i class="fas fa-cog"></i>
@@ -91,6 +87,11 @@
              <a href="{{ url('/properties/update/'.$photo->unit->property->property_id.'/'.$photo->unit->unit_id.'/'.$photo->media_id) }}">
           <button >Update</button>
            </a>
+
+           <a href="{{ url('/properties/bookings/'.$photo->unit->unit_id) }}">
+          <button >See bookings</button>
+           </a>
+           
           
         
           

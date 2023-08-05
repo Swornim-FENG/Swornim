@@ -304,6 +304,34 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include jQuery UI library -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+
+       
+           <script>
+                   function initMap() {
+              var latitude = <?php echo $properties->Latitude; ?> ;
+              var longitude = <?php echo $properties->Longitude; ?>;
+
+             var coord = { lat: latitude, lng: longitude };
+               var map=new google.maps.Map(document.getElementById("map"), {
+               zoom: 10,
+              center: coord,
+               });
+
+               new google.maps.Marker({
+                position:coord,
+                map:map
+               })
+              }
+              
+   
+       
+            </script>
+            
+               <div id ="map" style="width:100%;height:400px;"></div>
+            
+   
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZFB7MhJB2peynjvmV1jZkCNs5yr9o55M&callback=initMap" async defer></script>
   </body>
 
   <footer>

@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('rents', function (Blueprint $table) {
             $table->id('rent_id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('tenants');
+            $table->unsignedBigInteger('tenant_id');
+            $table->foreign('tenant_id')->references('user_id')->on('tenants');
+            $table->unsignedBigInteger('landlord_id');
+            $table->foreign('landlord_id')->references('user_id')->on('landlords');
             $table->unsignedBigInteger('unit_id');
-            $table->foreign('unit_id')->references('unit_id')->on('units');
-            $table->integer('price');
-            $table->date('Start_date');
-            $table->date('End_date');
+            $table->foreign('unit_id')->references('unit_id')->on('units')->onDelete('cascade');
+            $table->integer('number_of_tenants');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->enum('status',["paid","Unpaid"]);
             $table->timestamps();
         });

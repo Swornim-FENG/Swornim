@@ -14,6 +14,8 @@ class ProductpageController extends Controller
         $photos=Medias::find($id);
         $units=Units::find($eid);
         $properties=Properties::find($eeid);
+        // $latitude= $properties->Latitude;
+        // $longitude= $properties->Longitude;
         $user=User::find($eeeid);
         return view('productpage')->with(compact('photos', 'properties','units','user'));
         // $photos = Medias::all();

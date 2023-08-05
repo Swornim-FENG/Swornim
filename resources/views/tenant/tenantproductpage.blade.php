@@ -28,11 +28,6 @@
         });
       });
 
-      function markAsBooked() {
-    var button = document.getElementById("book-now-button");
-    button.innerText = "Booked";
-    button.disabled = true;
-  }
 
       // Code for owner info popup
       function openOwnerInfo() {
@@ -206,11 +201,14 @@
             </div>
           </div>
         </div>
-        <form action="{{url('/tenant/feedback')}}/{{$units->unit_id}}"method="post">
+        <form action="{{url('/tenant/feedback')}}/{{$units->unit_id}}"method="post"id="booking-form" >
           @csrf
           <input type="text" name="feedback" placeholder="Provide feedback" />
           <button type="submit">Submit</button>
           </form>
+
+          <form action="{{url('/tenant/bookings')}}/{{$units->unit_id}}"method="post">
+          @csrf
         <div class="mid-right-container">
           <div class="book-now-box">
             <div class="dates-container">
@@ -218,16 +216,18 @@
                 type="text"
                 class="checkin-date"
                 id="checkin-date"
-                placeholder="Check-in Date"
+                name="checkin"
+                placeholder="Check-in Date" required
               />
               <input
                 type="text"
                 class="checkout-date"
                 id="checkout-date"
-                placeholder="Check-out Date"
+                name="checkout"
+                placeholder="Check-out Date" required
               />
             </div>
-            <select class="number-of-tenants" id="number-of-tenants">
+            <select class="number-of-tenants" id="number-of-tenants"name="number_of_tenants" required>
               <option value="" disabled selected hidden>
                 Number of Tennants
               </option>
@@ -253,13 +253,14 @@
               </div>
             </div>
             <a href="#"style="text-decoration: none;">
-            <button id="book-now-button" onclick="markAsBooked()" >Book Now</button>
-
+            <button id="book-now-button"type="submit"  >Book Now</button>
+            
         </a>
             
           </div>
         </div>
       </div>
+      </form>
 
       <div class="bottom-container">
         <div class="bottom-section">

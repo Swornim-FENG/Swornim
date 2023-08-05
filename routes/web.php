@@ -11,6 +11,8 @@ use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\ProductpageController;
 use App\Http\Controllers\TenantlandingpageController;
 use App\Http\Controllers\PropertyaddController;
+use App\Http\Controllers\MapController;
+use App\Http\Controllers\BookingController;
 
 Route::get('/signup',[SignupController::class,'signup']);
 
@@ -97,6 +99,14 @@ Route::post('/tenant/feedback/{id}',[TenantlandingpageController::class,'feedbac
 Route::get('/properties/update/{id}/{eid}/{eeid}',[PropertyimageController::class,'updateProperty']);
 
 Route::post('/properties/edit/{id}/{eid}/{eeid}',[PropertyimageController::class,'editProperty']);
+
+Route::get('/map',[MapController::class,'index']);
+
+Route::post('/tenant/bookings/{id}',[TenantlandingpageController::class,'bookings']);
+
+Route::get('/properties/bookings/{id}',[BookingController::class,'showbooking']);
+
+
 
 
 

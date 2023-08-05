@@ -9,6 +9,7 @@ use App\Models\Units;
 use App\Models\User;
 use App\Models\Feedbacks;
 use App\Models\Tenants;
+use App\Models\Rents;
 
 class TenantlandingpageController extends Controller
 {
@@ -54,5 +55,29 @@ class TenantlandingpageController extends Controller
         $feedback->unit_id=$id;
         $feedback->save();
         return redirect()->back();
+    }
+    public function bookings($id,Request $request){
+        $rents= new Rents;
+        $userObj = $request->session()->get("user");
+        $userId=$userObj->user_id;
+        $rents->tenant_id=$userId;
+        $units=Units::find($id);
+        $rents->landlord_id=$units->user_id;
+        $rents->unit_id=$id;
+        $rents->number_of_tenants=$request['number_of_tenants'];
+        $checkinDate = $request['checkin'];
+        $checkoutDate = $request['checkout'];
+
+        // Convert the dates to the correct format "YYYY-MM-DD"
+        $formattedCheckin = date('Y-m-d', strtotime($checkinDate));
+        $formattedCheckout = date('Y-m-d', strtotime($checkoutDate));
+
+       // Now assign the formatted dates to the $rents object
+        $rents->start_date = $formattedCheckin;
+         $rents->end_date = $formattedCheckout;
+        $rents->status="Unpaid";
+        $rents->save();
+        return redirect()->back();
+
     }
 }

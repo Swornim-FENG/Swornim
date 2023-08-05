@@ -35,10 +35,6 @@
           <span class="nav-item">Tenants</span>
         </a></li>
 
-        <li><a href="">
-          <i class="fas fa-check-circle"></i>
-          <span class="nav-item">Bookings</span>
-        </a></li>
         
         <li><a href="">
           <i class="fas fa-cog"></i>
