@@ -29,6 +29,27 @@ Route::get('/about', function () {
 Route::get('/footer', function () {
     return view('footer');
 });
+Route::get('/resp-home', function () {
+    return view('resp-landing');
+});
+Route::get('/resp-product', function () {
+    return view('resp-product');
+});
+Route::get('/resp-tenant', function () {
+    return view('resp-tenant');
+});
+Route::get('/resp-landlord', function () {
+    return view('resp-landlord');
+});
+Route::get('/resp-about', function () {
+    return view('resp-about');
+});
+Route::get('/resp-footer', function () {
+    return view('resp-footer');
+});
+Route::get('/resp-header', function () {
+    return view('resp-header');
+});
 
 Route::get('/tenant', [TenantsignupController::class, 'signup'])->name('tenant');
 
