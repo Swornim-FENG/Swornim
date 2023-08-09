@@ -60,9 +60,9 @@ Route::get('/sidebar',function(){
     return(view('landlorddashboard.sidebar'));
 });
 
+Route::get('/landlord/notifications',[ProfileController::class,'notifications']);
 
-
-Route::get('/profile',[ProfileController::class,'show']);
+Route::get('/landlord/dashboard',[ProfileController::class,'show']);
 
 Route::get('/logout',[ProfileController::class,'logout']);
 
@@ -105,6 +105,10 @@ Route::get('/map',[MapController::class,'index']);
 Route::post('/tenant/bookings/{id}',[TenantlandingpageController::class,'bookings']);
 
 Route::get('/properties/bookings/{id}',[BookingController::class,'showbooking']);
+
+Route::get('/properties/bookings/accept/{id}',[BookingController::class,'acceptbooking']);
+
+Route::get('/properties/bookings/reject/{id}',[BookingController::class,'rejectbooking']);
 
 
 

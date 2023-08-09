@@ -214,48 +214,51 @@
         </ul>
         <button>filter</button>
     </div>
-    
-    
-      
+        
     <div class="search-bar-container">
         <div class="search-bar">
           <form action="">
-          <input type="search" name="search" placeholder="Search by location" value="{{$search}}"/>
+          <input type="search" name="search" placeholder="Search by location" value="{{$searchQuery}}"/>
           <button type="submit">Search</button>
           </form>
         </div>
+        
+        
+
       
       <div class="room-grid">
-      @foreach($photos as $key => $photo)
+        
+        
+        @foreach ($properties as $property)
+    @foreach ($property->medias as $photo)
+        @foreach ($property->units as $unit)
+            <a href="{{ url('/tenant/productpage/') }}/{{ $photo->media_id }}/{{ $unit->unit_id }}/{{ $property->property_id }}/{{ $property->user_id }}" class="room-card">
+                {{ $photo->name }}<img src="{{ asset('storage/images/' . $photo->Media_file) }}" width="200" height="150" alt="Room 1">
 
-           @php
-           $property = $properties[$key] ?? null;
-           $unit = $units[$key] ?? null;
-          @endphp     
+                <div>
+                    <br>
+                    Location: {{ $property->address }}
+                    <br>
+                    <br>
+                    Price: {{ $unit->price }}
+                    <p>Rating:</p>
+                    <div class="star-ratings">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                </div>
+            </a>
+        @endforeach
+    @endforeach
+@endforeach
 
-         @if($property && $unit)
-         <a href="{{url('/tenant/productpage/')}}/{{$photo->media_id}}/{{$unit->unit_id}}/{{$property->property_id}}/{{$property->user_id}}" class="room-card">
-         {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150" alt="Room 1">
-
-         <div>
-        <br>
-        Location: {{$property->address}}
-          <br>
-          <br>
-          Price: {{$unit->price}}
-          <p>Rating:</p>
-          <div class="star-ratings">
-           <span class="star">&#9733;</span>
-           <span class="star">&#9733;</span>
-           <span class="star">&#9733;</span>
-           <span class="star">&#9733;</span>
-           <span class="star">&#9733;</span>
-          </div>
-          </div>
-           </a>
-           @endif
-           @endforeach
-          </div>
+</div>
+    
+      
+    
       <!-- <div class="show-more-button">
         <button>Show More</button>
       </div> -->

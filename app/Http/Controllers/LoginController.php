@@ -25,7 +25,7 @@ class LoginController extends Controller
 
            }else if(Auth::user()->role_id==3){
                  
-                  return redirect()->intended('/profile');
+                  return redirect()->intended('/landlord/dashboard');
            }
         }
         else{

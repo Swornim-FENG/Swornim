@@ -20,4 +20,19 @@ class BookingController extends Controller
         return view('landlorddashboard.bookings')->with(compact('rents','users','tenants'));
 
     }
+    public function acceptbooking($id){
+        $units=Units::find($id);
+        $units->status="UnAvailable";
+        $units->save();
+        return redirect()->back();
+    }
+
+    public function rejectbooking($id){
+        
+        $rents=Rents::find($id);
+           if(!is_null($rents)){
+            $rents->delete();
+            return redirect()->back();
+        }
+    }
 }

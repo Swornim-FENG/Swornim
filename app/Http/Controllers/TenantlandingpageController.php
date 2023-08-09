@@ -14,22 +14,26 @@ use App\Models\Rents;
 class TenantlandingpageController extends Controller
 {
     public function show(Request $request){
+
+        $query = Properties::query();
+       
+        $searchQuery = request('search');
+
+        $query->when($searchQuery, function ($q) use ($searchQuery){
+         return $q->where('address', 'LIKE', "$searchQuery%");
+          });
+
+          $query->whereHas('units', function ($q) {
+            $q->where('status', '<>', 'UnAvailable');
+        });
         
-        $search = $request['search'] ?? "";
-        
-        if($search !=""){
-            $properties = Properties::where('address','LIKE',"$search%")->get();
-            $photos = Medias::whereIn('property_id', $properties->pluck('property_id'))->get();
-            $units = Units::whereIn('property_id', $properties->pluck('property_id'))->get();
-        }
-        else{
-            $properties = Properties::all();
-            $photos = Medias::whereIn('property_id', $properties->pluck('property_id'))->get();
-            $units = Units::whereIn('property_id', $properties->pluck('property_id'))->get();
-        }
-        $userObj = $request->session()->get("user");
+         $properties = $query->get();
+         $userObj = $request->session()->get("user");
         $username=$userObj->Fullname;
-        return view('tenant.tenantlandingpage')->with(compact('photos', 'properties','units','username','search'));
+        
+        return view('tenant.tenantlandingpage')->with(compact( 'properties','searchQuery','username'));
+        
+        
     }
 
     public function display($id,$eid,$eeid,$eeeid,Request $request){
@@ -62,6 +66,7 @@ class TenantlandingpageController extends Controller
         $userId=$userObj->user_id;
         $rents->tenant_id=$userId;
         $units=Units::find($id);
+        
         $rents->landlord_id=$units->user_id;
         $rents->unit_id=$id;
         $rents->number_of_tenants=$request['number_of_tenants'];

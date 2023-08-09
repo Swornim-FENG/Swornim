@@ -12,7 +12,7 @@
     <nav>
       <ul>
         <li><a href="#" class="logo">
-        
+          
           <span class="nav-item"></span>
         </a></li>
 
@@ -58,7 +58,7 @@
       </div>
 
       <section class="main-course">
-        <h1>Booking</h1>
+        <h1>Booking Requests</h1>
         <div class="course-box">
           
         <br>
@@ -85,6 +85,58 @@
                 <strong>Check-in Date:</strong> {{ $rent->start_date }} <br>
                 <strong>Check-out Date:</strong> {{ $rent->end_date }} <br>
                 
+                
+                <!-- <button class="acceptButton" data-popup-id="popup-{{ $rent->rent_id }}">Accept</button>
+                
+               
+                <div class="popup" id="popup-{{ $rent->rent_id }}">
+            <h3>Are you sure you want to accept this booking?</h3>
+
+            <a href="{{url('/properties/bookings/accept/'.$rent->unit_id)}}">
+          <button id="yesButton">Yes</button>
+           </a>
+            
+            <a href="{{url('/')}}/landlord/notifications"><button id="noButton">No</button></a>
+             </div>
+
+             <button class="rejectButton" data-popup-id="popup-{{ $rent->rent_id }}">Reject</button>
+                
+               
+                <div class="popup" id="popup-{{ $rent->rent_id }}">
+            <h3>Are you sure you want to reject this booking?</h3>
+
+            <a href="{{url('/properties/bookings/reject/'.$rent->rent_id)}}">
+          <button id="yesButton">Yes</button>
+           </a>
+            
+            <a href="{{url('/')}}/landlord/notifications"><button id="noButton">No</button></a>
+             </div> -->
+
+             <!-- For Accept Button -->
+<button class="actionButton acceptButton" data-popup-id="accept-popup-{{ $rent->rent_id }}">Accept</button>
+
+<div class="popup" id="accept-popup-{{ $rent->rent_id }}">
+    <h3>Are you sure you want to accept this booking?</h3>
+    <a href="{{url('/properties/bookings/accept/'.$rent->unit_id)}}">
+        <button class="actionButton" id="accept-yesButton">Yes</button>
+    </a>
+    <a href="{{url('/')}}/landlord/notifications">
+        <button class="actionButton" id="accept-noButton">No</button>
+    </a>
+</div>
+
+<!-- For Reject Button -->
+<button class="actionButton rejectButton" data-popup-id="reject-popup-{{ $rent->rent_id }}">Reject</button>
+
+<div class="popup" id="reject-popup-{{ $rent->rent_id }}">
+    <h3>Are you sure you want to reject this booking?</h3>
+    <a href="{{url('/properties/bookings/reject/'.$rent->rent_id)}}">
+        <button class="actionButton" id="reject-yesButton">Yes</button>
+    </a>
+    <a href="{{url('/')}}/landlord/notifications">
+        <button class="actionButton" id="reject-noButton">No</button>
+    </a>
+</div>
                 <hr>
                 <br>
                 
@@ -93,14 +145,27 @@
         @endforeach
     </ul>
     @endif
-            
+           
             
           
         </div>
       </section>
     </section>
   </div>
+  <script>
+  const actionButtons = document.querySelectorAll('.actionButton');
 
-  
+actionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const popupId = button.getAttribute('data-popup-id');
+        const popup = document.getElementById(popupId);
+
+        if (popup) {
+            popup.style.display = 'block';
+        }
+    });
+});
+
+  </script>
 </body>
 </html>

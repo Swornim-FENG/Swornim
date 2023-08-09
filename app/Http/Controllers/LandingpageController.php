@@ -34,7 +34,10 @@ class LandingpageController extends Controller
          return $q->where('address', 'LIKE', "$searchQuery%");
           });
 
-
+          $query->whereHas('units', function ($q) {
+            $q->where('status', '<>', 'UnAvailable');
+        });
+        
          $properties = $query->get();
          
         

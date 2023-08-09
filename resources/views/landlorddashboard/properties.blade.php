@@ -14,12 +14,12 @@
       <ul>
         <li><a href="#" class="logo">
           
-          <span class="nav-item">DashBoard</span>
+          <span class="nav-item"></span>
         </a></li>
 
-        <li><a href="{{url('/')}}/profile">
+        <li><a href="{{url('/')}}/landlord/dashboard">
           <i class="fas fa-user"></i>
-          <span class="nav-item">Profile</span>
+          <span class="nav-item">DashBoard</span>
         </a></li>
 
         <li><a href="{{url('/')}}/properties">
@@ -38,9 +38,9 @@
         </a></li>
 
         
-        <li><a href="">
-          <i class="fas fa-cog"></i>
-          <span class="nav-item">Settings</span>
+        <li><a href="{{url('/')}}/landlord/notifications">
+          <i class="fas fa-bell"></i>
+          <span class="nav-item">Notifications</span>
         </a></li>
 
 

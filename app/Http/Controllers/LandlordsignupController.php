@@ -53,7 +53,7 @@ class LandlordsignupController extends Controller
             $lastInsertedUserId = $user->getKey();
             $landlords->user_id=$lastInsertedUserId;
             $landlords->save();
-            return redirect('/profile');
+            return redirect('/landlord/dashboard');
        
         }
 }}
