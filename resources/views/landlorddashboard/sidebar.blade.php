@@ -2,23 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/landlorddashboard/sidebar.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 
-<header class="header">
-    <div class="logo">
-      <a href="#">MSH</a>
-      <div class="search_box">
-        <input type="text" placeholder="Search EasyPay">
-        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-      </div>
-    </div>
 
-    <div class="header-icons">
-      <i class="fas fa-bell"></i>
-      <div class="account">
-      <i class="fas fa-user"></i>
-        <h4>Jhon Viek</h4>
-      </div>
-    </div>
-  </header>
 
   <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +31,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: 100px;
   padding: 20px;
   background: #fff;
 }
@@ -193,32 +177,12 @@ table td{
     </style>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">
-      <a href="#">EasyPay</a>
-      <div class="search_box">
-        <input type="text" placeholder="Search EasyPay">
-        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-      </div>
-    </div>
-
-    <div class="header-icons">
-      <i class="fas fa-bell"></i>
-      <div class="account">
-        <img src="./pic/img.jpg" alt="">
-        <h4>Jhon Viek</h4>
-      </div>
-    </div>
-  </header>
+  
  
 
     <div class="main-body">
       <h2>Dashboard</h2>
-      <div class="promo_card">
-        <h1>Welcome to EasyPay</h1>
-        <span>Lorem ipsum dolor sit amet.</span>
-        <button>Learn More</button>
-      </div>
+      
 
       <div class="history_lists">
         <div class="list1">

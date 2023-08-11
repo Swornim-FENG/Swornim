@@ -38,6 +38,7 @@ class ProfileController extends Controller
         $units=Units::where('user_id',$userId);
         $unitstatus=$units->pluck('status');
         $rents = Rents::where('landlord_id', $userId)
+        ->where('status', 'Unpaid') 
         ->orderBy('created_at', 'desc') 
         ->get();
         $tenantids=$rents->pluck('tenant_id');
@@ -46,6 +47,32 @@ class ProfileController extends Controller
         
         return view('landlorddashboard.notifications')->with(compact('rents','users','tenants','unitstatus'));
     }
+    public function showtenants(Request $request){
+        $userObj = $request->session()->get("user");
+        $userId=$userObj->user_id;
+        $units=Units::where('user_id',$userId);
+        $unitstatus=$units->pluck('status');
+        $rents = Rents::where('landlord_id', $userId)
+        ->where('status', 'paid') 
+        ->orderBy('created_at', 'desc') 
+        ->get();
+        $tenantids=$rents->pluck('tenant_id');
+        $users=User::whereIn('user_id',$tenantids)->get();
+        $tenants=Tenants::whereIn('user_id',$tenantids)->get();
+        
+        return view('landlorddashboard.tenant')->with(compact('rents','users','tenants','unitstatus'));
+    }
+
+    public function removetenant($id,$eid){
+        
+        $rents=Rents::find($id);
+        $unit=Units::find($eid);
+        $unit->status="Available";
+        $unit->save();
+           if(!is_null($rents)){
+            $rents->delete();
+            return redirect()->back();
+        }}
 
     public function logout(){
        auth()->logout();

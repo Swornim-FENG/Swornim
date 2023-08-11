@@ -6,8 +6,23 @@
   <link rel="stylesheet" href="{{asset('css/landlorddashboard.css')}}" />
   <!-- Font Awesome Cdn Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 </head>
 <body>
+<header class="header">
+    <div class="logo">
+    <img class="logo" src="{{asset('images/logoPrototype.png')}}"alt="Logo" style="width: 100px; margin-right: 10px;" />
+      
+    </div>
+
+    <div class="header-icons">
+      <i class="fas fa-bell"style="color: red;"></i>
+      <div class="account">
+      <i class="fas fa-user"></i>
+        
+      </div>
+    </div>
+  </header>
   <div class="container">
     <nav>
       <ul>
@@ -31,14 +46,14 @@
           <span class="nav-item">Add Property</span>
         </a></li>
     
-        <li><a href="{{url('/')}}/tenants">
+        <li><a href="{{url('/')}}/landlord/showtenants">
           <i class="fas fa-users"></i>
           <span class="nav-item">Tenants</span>
         </a></li>
 
         
         <li><a href="{{url('/')}}/landlord/notifications">
-          <i class="fas fa-bell"></i>
+          <i class="fas fa-bell"style="color: red;"></i>
           <span class="nav-item">Notifications</span>
         </a></li>
 
@@ -63,7 +78,7 @@
           
         <br>
         @if ($rents->isEmpty())
-        <p> There is No booking for your property.</p>
+        <p>Currently there are No booking requests for your property.</p>
     @else
       <ul>
       @foreach ($rents as $rent)
@@ -85,58 +100,33 @@
                 <strong>Check-in Date:</strong> {{ $rent->start_date }} <br>
                 <strong>Check-out Date:</strong> {{ $rent->end_date }} <br>
                 
-                
-                <!-- <button class="acceptButton" data-popup-id="popup-{{ $rent->rent_id }}">Accept</button>
-                
                
-                <div class="popup" id="popup-{{ $rent->rent_id }}">
-            <h3>Are you sure you want to accept this booking?</h3>
-
-            <a href="{{url('/properties/bookings/accept/'.$rent->unit_id)}}">
-          <button id="yesButton">Yes</button>
-           </a>
-            
-            <a href="{{url('/')}}/landlord/notifications"><button id="noButton">No</button></a>
-             </div>
-
-             <button class="rejectButton" data-popup-id="popup-{{ $rent->rent_id }}">Reject</button>
-                
-               
-                <div class="popup" id="popup-{{ $rent->rent_id }}">
-            <h3>Are you sure you want to reject this booking?</h3>
-
-            <a href="{{url('/properties/bookings/reject/'.$rent->rent_id)}}">
-          <button id="yesButton">Yes</button>
-           </a>
-            
-            <a href="{{url('/')}}/landlord/notifications"><button id="noButton">No</button></a>
-             </div> -->
 
              <!-- For Accept Button -->
-<button class="actionButton acceptButton" data-popup-id="accept-popup-{{ $rent->rent_id }}">Accept</button>
+               <button class="actionButton acceptButton" data-popup-id="accept-popup-{{ $rent->rent_id }}">Accept</button>
 
-<div class="popup" id="accept-popup-{{ $rent->rent_id }}">
-    <h3>Are you sure you want to accept this booking?</h3>
-    <a href="{{url('/properties/bookings/accept/'.$rent->unit_id)}}">
-        <button class="actionButton" id="accept-yesButton">Yes</button>
-    </a>
-    <a href="{{url('/')}}/landlord/notifications">
-        <button class="actionButton" id="accept-noButton">No</button>
-    </a>
-</div>
+               <div class="popup" id="accept-popup-{{ $rent->rent_id }}">
+               <h3>Are you sure you want to accept this booking?</h3>
+              <a href="{{url('/properties/bookings/accept/'.$rent->rent_id)}}">
+               <button class="actionButton" id="accept-yesButton">Yes</button>
+               </a>
+              <a href="{{url('/')}}/landlord/notifications">
+              <button class="actionButton" id="accept-noButton">No</button>
+              </a>
+              </div>
 
-<!-- For Reject Button -->
-<button class="actionButton rejectButton" data-popup-id="reject-popup-{{ $rent->rent_id }}">Reject</button>
+             <!-- For Reject Button -->
+             <button class="actionButton rejectButton" data-popup-id="reject-popup-{{ $rent->rent_id }}">Reject</button>
 
-<div class="popup" id="reject-popup-{{ $rent->rent_id }}">
-    <h3>Are you sure you want to reject this booking?</h3>
-    <a href="{{url('/properties/bookings/reject/'.$rent->rent_id)}}">
-        <button class="actionButton" id="reject-yesButton">Yes</button>
-    </a>
-    <a href="{{url('/')}}/landlord/notifications">
-        <button class="actionButton" id="reject-noButton">No</button>
-    </a>
-</div>
+             <div class="popup" id="reject-popup-{{ $rent->rent_id }}">
+             <h3>Are you sure you want to reject this booking?</h3>
+              <a href="{{url('/properties/bookings/reject/'.$rent->rent_id.'/'.$rent->unit_id)}}">
+              <button class="actionButton" id="reject-yesButton">Yes</button>
+              </a>
+              <a href="{{url('/')}}/landlord/notifications">
+               <button class="actionButton" id="reject-noButton">No</button>
+               </a>
+              </div>
                 <hr>
                 <br>
                 

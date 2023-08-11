@@ -66,7 +66,8 @@ class TenantlandingpageController extends Controller
         $userId=$userObj->user_id;
         $rents->tenant_id=$userId;
         $units=Units::find($id);
-        
+        $units->status="UnAvailable";
+        $units->save();
         $rents->landlord_id=$units->user_id;
         $rents->unit_id=$id;
         $rents->number_of_tenants=$request['number_of_tenants'];

@@ -21,15 +21,18 @@ class BookingController extends Controller
 
     }
     public function acceptbooking($id){
-        $units=Units::find($id);
-        $units->status="UnAvailable";
-        $units->save();
+        $rents=Rents::find($id);
+        $rents->status="paid";
+        $rents->save();
         return redirect()->back();
     }
 
-    public function rejectbooking($id){
+    public function rejectbooking($id,$eid){
         
         $rents=Rents::find($id);
+        $unit=Units::find($eid);
+        $unit->status="Available";
+        $unit->save();
            if(!is_null($rents)){
             $rents->delete();
             return redirect()->back();
