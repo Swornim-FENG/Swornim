@@ -10,14 +10,15 @@ use App\Models\Tenants;
 
 class BookingController extends Controller
 {
-    public function showbooking($id){
+    public function showbooking($id,Request $request){
         $rents = Rents::where('unit_id', $id)->get();
         $tenantids=$rents->pluck('tenant_id');
         $users=User::whereIn('user_id',$tenantids)->get();
         $tenants=Tenants::whereIn('user_id',$tenantids)->get();
-        
+        $userObj = $request->session()->get("user");
+        $username=$userObj->Fullname;
 
-        return view('landlorddashboard.bookings')->with(compact('rents','users','tenants'));
+        return view('landlorddashboard.bookings')->with(compact('rents','users','tenants','username'));
 
     }
     public function acceptbooking($id){

@@ -84,12 +84,14 @@ class PropertyimageController extends Controller
         $photos = Medias::whereIn('unit_id', $unitid)->get();
         $mediaid=$photos->pluck('media_id');
         $propertyid=$properties->pluck('property_id');
+        $userObj = $request->session()->get("user");
+        $username=$userObj->Fullname;
         // dd($mediaid);
         // $photos = Medias::all();
         // $properties = Properties::all();
         // $units= Units::all();
         
-        return view('landlorddashboard.properties',compact('photos', 'properties','units'));
+        return view('landlorddashboard.properties',compact('photos', 'properties','units','username'));
     }
     public function deleteProperty($id){
            $property=Properties::find($id);
@@ -101,7 +103,7 @@ class PropertyimageController extends Controller
         
     }
 
-    public function updateProperty($id,$eid,$eeid){
+    public function updateProperty($id,$eid,$eeid,Request $request){
         $property=Properties::find($id);
         if(is_null($property)){
             return redirect('/properties');
@@ -113,9 +115,11 @@ class PropertyimageController extends Controller
             $units = Units::find($eid);
             $unitid=$units->pluck('unit_id');
             $photos = Medias::find($eeid);
+            $userObj = $request->session()->get("user");
+            $username=$userObj->Fullname;
             $unitfacilities= Unit_facilities::whereIn('unit_id',$unitid)->get();
             $facilityid=$unitfacilities->pluck('facility_id')->toArray();
-            return view('landlorddashboard.propertyadd',compact('units','photos','unitfacilities','property','facilities','url','title','facilityid'));
+            return view('landlorddashboard.propertyadd',compact('units','photos','unitfacilities','property','facilities','url','title','facilityid','username'));
         }}
 
         public function editProperty($id,$eid,$eeid,Request $request){

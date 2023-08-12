@@ -20,7 +20,7 @@
       <i class="fas fa-bell"style="color: red;"></i>
       <div class="account">
       <i class="fas fa-user"></i>
-       
+      <h4>{{$username}}</h4>
       </div>
     </div>
   </header>

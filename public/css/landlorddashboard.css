@@ -256,6 +256,23 @@ button {
   border-radius: 4px;
 }
 
+table{
+  background: #fff;
+  padding: 1rem;
+  text-align: left;
+  border-radius: 10px;
+}
+table td, th{
+  padding: 0.2rem 0.8rem;
+}
+table th{
+  font-size: 15px;
+}
+table td{
+  font-size: 13px;
+  color: rgb(100, 100, 100);
+}
+
 
 
 

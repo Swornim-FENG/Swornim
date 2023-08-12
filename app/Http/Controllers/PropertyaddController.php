@@ -13,7 +13,7 @@ use App\Models\Unit_facilities;
 
 class PropertyaddController extends Controller
 {
-    public function show(){
+    public function show(Request $request){
         $url= url('/properties');
         $photos=new Medias;
         $property=new Properties;
@@ -21,7 +21,9 @@ class PropertyaddController extends Controller
         $unitfacilities=  new Unit_facilities;
         $facilityid=[];
        $facilities= Facility_lists::get();
+       $userObj = $request->session()->get("user");
+       $username=$userObj->Fullname;
        $title="Enter details of Your Property";
-        return view('landlorddashboard.propertyadd',compact('facilities','url','title','photos','property','units','unitfacilities','facilityid'));
+        return view('landlorddashboard.propertyadd',compact('facilities','url','title','photos','property','units','unitfacilities','facilityid','username'));
     }
 }
