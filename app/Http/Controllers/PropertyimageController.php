@@ -10,6 +10,7 @@ use App\Models\Landlords;
 use App\Models\User;
 use App\Models\Facility_lists;
 use App\Models\Unit_facilities;
+use App\Models\Rents;
 
 class PropertyimageController extends Controller
 {
@@ -90,8 +91,13 @@ class PropertyimageController extends Controller
         // $photos = Medias::all();
         // $properties = Properties::all();
         // $units= Units::all();
+
+        $rentstatus = Rents::where('landlord_id', $userId)
+        ->where('status', 'Unpaid') 
+        ->orderBy('created_at', 'desc') 
+        ->get();
         
-        return view('landlorddashboard.properties',compact('photos', 'properties','units','username'));
+        return view('landlorddashboard.properties',compact('photos', 'properties','units','username','rentstatus'));
     }
     public function deleteProperty($id){
            $property=Properties::find($id);
@@ -113,13 +119,21 @@ class PropertyimageController extends Controller
             $title="Update details of Your Property";
             $facilities= Facility_lists::get();
             $units = Units::find($eid);
-            $unitid=$units->pluck('unit_id');
+            $unit = Units::where('property_id', $property->property_id)->get();
+            $unitid=$unit->pluck('unit_id');
             $photos = Medias::find($eeid);
             $userObj = $request->session()->get("user");
             $username=$userObj->Fullname;
+            $userId=$userObj->user_id;
             $unitfacilities= Unit_facilities::whereIn('unit_id',$unitid)->get();
             $facilityid=$unitfacilities->pluck('facility_id')->toArray();
-            return view('landlorddashboard.propertyadd',compact('units','photos','unitfacilities','property','facilities','url','title','facilityid','username'));
+           
+
+            $rentstatus = Rents::where('landlord_id', $userId)
+             ->where('status', 'Unpaid') 
+             ->orderBy('created_at', 'desc') 
+             ->get();
+            return view('landlorddashboard.propertyadd',compact('units','photos','unitfacilities','property','facilities','url','title','facilityid','username','rentstatus'));
         }}
 
         public function editProperty($id,$eid,$eeid,Request $request){

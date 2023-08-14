@@ -42,9 +42,14 @@ class ProfileController extends Controller
         $users=User::whereIn('user_id',$tenantids)->get();
         $tenants=Tenants::whereIn('user_id',$tenantids)->get();
 
+        $rentstatus = Rents::where('landlord_id', $userId)
+        ->where('status', 'Unpaid') 
+        ->orderBy('created_at', 'desc') 
+        ->get();
+
         // $data=compact('landlord');
         
-        return view('landlorddashboard.dashboard')->with(compact('username','totalproperties','properties','units','rents','users','tenants',));
+        return view('landlorddashboard.dashboard')->with(compact('username','totalproperties','properties','units','rents','users','tenants','rentstatus'));
     }
 
     public function notifications(Request $request){
@@ -61,12 +66,18 @@ class ProfileController extends Controller
         $username=$userObj->Fullname;
         $users=User::whereIn('user_id',$tenantids)->get();
         $tenants=Tenants::whereIn('user_id',$tenantids)->get();
+
+        $rentstatus = Rents::where('landlord_id', $userId)
+        ->where('status', 'Unpaid') 
+        ->orderBy('created_at', 'desc') 
+        ->get();
         
-        return view('landlorddashboard.notifications')->with(compact('rents','users','tenants','unitstatus','username'));
+        return view('landlorddashboard.notifications')->with(compact('rents','users','tenants','unitstatus','username','rentstatus'));
     }
     public function showtenants(Request $request){
         $userObj = $request->session()->get("user");
         $userId=$userObj->user_id;
+        $username=$userObj->Fullname;
         $units=Units::where('user_id',$userId);
         $unitstatus=$units->pluck('status');
         $rents = Rents::where('landlord_id', $userId)
@@ -77,9 +88,13 @@ class ProfileController extends Controller
         $users=User::whereIn('user_id',$tenantids)->get();
         $tenants=Tenants::whereIn('user_id',$tenantids)->get();
         $userObj = $request->session()->get("user");
-        $username=$userObj->Fullname;
+
+        $rentstatus = Rents::where('landlord_id', $userId)
+        ->where('status', 'Unpaid') 
+        ->orderBy('created_at', 'desc') 
+        ->get();
         
-        return view('landlorddashboard.tenant')->with(compact('rents','users','tenants','unitstatus','username'));
+        return view('landlorddashboard.tenant')->with(compact('rents','users','tenants','unitstatus','username','rentstatus'));
     }
 
     public function removetenant($id,$eid){

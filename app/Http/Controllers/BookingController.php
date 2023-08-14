@@ -18,7 +18,15 @@ class BookingController extends Controller
         $userObj = $request->session()->get("user");
         $username=$userObj->Fullname;
 
-        return view('landlorddashboard.bookings')->with(compact('rents','users','tenants','username'));
+        $userObj = $request->session()->get("user");
+        $userId=$userObj->user_id;
+
+        $rentstatus = Rents::where('landlord_id', $userId)
+        ->where('status', 'Unpaid') 
+        ->orderBy('created_at', 'desc') 
+        ->get();
+
+        return view('landlorddashboard.bookings')->with(compact('rents','users','tenants','username','rentstatus'));
 
     }
     public function acceptbooking($id){
