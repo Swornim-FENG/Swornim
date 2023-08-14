@@ -91,7 +91,7 @@
         /* Filter Styles */
         filter {
             padding: 5px;
-            margin-top: 10px;
+            margin-top: -200px;
         }
 
         .filter-section {
@@ -205,10 +205,10 @@
 
         .search-bar input[type="text"] {
             padding: 10px;
-            border-radius: 4px;
+            border-radius: 10px;
             border: 1px solid #ccc;
             margin-right: 10px;
-            width: 100%;
+            width: 500px;
         }
 
         .search-bar button {
@@ -217,8 +217,14 @@
             background-color: #ff7700;
             color: #ffffff;
             border: none;
-            border-radius: 4px;
+            border-radius: 10px;
             cursor: pointer;
+        }
+
+        /* Adjust the icon size and position */
+        .search-bar .fas.fa-search {
+            font-size: 16px;
+            vertical-align: middle;
         }
 
         .show-more-button {
@@ -325,17 +331,41 @@
             margin-right: 35px;
         }
 
+        .filter-button {
+            display: none;
+            background-color: #ffa559;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-size: 14px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
         /* Media query for mobile view */
         @media screen and (max-width: 768px) {
+            body {
+                align-items: center;
+                padding-left: 10px;
+            }
+
             .header-buttons {
                 display: none;
                 /* Hide the header buttons on mobile view */
             }
 
             .menu-icon {
+                background-color: #ffa559;
+                color: white;
                 cursor: pointer;
                 display: block;
                 padding: 10px;
+                border-radius: 4px;
+                height: 15px;
+                align-items: center;
+                width: 15px;
+                margin-right: 5px;
             }
 
             .header-buttons.show-dropdown {
@@ -356,18 +386,27 @@
 
             .room-grid {
                 grid-template-columns: repeat(2, 1fr);
+                width: 450px;
+            }
+
+            .room-card {
+                width: 100%;
             }
 
             .search-bar {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: stretch;
                 max-width: 300px;
-                margin: auto;
+                margin-left: 100px;
             }
 
-            .search-bar input[type="text"],
-            .search-bar button {
+            .search-bar input[type="text"] {
                 width: 100%;
+                margin-right: 5px;
+            }
+
+            .search-bar button {
+                width: 30px;
             }
 
             .footer {
@@ -392,17 +431,20 @@
             .ft {
                 width: 480px;
                 margin-left: 10px;
-                margin-right: 1px;
             }
 
-            .flt {
-                margin-left: 50px;
-                width: 200px;
+            .filter-button {
+                display: block;
+                margin-left: 300px;
             }
 
-            .filter-block {
-                width: 180px;
+            .filter-section {
+                display: none;
             }
+        }
+
+        .filter-popup {
+            display: none;
         }
 
         /* Signup popup style */
@@ -438,9 +480,26 @@
             color: gold;
         }
 
-        .header-buttons a.active {
-            background-color: #da300e;
-            color: #fff;
+        /* Style for the filter modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -463,6 +522,7 @@
                 <a href="resp-Landlord-signup.html">Landlord Signup</a>
             </div>
         </div>
+        <button class="filter-button"><i class="fas fa-filter"></i></button>
         <!-- Menu icon -->
         <div class="menu-icon" onclick="toggleDropdown()">
             <!-- Insert your menu icon here -->
@@ -470,6 +530,102 @@
                 <path fill="none" d="M0 0h24v24H0z" />
                 <path d="M4 6h16M4 12h16m-7 6h7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
+        </div>
+
+        <!-- The filter modal -->
+        <div id="filterModal" class="modal">
+            <div class="modal-content">
+                <!-- Your filter content goes here -->
+                <h2>Filter</h2>
+
+                <div class="filter-block">
+                    <div class="price">
+                        <h3>Price Range</h3>
+                        <ul class="filter-list">
+                            <li>
+                                <input type="checkbox" id="price-range-1" value="1500-2000" />
+                                <label for="price-range-1">rs.1500 - rs.2000</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="price-range-2" value="2001-2500" />
+                                <label for="price-range-2"> rs.2001 - rs.2500</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="price-range-3" value="2501-3000" />
+                                <label for="price-range-3">rs.2501 - rs.3000</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="price-range-4" value="3000+" />
+                                <label for="price-range-4">rs.3000+</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter-block">
+                    <div class="duration">
+                        <h3>Duration</h3>
+                        <ul class="filter-list">
+                            <li>
+                                <input type="checkbox" id="duration-flexible" value="flexible" />
+                                <label for="duration-flexible">Flexible</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="duration-fixed" value="fixed" />
+                                <label for="duration-fixed">Fixed</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="duration-12months" value="12months" />
+                                <label for="duration-12months">12 Months</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter-block">
+                    <div class="distance">
+                        <h3>Size Range</h3>
+                        <ul class="filter-list">
+                            <li>
+                                <input type="checkbox" id="size-range-1" value="200m-500m" />
+                                <label for="size-range-1">200m - 500m</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="size-range-2" value="500m-1000m" />
+                                <label for="size-range-2">500m - 1000m</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="size-range-3" value="1000m-more" />
+                                <label for="size-range-3">1000m+</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <div class="amenities">
+                        <h3>Amenities</h3>
+                        <ul class="filter-list">
+                            <li>
+                                <input type="checkbox" id="amenity-wifi" value="wifi" />
+                                <label for="amenity-wifi">WiFi</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="amenity-balcony" value="balcony" />
+                                <label for="amenity-balcony">Balcony</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="amenity-parking" value="parking" />
+                                <label for="amenity-parking">Parking</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="amenity-furniture" value="furniture" />
+                                <label for="amenity-furniture">Furniture</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ... -->
+                <button class="apply-filter-button">Apply Filter</button>
+            </div>
         </div>
     </header>
     <div class="mid">
@@ -572,7 +728,7 @@
             <div class="search-bar-container">
                 <div class="search-bar">
                     <input type="text" placeholder="Search..." />
-                    <button type="submit">Search</button>
+                    <button type="submit"><span class="fas fa-search"></span></button>
                 </div>
             </div>
             <div class="room-grid">
@@ -587,7 +743,7 @@
                         </p>
                     </div>
                 </a>
-                <a href="produt-resp.html" class="room-card">
+                <a href="2product-resp.html" class="room-card">
                     <img class="room-image" src="room for rent.jpg" alt="Room 2" />
                     <div>
                         <h3>Room 2</h3>
@@ -756,6 +912,20 @@
         </div>
     </footer>
     <script>
+        const filterButton = document.querySelector(".filter-button");
+        const filterModal = document.getElementById("filterModal");
+
+        filterButton.addEventListener("click", () => {
+            filterModal.style.display = "block";
+        });
+
+        // Close the modal when clicking outside the modal content
+        window.addEventListener("click", (event) => {
+            if (event.target === filterModal) {
+                filterModal.style.display = "none";
+            }
+        });
+
         function toggleDropdown() {
             const headerButtons = document.querySelector(".header-buttons");
             headerButtons.classList.toggle("show-dropdown");

@@ -16,8 +16,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+
             margin: 0;
-            padding: 0;
+            padding-left: 20px;
             background-color: #f5f5f5;
         }
 
@@ -605,6 +606,14 @@
             margin-right: 35px;
         }
 
+        .book-now-mb {
+            display: none;
+        }
+
+        .popup {
+            display: none;
+        }
+
         /* Media query for mobile view */
         @media screen and (max-width: 768px) {
             .header-buttons {
@@ -671,20 +680,123 @@
                 /* Take full width in mobile view */
             }
 
+            .mid-container {
+                flex-direction: column;
+            }
+
             .mid-left-container {
-                width: 300px;
+                flex-basis: 100%;
+                width: 600px;
+                margin-top: 20px;
+                padding-left: 40px;
             }
 
-            .bottom-section {
-                width: 650px;
+            .mid-right-container {
+                flex-basis: 100%;
+                width: 100%;
+                margin-top: 20px;
             }
 
-            .container {
-                width: 650px;
+            .bottom-container {
+                width: 600px;
+                padding-left: 40px;
+            }
+
+            .book-now-box {
+                display: none;
             }
 
             .ft {
                 width: 670px;
+                margin-right: -100px;
+            }
+
+            .book-now-box {
+                display: none;
+            }
+
+            .book-now-mb {
+                display: block;
+                background-color: #ffa559;
+                /* Green */
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+            .popup-book-now-button {
+                display: block;
+                background-color: #ffa559;
+                /* Green */
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+            /* Popup styles */
+
+            .popup {
+                display: none;
+                height: 295px;
+                width: 300px;
+                background-color: #f0f0f0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                margin-left: 1px;
+                margin-bottom: 10px;
+                border: 1px solid #000;
+                position: fixed;
+                top: 29%;
+                left: 25%;
+
+                transform: translate(-50%, -50%);
+            }
+
+            .popup-content {
+                background-color: #ebecf0;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .popup-close {
+                /* Position the close button at the top right corner */
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                font-size: 1.2rem;
+                /* Adjust the size as needed */
+                /* Add some padding to make it easier to click */
+                padding: 5px;
+            }
+
+            /* Add a bit of styling to the close button */
+            .popup-close i {
+                color: #999;
+                /* Adjust the color */
+            }
+
+            .popup-close i:hover {
+                color: #333;
+                /* Adjust the color on hover */
             }
         }
 
@@ -748,6 +860,35 @@
     </header>
     <div class="page-container">
         <div class="top-container">
+            <div class="popup" id="popup">
+                <div class="popup-content">
+                    <div class="popup-close" id="popup-close-button">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <h2>Book Now</h2>
+                    <!-- Add your booking form or content here -->
+                    <p>Check-in Date: <input type="text" id="popup-checkin-date" /></p>
+                    <p>
+                        Check-out Date: <input type="text" id="popup-checkout-date" />
+                    </p>
+                    <p>
+                        Number of Tenants:
+                        <select id="popup-number-of-tenants">
+                            <option value="" disabled selected hidden>
+                                Number of Tenants
+                            </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </p>
+                    <button class="popup-book-now-button" id="popup-book-now-button">
+                        Book Now
+                    </button>
+                </div>
+            </div>
             <div class="left-section">
                 <h1 class="main-heading">Room for Rent</h1>
                 <div class="border">
@@ -761,6 +902,7 @@
                         </div>
                         <div class="address">123 Main St, City, Country</div>
                     </div>
+                    <button class="book-now-mb">book now</button>
                 </div>
             </div>
             <div class="product-images">
@@ -1018,7 +1160,28 @@
                 signupPopup.style.display = "none";
             }
         });
-        //book now box movement
+
+        const bookNowMbButton = document.querySelector(".book-now-mb");
+        const popup = document.getElementById("popup");
+        const popupCheckinDate = document.getElementById("popup-checkin-date");
+        const popupCheckoutDate = document.getElementById("popup-checkout-date");
+        const popupNumberOfTenants = document.getElementById(
+            "popup-number-of-tenants"
+        );
+        const popupBookNowButton = document.getElementById(
+            "popup-book-now-button"
+        );
+        const popupCloseButton = document.getElementById("popup-close-button");
+
+        // Show the popup when the book-now-mb button is clicked
+        bookNowMbButton.addEventListener("click", () => {
+            popup.style.display = "flex";
+        });
+
+        // Hide the popup when the Close button is clicked
+        popupCloseButton.addEventListener("click", () => {
+            popup.style.display = "none";
+        });
     </script>
 </body>
 
