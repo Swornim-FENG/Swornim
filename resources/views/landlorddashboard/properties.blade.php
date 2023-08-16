@@ -11,54 +11,58 @@
 </head>
 
 <body>
-
+ 
 @section('main-section')
-    <section class="main">
-   
-      <div class="main-skills">
-        <div class="card">
+<section class="main">
+  
+@if($photos->count() > 0)
+
+        <div class="room-grid">
+            @foreach($photos as $photo)
+                <div class="photo-card">
+                    <div class="photo">
+                        <img src="{{asset('storage/images/'.$photo->Media_file)}}"width="200" height="150" >
+                    </div>
+                    <div class="details">
+                        <p>{{$photo->name}}</p>
+                        <p>Location: {{ $photo->unit->property->address }}</p>
+                        <p>Price: {{ $photo->unit->price }}</p>
+                        <p>Number of rooms: {{ $photo->unit->property->number_of_rooms }}</p>
+                        
+                        
+                        <button class="deleteButton"style="background-color: #ff6000; color: #fff;font-size: 12px; ">Delete</button>
+                        <div class="popup">
+                            <p>Are you sure you want to delete this property?</p>
+                            <a href="{{ url('/properties/delete/'.$photo->unit->property->property_id) }}">
+                                <button class="yesButton"style="background-color:#ff6000 ; color: #fff;">Yes</button>
+                            </a>
+                            <a href="{{url('/')}}/properties">
+                                <button id="noButton"style="background-color: #ff6000; color: #fff;">No</button>
+                            </a>
+                        </div>
+                        <a href="{{ url('/properties/update/'.$photo->unit->property->property_id.'/'.$photo->unit->unit_id.'/'.$photo->media_id) }}">
+                            <button style="background-color:grey; color: #fff; font-size: 12px;">Update</button>
+                        </a>
+                       
+                        
+                        <a href="{{ url('/properties/bookings/'.$photo->unit->unit_id) }}">
+                            <button style="background-color: skyblue; color: #fff; font-size: 12px; display:" >See bookings</button>
+                        </a>
+                       
+                    </div>
+                
+                </div>
+
+                
+            @endforeach
+            </div>
+    </section>
+        
+    
+    @else
+        <h3> You have not uploaded properties. </h3>
+        @endif
        
-             @foreach($photos as $photo)
-        
-        {{$photo->name}}<img src="{{asset('storage/images/'.$photo->Media_file)}}" width="200" height="150" alt="Room 1">
-
-         
-          <br>
-          Location: {{ $photo->unit->property->address }}
-         <br>
-         Price: {{ $photo->unit->price }}
-         <br>
-          Number of rooms: {{ $photo->unit->property->number_of_rooms }}
-            <br>
-
-
-            <button class="deleteButton">Delete</button>
-
-            <div class="popup" >
-            <p>Are you sure you want to delete this property?</p>
-
-            <a href="{{ url('/properties/delete/'.$photo->unit->property->property_id) }}">
-          <button class="yesButton">Yes</button>
-           </a>
-            
-            <a href="{{url('/')}}/properties"><button id="noButton">No</button></a>
-             </div>
-
-             <a href="{{ url('/properties/update/'.$photo->unit->property->property_id.'/'.$photo->unit->unit_id.'/'.$photo->media_id) }}">
-          <button >Update</button>
-           </a>
-
-           <a href="{{ url('/properties/bookings/'.$photo->unit->unit_id) }}">
-          <button >See bookings</button>
-           </a>
-           
-          
-           
-          
-        @endforeach
-        </div></div>
-        </section>
-        
         
       
          <script>
@@ -85,6 +89,7 @@ document.querySelectorAll(".noButton").forEach(function(button) {
   });
 });
   </script>
-          @endsection
+   @endsection
+
           </body>
           </html>

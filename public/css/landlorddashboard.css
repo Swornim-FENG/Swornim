@@ -78,11 +78,7 @@ a:hover{
 }
 
 /* Main Section */
-.main{
-  position: relative;
-  padding: 20px;
-  width: 100%;
-}
+
 .main-top{
   display: flex;
   width: 100%;
@@ -244,6 +240,36 @@ button {
   cursor: pointer;
   
 }
+.main {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Add some spacing between grid items */
+  max-width: 100%; /* Set the desired max width */
+  
+  
+}
+
+.photo-card {
+  border: 3px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 455px;
+  
+}
+
+.details {
+  text-align: center;
+  margin-top: 10px;
+ 
+}
 
 .popup {
   display: none;
@@ -273,6 +299,18 @@ table td{
   font-size: 13px;
   color: rgb(100, 100, 100);
 }
+.notification-count {
+  display: inline-block;
+  background-color:#ff6000;
+  color: white;
+  font-size: 15px;
+  padding: 2px 6px;
+  border-radius: 100%;
+  margin-left: 15px;
+}
+
+
+
 
 
 

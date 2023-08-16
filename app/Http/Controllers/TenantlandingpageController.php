@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Feedbacks;
 use App\Models\Tenants;
 use App\Models\Rents;
+use App\Models\Landlords;
 
 class TenantlandingpageController extends Controller
 {
@@ -41,13 +42,14 @@ class TenantlandingpageController extends Controller
         $photos=Medias::find($id);
         $properties=Properties::find($eeid);
         $user=User::find($eeeid);
+        $landlord=Landlords::where('user_id',$eeeid)->first();
         $userObj = $request->session()->get("user");
         $username=$userObj->Fullname;
         $units=Units::find($eid);
         $feedbacks = Feedbacks::where('unit_id',$units->unit_id)->get();
         $userIds = $feedbacks->pluck('user_id')->toArray();
         $userdetails = User::whereIn('user_id', $userIds)->get();
-        return view('tenant.tenantproductpage')->with(compact('photos', 'properties','units','username','user','feedbacks','userdetails'));
+        return view('tenant.tenantproductpage')->with(compact('photos', 'properties','units','username','user','feedbacks','userdetails','landlord'));
     }
 
     public function feedback(Request $request,$id){

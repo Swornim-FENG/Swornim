@@ -84,8 +84,9 @@
 @else
     <li>
         <a href="{{ url('/') }}/landlord/notifications">
-            <i class="fas fa-bell" style="color: red;"></i>
+        <i class="fas fa-bell" style="color: red;"></i>
             <span class="nav-item">Notifications</span>
+            <span class="notification-count">{{$rentstatus->count()}} </span>
         </a>
     </li>
 @endif

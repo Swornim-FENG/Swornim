@@ -1,49 +1,79 @@
-document.addEventListener("DOMContentLoaded", function () {
+const filterButton = document.querySelector(".filter-button");
+      const filterModal = document.getElementById("filterModal");
 
-    var filterButton = document.querySelector(".filter-section button");
-  
-  
-    filterButton.addEventListener("click", function () {
-  
-      var checkedRanges = document.querySelectorAll(
-        ".filter-section input[type='checkbox']:checked"
-      );
-  
-      var selectedRanges = [];
-  
-      checkedRanges.forEach(function (checkbox) {
-        selectedRanges.push(checkbox.value);
+      filterButton.addEventListener("click", () => {
+        filterModal.style.display = "block";
       });
-  
-      var roomCards = document.querySelectorAll(".room-card");
-  
-      roomCards.forEach(function (card) {
-        card.style.display = "none";
+
+      // Close the modal when clicking outside the modal content
+      window.addEventListener("click", (event) => {
+        if (event.target === filterModal) {
+          filterModal.style.display = "none";
+        }
       });
-  
-      if (selectedRanges.length === 0) {
-        roomCards.forEach(function (card) {
-          card.style.display = "block";
-        });
-      } else {
-        selectedRanges.forEach(function (range) {
+      function toggleDropdown() {
+        const headerButtons = document.querySelector(".header-buttons");
+        headerButtons.classList.toggle("show-dropdown");
+      }
+
+      const signupButton = document.getElementById("signup");
+      const signupPopup = document.querySelector(".signup-popup");
+
+      signupButton.addEventListener("click", () => {
+        signupPopup.style.display = "block";
+      });
+
+      // Close the popup when clicking outside the signup button and popup
+      document.addEventListener("click", (event) => {
+        if (
+          !event.target.matches("#signup") &&
+          !event.target.matches(".signup-popup")
+        ) {
+          signupPopup.style.display = "none";
+        }
+      });
+      //
+      document.addEventListener("DOMContentLoaded", function () {
+        var filterButton = document.querySelector(".apply-filter-button");
+
+        filterButton.addEventListener("click", function () {
+          var checkedRanges = document.querySelectorAll(
+            ".price input[type='checkbox']:checked"
+          );
+
+          var roomCards = document.querySelectorAll(".room-card");
+
           roomCards.forEach(function (card) {
-            var priceElement = card.querySelector("p:nth-child(3)");
-            var price = parseInt(priceElement.textContent.split(":")[1]);
-  
-            if (range === "3000+" && price >= 3000) {
+            card.style.display = "none";
+          });
+
+          if (checkedRanges.length === 0) {
+            roomCards.forEach(function (card) {
               card.style.display = "block";
-            } else {
-              var rangeValues = range.split("-");
-              var min = parseInt(rangeValues[0]);
-              var max = parseInt(rangeValues[1]);
-  
-              if (price >= min && price <= max) {
+            });
+          } else {
+            roomCards.forEach(function (card) {
+              var priceElement = card.querySelector(".room-price");
+              var price = parseInt(priceElement.textContent);
+
+              var showCard = false;
+
+              checkedRanges.forEach(function (range) {
+                var rangeValues = range.value.split("-");
+                var min = parseInt(rangeValues[0]);
+                var max = parseInt(rangeValues[1]);
+
+                if (range.value === "3000+" && price >= 3000) {
+                  showCard = true;
+                } else if (price >= min && price <= max) {
+                  showCard = true;
+                }
+              });
+
+              if (showCard) {
                 card.style.display = "block";
               }
-            }
-          });
+            });
+          }
         });
-      }
-    });
-  });
+      });
