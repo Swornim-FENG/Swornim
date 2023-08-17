@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
     />
-
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -18,6 +18,10 @@
     <!-- Add jQuery UI library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include jQuery UI library -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -143,9 +147,9 @@
       }
 
       .small-image {
-        width: 100%;
+       width:100%;
         height: 150px;
-        margin: 5px;
+        margin: 15px;
       }
 
       .product-images {
@@ -153,6 +157,7 @@
         justify-content: space-between;
         margin-bottom: 20px;
         width: 100%;
+        
       }
 
       .big-image-container {
@@ -879,19 +884,16 @@
     <header>
       <div class="logo-con">
         <!-- Place your logo here -->
-        <img class="logo" src="mainlogo.png" alt="Logo" />
+        <img class="logo" src="{{asset('images/logoPrototype.png')}}" alt="Logo" />
       </div>
       <div class="header-buttons">
-        <a id="home" href="4landing.html">Home</a>
-        <a href="howitworks.html">How It Works</a>
-        <a href="landlord.html">I am a Landlord</a>
-        <a href="help.html">Help</a>
-        <a href="login.html">Login</a>
-        <a id="signup">Signup</a>
-        <div class="signup-popup">
-          <a href="resp-tenant-signup.html">Tenant Signup</a>
-          <a href="resp-Landlord-signup.html">Landlord Signup</a>
-        </div>
+        <a id="home" href="/landingpage">Home</a>
+        <a href="">How It Works</a>
+        <a href="">Help</a>
+        <a href="{{url('/')}}/logout">Logout</a>
+        <i class="fas fa-user"style="color: black;">
+        <span class="nav-item" >{{$username}}</span></i>
+        
       </div>
       <!-- Menu icon -->
       <div class="menu-icon" onclick="toggleDropdown()">
@@ -955,16 +957,15 @@
               <div class="reviews">
                 <span class="review-count">250 Reviews</span>
               </div>
-              <div class="address">123 Main St, City, Country</div>
+              <div class="address">{{$properties->address}}</div>
             </div>
-            <button class="book-now-mb">book now</button>
+            <button class="book-now-mb">Book now</button>
           </div>
         </div>
         <div class="product-images">
           <div class="big-image-container">
             <img
-              src="room.jpg"
-              alt="Product Image"
+            src="{{asset('storage/images/'.$photos->Media_file)}}" alt="Room 1"
               class="big-image"
               id="big-image"
               onclick="openImage('big-image')"
@@ -973,15 +974,13 @@
           <div class="small-images-container">
             <div class="image-grid">
               <img
-                src="room.jpg"
-                alt="Product Image"
+              src="{{asset('storage/images/'.$photos->Media_file)}}" alt="Room 1"
                 class="small-image"
                 id="small-image-1"
                 onclick="openImage('small-image-1')"
               />
               <img
-                src="room.jpg"
-                alt="Product Image"
+              src="{{asset('storage/images/'.$photos->Media_file)}}" alt="Room 1"
                 class="small-image"
                 id="small-image-2"
                 onclick="openImage('small-image-2')"
@@ -989,15 +988,13 @@
             </div>
             <div class="image-grid">
               <img
-                src="room.jpg"
-                alt="Product Image"
+              src="{{asset('storage/images/'.$photos->Media_file)}}"alt="Room 1"
                 class="small-image"
                 id="small-image-3"
                 onclick="openImage('small-image-3')"
               />
               <img
-                src="room.jpg"
-                alt="Product Image"
+              src="{{asset('storage/images/'.$photos->Media_file)}}" alt="Room 1"
                 class="small-image"
                 id="small-image-4"
                 onclick="openImage('small-image-4')"
@@ -1014,13 +1011,13 @@
               <div class="owner-image" onclick="openOwnerInfo()">
                 <img src="owner.jpg" alt="Owner Image" />
               </div>
-              <div class="owner-name" onclick="openOwnerInfo()">John Doe</div>
+              <div class="owner-name" onclick="openOwnerInfo()">{{$user->Fullname}}</div>
             </div>
             <div class="owner-popup" id="owner-popup">
               <h2>Owner Info</h2>
-              <p>Owner Name: John Doe</p>
-              <p>Owner Email: john.doe@example.com</p>
-              <p>Owner Phone: +1 123-456-7890</p>
+              <p>Owner Name: {{$user->Fullname}}</p>
+              <p>Owner Email: {{ $user->email}}</p>
+              <p>Owner Phone: {{$landlord->phone_number}}</p>
             </div>
           </div>
           <div class="about-product">
@@ -1110,6 +1107,7 @@
                     <span class="star" data-rating="4">★</span>
                     <span class="star" data-rating="5">★</span>
                   </div>
+                  
                   <button id="submit-review">Submit Review</button>
                 </div>
               </div>
@@ -1120,33 +1118,44 @@
                 <button>see more</button>
               </div>
               <div class="bt2">
-                <button>add review</button>
+             
+                <button>Add review</button>
+                
               </div>
             </div>
           </div>
           <div class="map-container">
             <h2>Location</h2>
-            <img src="map.jpg" alt="location" id="map-image" />
-          </div>
-        </div>
+            
+            
+               <div id ="map" style="width:100%;height:400px;"></div>
+              
+   
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZFB7MhJB2peynjvmV1jZkCNs5yr9o55M&callback=initMap" async defer></script>
+       </div>
+       </div>
 
         <div class="mid-right-container">
           <div class="book-now-box">
             <div class="dates">
+            <form action="{{url('/tenant/bookings')}}/{{$units->unit_id}}"method="post">
+          @csrf
               <input
                 type="text"
                 class="checkin-date"
                 id="checkin-date"
-                placeholder="Check-in Date"
+                name="checkin"
+                placeholder="Check-in Date" required
               />
               <input
                 type="text"
                 class="checkout-date"
                 id="checkout-date"
-                placeholder="Check-out Date"
+                name="checkout"
+                placeholder="Check-out Date" required
               />
             </div>
-            <select class="number-of-tenants" id="number-of-tenants">
+            <select class="number-of-tenants" id="number-of-tenants"name="number_of_tenants" required  >
               <option value="" disabled selected hidden>
                 Number of Tennants
               </option>
@@ -1165,19 +1174,20 @@
             <div class="fee-container">
               <div class="fee-item">
                 <span>Rent Fee:</span>
-                <span>$500</span>
+                <span> Rs. {{$units->price}}</span>
               </div>
               <div class="fee-item">
                 <span>Amenities Fee:</span>
-                <span>$50</span>
+                <span>Rs.0</span>
               </div>
               <hr class="fee-separator" />
               <div class="fee-item total-fee">
                 <span>Total Fee:</span>
-                <span>$550</span>
+                <span>Rs. {{$units->price}}</span>
               </div>
             </div>
-            <button class="book-now-button">Book Now</button>
+            
+            <button class="book-now-button" type="submit">Book Now</button>
           </div>
         </div>
       </div>
@@ -1255,7 +1265,42 @@
       </div>
     </footer>
     <script>
+     
+     function initMap() {
+    var latitude = <?php echo $properties->Latitude; ?>;
+    var longitude = <?php echo $properties->Longitude; ?>;
+    var ownerName = "{{$user->Fullname}}" ; // Replace with the actual property owner's name
+
+    var additionalText = "Property"; // Your additional text
+
+    var coord = { lat: latitude, lng: longitude };
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 10,
+        center: coord,
+    });
+
+    var marker = new google.maps.Marker({
+        position: coord,
+        map: map
+    });
+
+    var contentString = '<div style="background-color: #ff6000;color:white; border: 1px solid black; border-radius: 8px; padding: 10px; max-width: 200px; overflow: hidden;">' + ownerName + ' ' + additionalText + '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        pixelOffset: new google.maps.Size(0, -10), // Offset to adjust the position
+    });
+
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+}
+       
+            
       $(document).ready(function () {
+
+       
+
         // Initialize datepicker for check-in and check-out dates
         $("#checkin-date").datepicker();
         $("#checkout-date").datepicker();

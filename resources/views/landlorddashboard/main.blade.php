@@ -17,7 +17,7 @@
 
     <div class="header-icons">
     @if($rentstatus->count() > 0)
-      <i class="fas fa-bell"style="color: red;"></i>
+      <i class="fas fa-bell"style="color: #ff6000;"></i>
       @else
       <i class="fas fa-bell"></i>
       @endif
@@ -84,7 +84,7 @@
 @else
     <li>
         <a href="{{ url('/') }}/landlord/notifications">
-        <i class="fas fa-bell" style="color: red;"></i>
+        <i class="fas fa-bell" style="color:#ff6000;"></i>
             <span class="nav-item">Notifications</span>
             <span class="notification-count">{{$rentstatus->count()}} </span>
         </a>

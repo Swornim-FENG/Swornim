@@ -16,9 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string('Media_file',255);
             $table->unsignedBigInteger('unit_id');
-            $table->foreign('unit_id')->references('unit_id')->on('units');
+            $table->foreign('unit_id')->references('unit_id')->on('units')->onDelete('cascade');
             $table->unsignedBigInteger('property_id');
-            $table->foreign('property_id')->references('property_id')->on('properties');
+            $table->foreign('property_id')->references('property_id')->on('properties')->onDelete('cascade');
         });
     }
 

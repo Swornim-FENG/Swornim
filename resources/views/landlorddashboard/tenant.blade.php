@@ -26,10 +26,10 @@
         @if ($rents->isEmpty())
         <p> Currently there are no tenants in your property.</p>
     @else
-      <ul>
+      
       @foreach ($rents as $rent)
       <div class="box">
-            <li>
+           
                 @foreach ($users as $user)
                     @if ($user->user_id == $rent->tenant_id)
                        <h1> {{ $user->Fullname }}</h1>
@@ -42,9 +42,19 @@
                         <strong>Phone Number:</strong> {{ $tenant->phone_number }} <br>
                     @endif
                 @endforeach
+                <?php
+              // Assuming $rent->start_date and $rent->end_date are in the format 'Y-m-d' (e.g., '2023-08-17')
+
+                $start_date = new DateTime($rent->start_date);
+                $end_date = new DateTime($rent->end_date);
+
+             // Format the dates as desired (e.g., "August 17, 2023")
+                $formatted_start_date = $start_date->format('F j, Y');
+               $formatted_end_date = $end_date->format('F j, Y');
+                ?>
                 <i class="fa fa-user"></i>
-                <strong>Check-in Date:</strong> {{ $rent->start_date }} <br>
-                <strong>Check-out Date:</strong> {{ $rent->end_date }} 
+                <strong>Check-in Date:</strong> {{ $formatted_start_date }} <br>
+                <strong>Check-out Date:</strong> {{ $formatted_end_date }}
              
                 <button class="actionButton rejectButton" data-popup-id="reject-popup-{{ $rent->rent_id }}"style="background-color: orangered;">Remove</button>
 
@@ -59,10 +69,10 @@
                 <hr>
                 
                 
-            </li>
+            
             </div>
         @endforeach
-    </ul>
+    
     @endif
            
             

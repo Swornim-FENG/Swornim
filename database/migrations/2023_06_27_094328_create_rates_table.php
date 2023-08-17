@@ -16,7 +16,7 @@ return new class extends Migration
             $table->char('rating',1);
             $table->timestamps();
             $table->unsignedBigInteger('unit_id');
-            $table->foreign('unit_id')->references('unit_id')->on('units');
+            $table->foreign('unit_id')->references('unit_id')->on('units')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('tenants');
         });
