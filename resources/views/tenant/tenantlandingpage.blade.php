@@ -15,7 +15,7 @@
     <header>
       <div class="logo-con">
         <!-- Place your logo here -->
-        <img class="logo" src="{{asset('images/logoPrototype.png')}}" alt="Logo" />
+        <img class="logo" src="{{asset('images/mainlogo.png')}}" alt="Logo" />
       </div>
       <div class="header-buttons">
         <a id="home" href="/landingpage">Home</a>
@@ -306,9 +306,7 @@
           
         </div>
 
-        <div class="show-more-button">
-          <button>Show More</button>
-        </div>
+        
       </main>
     </div>
     <footer class="ft">

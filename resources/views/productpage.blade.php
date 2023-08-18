@@ -28,7 +28,7 @@
     <header>
       <div class="logo-con">
         <!-- Place your logo here -->
-        <img class="logo" src="{{asset('images/logoPrototype.png')}}" alt="Logo" />
+        <img class="logo" src="{{asset('images/mainlogo.png')}}" alt="Logo" />
       </div>
       <div class="header-buttons">
         <a id="home" href="/landingpage">Home</a>
@@ -232,37 +232,24 @@
                 </div>
               </div>
             </div>
-            <div class="popup-overlay" id="review-popup-overlay">
-              <div class="popup-content" id="review-popup-content">
-                <div class="popup-header">
-                  <h2>Add Review and Rating</h2>
-                </div>
-                <div class="popup-body">
-                  <textarea
-                    id="review-text"
-                    placeholder="Write your review"
-                  ></textarea>
-                  <div class="rating-stars">
-                    <span class="star" data-rating="1">★</span>
-                    <span class="star" data-rating="2">★</span>
-                    <span class="star" data-rating="3">★</span>
-                    <span class="star" data-rating="4">★</span>
-                    <span class="star" data-rating="5">★</span>
-                  </div>
-                  <a href="{{url('/')}}/login">
-                  <button id="submit-review">Submit Review</button></a>
-                </div>
-              </div>
-            </div>
+            
 
             <div class="btns">
-              <div class="bt">
-                <button>see more</button>
-              </div>
-              <div class="bt2">
-             
-                <button>Add review</button>
-                
+              <div class="review-form">
+                <h3>Add your Review</h3>
+                <div id="reviewForm">
+                  <label for="review">Your Review:</label><br />
+                  <textarea
+                    id="review"
+                    name="review"
+                    rows="4"
+                    cols="50"
+                    
+                  ></textarea
+                  ><br /><br />
+                  <a href="{{url('/')}}/login">
+                  <button >Submit Review</button></a>
+                </div>
               </div>
             </div>
           </div>

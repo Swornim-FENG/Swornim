@@ -30,7 +30,7 @@
     <header>
       <div class="logo-con">
         <!-- Place your logo here -->
-        <img class="logo" src="{{asset('images/logoPrototype.png')}}" alt="Logo" />
+        <img class="logo" src="{{asset('images/mainlogo.png')}}" alt="Logo" />
       </div>
       <div class="header-buttons">
         <a id="home" href="/landingpage">Home</a>
@@ -235,40 +235,31 @@
                 </div>
               </div>
             </div>
-            <div class="popup-overlay" id="review-popup-overlay">
-              <div class="popup-content" id="review-popup-content">
-                <div class="popup-header">
-                  <h2>Add Review and Rating</h2>
-                </div>
-                <div class="popup-body">
-                  <textarea
-                    id="review-text"
-                    placeholder="Write your review"
-                  ></textarea>
-                  <div class="rating-stars">
-                    <span class="star" data-rating="1">★</span>
-                    <span class="star" data-rating="2">★</span>
-                    <span class="star" data-rating="3">★</span>
-                    <span class="star" data-rating="4">★</span>
-                    <span class="star" data-rating="5">★</span>
-                  </div>
-                  
-                  <button id="submit-review">Submit Review</button>
-                </div>
-              </div>
-            </div>
+            
 
+            
             <div class="btns">
-              <div class="bt">
-                <button>see more</button>
-              </div>
-              <div class="bt2">
-             
-                <button>Add review</button>
-                
+              <div class="review-form">
+                <h3>Add your Review</h3>
+                <form id="reviewForm" action="{{url('/tenant/feedback')}}/{{$units->unit_id}}"method="post">
+                   @csrf
+                  <label for="review">Your Review:</label><br />
+                  <textarea
+                    id="review"
+                    
+                    rows="4"
+                    cols="50"
+                    name="feedback"
+                    required
+                  ></textarea
+                  ><br /><br />
+
+                  <button type="submit">Submit Review</button>
+                </form>
               </div>
             </div>
           </div>
+
           <div class="map-container">
             <h2>Location</h2>
             
