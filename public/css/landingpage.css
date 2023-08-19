@@ -156,7 +156,7 @@ main {
   background-color: #fff;
   text-decoration: none;
   transition: background-color 0.3s;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .room-card:hover {
@@ -164,9 +164,10 @@ main {
 }
 
 .room-image {
-  width: 100px;
+  width: 200px;
   height: 100px;
   margin-right: 0;
+  border-radius: 10px;
 }
 
 .search-bar-container {

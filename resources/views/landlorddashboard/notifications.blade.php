@@ -59,7 +59,7 @@
                
 
              <!-- For Accept Button -->
-               <button class="actionButton acceptButton" data-popup-id="accept-popup-{{ $rent->rent_id }}"style="background-color: orangered;">Accept</button>
+               <button class="actionButton acceptButton" data-popup-id="accept-popup-{{ $rent->rent_id }}"style="background-color: orangered ;">Accept</button>
 
                <div class="popup" id="accept-popup-{{ $rent->rent_id }}">
                <h3>Are you sure you want to accept this booking?</h3>
@@ -72,7 +72,7 @@
               </div>
 
              <!-- For Reject Button -->
-             <button class="actionButton rejectButton" data-popup-id="reject-popup-{{ $rent->rent_id }}"style="background-color: orangered;">Reject</button>
+             <button class="actionButton rejectButton" data-popup-id="reject-popup-{{ $rent->rent_id }}"style="background-color: #ffcc28;">Reject</button>
 
              <div class="popup" id="reject-popup-{{ $rent->rent_id }}">
              <h3>Are you sure you want to reject this booking?</h3>

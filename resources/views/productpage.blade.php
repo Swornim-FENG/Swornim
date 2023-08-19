@@ -187,51 +187,29 @@
               </ul>
             </div>
           </div>
+            
           <div class="user-reviews-container">
             <div class="hd">
-              <h2>User Reviews</h2>
+             <h2>User Reviews</h2>
             </div>
             <div class="reviews">
-              <div class="user-review">
-                <div class="user-info">
-                  <div class="user-name">John Doe</div>
+                
+               
+                 @foreach($feedbacks as $feedback)
+                  <div class="user-review">
+                  <div class="user-info">
+                   <div class="user-name">
+                    {{ $userdetails->where('user_id', $feedback->user_id)->first()->Fullname }}
+                   </div>
                   <div class="user-rating">4.5 ★</div>
-                </div>
-                <div class="review-text">
-                  "This place exceeded my expectations. The amenities were
-                  great, and the location was perfect."
-                </div>
-              </div>
-
-              <div class="user-review">
-                <div class="user-info">
-                  <div class="user-name">Jane Smith</div>
-                  <div class="user-rating">5 ★</div>
-                </div>
-                <div class="review-text">
-                  "I had a fantastic stay here. The room was clean, and the
-                  staff was very friendly and helpful."
-                </div>
-              </div>
-              <div class="user-review">
-                <div class="user-info">
-                  <div class="user-name">Jenna Ortega</div>
-                  <div class="user-rating">1 ★</div>
-                </div>
-                <div class="review-text">
-                  "Heh! It was too colorful for my liking"
-                </div>
-              </div>
-              <div class="user-review">
-                <div class="user-info">
-                  <div class="user-name">Emma Myers</div>
-                  <div class="user-rating">5 ★</div>
-                </div>
-                <div class="review-text">
-                  "I loved it! It was bright, colorful and exiting. "
-                </div>
-              </div>
-            </div>
+                  </div>
+                 <div class="review-text">
+                     "{{ $feedback->Comment }}"
+                     </div>
+                      </div>
+               @endforeach
+                  
+                    </div>
             
 
             <div class="btns">
@@ -394,9 +372,9 @@
      function initMap() {
     var latitude = <?php echo $properties->Latitude; ?>;
     var longitude = <?php echo $properties->Longitude; ?>;
-    var ownerName = "{{$user->Fullname}}" ; // Replace with the actual property owner's name
+    var ownerName = "{{$properties->address}}" ; // Replace with the actual property owner's name
 
-    var additionalText = "Property"; // Your additional text
+    var additionalText =" , {{$units->price}}"; // Your additional text
 
     var coord = { lat: latitude, lng: longitude };
     var map = new google.maps.Map(document.getElementById("map"), {

@@ -107,14 +107,13 @@ main {
 
 .review-count {
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .address {
   margin-top: 10px;
 }
-.border {
-  border: 2px solid #beb4b4;
-}
+
 
 .big-image {
   width: 600px;
@@ -148,7 +147,7 @@ main {
 .image-grid {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 35px;
   margin-left: 35px;
   padding: 1px;
 }
@@ -302,7 +301,7 @@ main {
 
 .book-now-box input.checkin-date {
   flex: 1 1 48%;
-  width: 280px;
+  width: 290px;
   margin-bottom: 15px;
   margin-right: 5px;
 }
@@ -310,7 +309,7 @@ main {
 .book-now-box input.checkout-date {
   flex: 1 1 48%;
   margin-bottom: 15px;
-  width: 280px;
+  width: 290px;
   margin-left: 1px;
 }
 .dates {
@@ -392,6 +391,7 @@ main {
 .btns {
   display: flex;
   flex-direction: row;
+  margin-right: -50px;
 }
 .btns .review-form button {
   background-color: #ffa559;

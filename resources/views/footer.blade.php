@@ -12,24 +12,23 @@
         color: #000000;
         padding: 5px 0px;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column; /* Change to column layout for mobile view */
+        align-items: center; /* Center items in mobile view */
+        border-radius: 4px;
       }
 
       .container {
-        max-width: 650px;
-        margin: 0 auto;
+        width: 100%;
+        max-width: 1200px; /* Add max-width to limit footer width on larger screens */
+        margin: auto;
+        padding: 0 20px; /* Add padding to create space between content and screen edges */
       }
 
       .footer-content {
         display: flex;
+        flex-wrap: wrap; /* Wrap content for mobile view */
         justify-content: space-between;
-        align-items: flex-start;
-      }
-      .social-icons {
-        display: flex;
         align-items: center;
-        margin-left: 100px;
-        margin-top: 60px;
       }
 
       .social-icons a {
@@ -38,11 +37,16 @@
         font-size: 24px;
       }
 
-      .customer-care {
+      .customer-care,
+      .footer-links,
+      .social-icons,
+      .footer-links h3 {
         flex: 1;
+        text-align: center;
+        margin: 10px;
       }
 
-      .customer-care h3 {
+      h3 {
         color: #000000;
         font-size: 20px;
         margin-bottom: 10px;
@@ -56,17 +60,11 @@
       .footer-links ul {
         list-style-type: none;
         padding: 0;
-        margin: 10px;
-      }
-      .footer-links h3 {
-        color: #000000;
-        font-size: 20px;
-        margin-bottom: 10px;
-        text-align: right;
+        margin: 0;
       }
 
       .footer-links li {
-        margin-right: 0%;
+        margin-bottom: 5px; /* Add margin between list items */
       }
 
       .footer-links a {
@@ -76,13 +74,29 @@
 
       .copy {
         text-align: center;
-        margin-top: 20px;
         color: #fff;
-
-        padding: 20px;
-        flex-grow: 1;
+        padding: 20px; /* Add padding to the .copy container */
         background-color: #dd660b;
         color: rgb(52, 23, 3);
+        border-radius: 4px;
+        margin-right: 35px;
+      }
+
+      /* Media query for tablet view */
+      @media screen and (max-width: 768px) {
+        .footer {
+          padding-bottom: 40px; /* Add extra padding to the bottom of the footer */
+          padding-right: 20px;
+        }
+        .footer-content {
+          flex-direction: column; /* Change to column layout for tablet view */
+          align-items: center;
+        }
+
+        .footer-links,
+        .social-icons {
+          margin-top: 20px; /* Add margin to separate sections in tablet view */
+        }
       }
     </style>
   </head>
@@ -108,6 +122,7 @@
             </ul>
           </div>
           <div class="social-icons">
+            <h3>Follow us on</h3>
             <a
               href="https://www.instagram.com/your-instagram-account"
               target="_blank"

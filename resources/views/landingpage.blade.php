@@ -288,7 +288,7 @@
     @foreach ($property->medias as $photo)
         @foreach ($property->units as $unit)
             <a href="{{ url('/product/') }}/{{ $photo->media_id }}/{{ $unit->unit_id }}/{{ $property->property_id }}/{{ $property->user_id }}" class="room-card">
-                {{ $photo->name }}<img src="{{ asset('storage/images/' . $photo->Media_file) }}" width="200" height="150"style='border-radius: 20px;' alt="Room 1">
+                {{ $photo->name }}<img src="{{ asset('storage/images/' . $photo->Media_file) }}" width="220" height="150"style='border-radius: 10px;' alt="Room 1">
 
                 <div>
               
