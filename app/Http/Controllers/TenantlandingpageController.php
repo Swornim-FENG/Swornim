@@ -11,6 +11,8 @@ use App\Models\Feedbacks;
 use App\Models\Tenants;
 use App\Models\Rents;
 use App\Models\Landlords;
+use App\Models\Facility_lists;
+use App\Models\Unit_facilities;
 
 class TenantlandingpageController extends Controller
 {
@@ -49,7 +51,12 @@ class TenantlandingpageController extends Controller
         $feedbacks = Feedbacks::where('unit_id',$units->unit_id)->get();
         $userIds = $feedbacks->pluck('user_id')->toArray();
         $userdetails = User::whereIn('user_id', $userIds)->get();
-        return view('tenant.tenantproductpage')->with(compact('photos', 'properties','units','username','user','feedbacks','userdetails','landlord'));
+        // Get facility IDs associated with the specific unit
+       $unitFacilityIds = Unit_facilities::where('unit_id', $units->unit_id)->pluck('facility_id')->toArray();
+
+       // Get facilities based on the retrieved IDs
+       $facilities = Facility_lists::whereIn('facility_id', $unitFacilityIds)->get();
+        return view('tenant.tenantproductpage')->with(compact('photos', 'properties','units','username','user','feedbacks','userdetails','landlord','facilities'));
     }
 
     public function feedback(Request $request,$id){

@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('properties', function (Blueprint $table) {
+            $table->string('description',1000);
             $table->string('address',255);
             $table->enum('condition',["Good","Average","Poor"]);
             $table->integer('number_of_rooms');

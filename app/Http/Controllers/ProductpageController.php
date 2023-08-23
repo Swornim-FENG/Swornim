@@ -8,6 +8,8 @@ use App\Models\Properties;
 use App\Models\Units;
 use App\Models\User;
 use App\Models\Feedbacks;
+use App\Models\Facility_lists;
+use App\Models\Unit_facilities;
 
 class ProductpageController extends Controller
 {
@@ -19,9 +21,14 @@ class ProductpageController extends Controller
         $feedbacks = Feedbacks::where('unit_id',$units->unit_id)->get();
         $userIds = $feedbacks->pluck('user_id')->toArray();
         $userdetails = User::whereIn('user_id', $userIds)->get();
-        
+       // Get facility IDs associated with the specific unit
+       $unitFacilityIds = Unit_facilities::where('unit_id', $units->unit_id)->pluck('facility_id')->toArray();
+
+      // Get facilities based on the retrieved IDs
+      $facilities = Facility_lists::whereIn('facility_id', $unitFacilityIds)->get();
+
         $user=User::find($eeeid);
-        return view('productpage')->with(compact('photos', 'properties','units','user','feedbacks','userdetails'));
+        return view('productpage')->with(compact('photos', 'properties','units','user','feedbacks','userdetails','facilities'));
 
         // $latitude= $properties->Latitude;
         // $longitude= $properties->Longitude;

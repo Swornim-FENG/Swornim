@@ -27,7 +27,7 @@ class PropertyimageController extends Controller
         $user=new User;
           
        
-
+        $property->description=$request['description'];
         $property->address=$request['address'];
         $property->condition=$request['condition'];
         $property->number_of_rooms=$request['rooms'];
@@ -138,6 +138,7 @@ class PropertyimageController extends Controller
 
         public function editProperty($id,$eid,$eeid,Request $request){
             $property=Properties::find($id);
+            $property->description=$request['description'];
             $property->address=$request['address'];
             $property->condition=$request['condition'];
             $property->number_of_rooms=$request['rooms'];

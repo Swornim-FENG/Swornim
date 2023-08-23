@@ -14,6 +14,8 @@
     <h1>{{$title}}</h1>
     <form action="{{$url}}"method="POST" enctype="multipart/form-data" >
             @csrf
+            <label for="description">Description:</label>
+      <input type="text" id="description" name="description" value="{{$property->description}}" required /><br /><br />
       <label for="address">Address:</label>
       <input type="text" id="address" name="address" value="{{$property->address}}" required /><br /><br />
       <label for="condition">Room Condition:</label>

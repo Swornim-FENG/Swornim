@@ -166,13 +166,7 @@
             <div class="product-description-container">
               <h2>Description</h2>
               <p class="product-description">
-                This is a great product that you will love. It is made with
-                high-quality materials and it is very durable. This is a great
-                product that you will love. It is made with high-quality
-                materials and it is very durable. This is a great product that
-                you will love. It is made with high-quality materials and it is
-                very durable. This is a great product that you will love. It is
-                made with high-quality materials and it is very durable.
+                {{$properties->description}}
               </p>
             </div>
           </div>
@@ -180,10 +174,14 @@
             <div class="product-features">
               <h2>What this place offers:</h2>
               <ul class="product-description">
-                <li>It is made with high-quality materials.</li>
-                <li>It is very durable.</li>
-                <li>It is easy to use.</li>
-                <li>It is affordable.</li>
+              @foreach ($facilities as $facility)
+              
+              
+                <li>{{ $facility->name }}</li>
+                
+                
+               @endforeach
+                
               </ul>
             </div>
           </div>
