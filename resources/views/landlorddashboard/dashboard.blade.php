@@ -5,23 +5,82 @@
 <head>
   <meta charset="UTF-8" />
   <title>Landlord</title>
-  <link rel="stylesheet" href="{{asset('css/landlorddashboard.css')}}" />
+  <link rel="stylesheet" href="{{asset('css/landlorddashboard/main.css')}}" />
   <!-- Font Awesome Cdn Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 </head>
 <body>
-
 @section('main-section')
-    <section class="main">
-    <div class="promo_card">
-        <h1>Welcome to My Second Home</h1>
-        <span>Find easy rentals.</span>
-        <button>Learn More</button>
-      </div>
-      <br>
+<main style="margin-left: 20px;">
+            <h1>Dashboard</h1>
+            <!-- Analyses -->
+            <div class="analyse">
+                <div class="sales">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Total properties</h3>
+                            
+                        </div>
+                        <div class="progresss">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <h1>{{$totalproperties}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visits">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Total tenants</h3>
+                            
+                        </div>
+                        <div class="progresss">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <h1>{{count($rents)}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="searches">
+                    <div class="status">
+                        <div class="info">
+                            <h3>Total bookings</h3>
+                            
+                        </div>
+                        <div class="progresss">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="percentage">
+                                <h1>{{$rentstatus->count()}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Analyses -->
+
+            <!-- New Users Section -->
+            
+            <!-- End of New Users Section -->
+
+            <!-- Recent Orders Table -->
+            
+            <!-- End of Recent Orders -->
+
+        
+
+
+    
       
-      <h3>Total properties: {{$totalproperties}}</h3>
+      <h2>Total properties: {{$totalproperties}}</h2><br>
       @if($totalproperties > 0)
     <table>
         <thead>
@@ -63,7 +122,7 @@
 
 
 <br>
-<h3>Total tenants: {{count($rents)}}</h3>
+<h2>Total tenants: {{count($rents)}}</h2>
 @if ($rents->isEmpty())
         <p> Currently there are no tenants in your property.</p>
     @else
@@ -94,7 +153,7 @@
     </table>
     
     @endif
-      </section>
+    </main>
       @endsection
 
    

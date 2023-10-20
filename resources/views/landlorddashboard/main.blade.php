@@ -1,113 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Landlord</title>
-  <link rel="stylesheet" href="{{asset('css/landlorddashboard.css')}}" />
-  <!-- Font Awesome Cdn Link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    
+    <title>Landlord</title>
+    <link rel="stylesheet" href="{{asset('css/landlorddashboard/main.css')}}" />
 </head>
+
 <body>
-<header class="header">
-    <div class="logo">
-    <img class="logo" src="{{asset('images/logoPrototype.png')}}"alt="Logo" style="width: 100px; margin-right: 10px;" />
-      
+
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="{{asset('images/mainlogo.png')}}" >
+                    <h2><span class="danger">Landlord</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar" style="width: 200px;">
+                <a href="{{url('/')}}/landlord/dashboard">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3  >Dashboard</h3>
+                </a>
+                <a href="{{url('/')}}/properties">
+                    <span class="material-icons-sharp">
+                        home
+                    </span>
+                    
+                    <h3>Properties</h3>
+                </a>
+                
+                <a href="{{url('/')}}/landlord/addproperty" >
+                    <span class="material-icons-sharp">
+                        add_circle
+                    </span>
+                    
+                    <h3>Add properties</h3>
+                </a>
+                <a href="{{url('/')}}/landlord/showtenants">
+                <span class='material-icons-sharp'>groups</span>
+                
+                    <h3>Tenants</h3>
+                </a>
+                @if($rentstatus->isEmpty())
+                <a href="{{ url('/') }}/landlord/notifications">
+                    <span class="material-icons-sharp">
+                        notifications
+                    </span>
+                    <h3>Notificatios</h3>
+                    
+                </a>
+                @else
+                <a href="{{ url('/') }}/landlord/notifications">
+                    <span class="material-icons-sharp">
+                        notifications
+                    </span>
+                    <h3>Notificatios</h3>
+                    <span class="message-count">{{$rentstatus->count()}}</span>
+                </a>
+               @endif
+
+                <a href="{{url('/')}}/logout">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- End of Sidebar Section -->
+
+        <!-- Main Content -->
+        <main>
+             
+            <!-- End of Analyses -->
+
+            <!-- New Users Section -->
+            
+            <!-- End of New Users Section -->
+
+            <!-- Recent Orders Table -->
+            <div class="recent-orders">
+                 @yield('main-section')
+            </div>
+            <!-- End of Recent Orders -->
+
+        </main>
+        <!-- End of Main Content -->
+             
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                         <b>{{$username}}</b>
+                        
+                    </div>
+                    <div class="profile-photo">
+                        <img src="{{asset('images/mainlogo.png')}}">
+                    </div>
+                </div>
+
+            </div>
+            <!-- End of Nav -->
+             
+
+            </div>
+
+        </div>
+
+
     </div>
 
-    <div class="header-icons">
-    @if($rentstatus->count() > 0)
-      <i class="fas fa-bell"style="color: #ff6000;"></i>
-      @else
-      <i class="fas fa-bell"></i>
-      @endif
+    <script>
+        const sideMenu = document.querySelector('aside');
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
 
-      
-      <i class="fas fa-user"></i>
-      <h4>{{$username}}</h4>
-      
-    </div>
-  </header>
-  
-  <div class="container">
-    <nav >
-      <ul>
-        
-          
-          <span class="nav-item"></span>
-        </a></li>
+const darkMode = document.querySelector('.dark-mode');
 
-        <li><a href="{{url('/')}}/landlord/dashboard">
-          <i class="fas fa-user"></i>
-          <span class="nav-item">DashBoard</span>
-        </a></li>
+menuBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'block';
+});
 
-        <li><a href="{{url('/')}}/properties">
-          <i class="fas fa-home"></i>
-          <span class="nav-item">Properties</span>
-        </a></li>
+closeBtn.addEventListener('click', () => {
+    sideMenu.style.display = 'none';
+});
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode-variables');
+    darkMode.querySelector('span:nth-child(1)').classList.toggle('active');
+    darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
+})
+
+
+
+
+    </script>
     
-        <li><a href="{{url('/')}}/landlord/addproperty">
-          <i class="fas fa-plus"></i>
-          <span class="nav-item">Add Property</span>
-        </a></li>
-
-        <li><a href="{{url('/')}}/landlord/showtenants">
-          <i class="fas fa-users"></i>
-          <span class="nav-item">Tenants</span>
-        </a></li>
-
-       
-        
-        <!-- @if($rentstatus->count() > 0)
-    <li>
-        <a href="{{ url('/') }}/landlord/notifications">
-            <i class="fas fa-bell" style="color: red;"></i>
-            <span class="nav-item">Notifications</span>
-        </a>
-    </li>
-@else
-    <li>
-        <a href="{{ url('/') }}/landlord/notifications">
-            <i class="fas fa-bell"></i>
-            <span class="nav-item">Notifications</span>
-        </a>
-    </li>
-@endif -->
-@if($rentstatus->isEmpty())
-    <li>
-        <a href="{{ url('/') }}/landlord/notifications">
-            <i class="fas fa-bell"></i>
-            <span class="nav-item">Notifications</span>
-        </a>
-    </li>
-@else
-    <li>
-        <a href="{{ url('/') }}/landlord/notifications">
-        <i class="fas fa-bell" style="color:#ff6000;"></i>
-            <span class="nav-item">Notifications</span>
-            <span class="notification-count">{{$rentstatus->count()}} </span>
-        </a>
-    </li>
-@endif
-
-        
-
-        <li><a href="{{url('/')}}/logout" class="logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="nav-item">Log out</span>
-        </a></li>
-        
-      </ul>
-    </nav>
-   @yield('main-section')
-    
- 
-
-    </div>
-  </div>
-  </div>
 </body>
+
 </html>
-
-
